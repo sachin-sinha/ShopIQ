@@ -1,0 +1,532 @@
+{
+  "schema": "ClickStream",
+  "streams": [
+    {
+      "name": "Data",
+      "inpt": [],
+      "swsz": 7862400,
+      "type": 1,
+      "attr": [
+        {"name": "action_name","type": "STRING","kysz": 40},
+        {"name": "idsite","type": "STRING","kysz": 120},
+        {"name": "rec","type": "LONG"},
+        {"name": "r","type": "LONG"},
+        {"name": "h","type": "LONG"},
+        {"name": "m","type": "LONG"},
+        {"name": "s","type": "LONG"},
+        {"name": "_id","type": "STRING","kysz": 40},
+        {"name": "_idn","type": "LONG"},
+        {"name": "_refts","type": "LONG"},
+        {"name": "send_image","type": "LONG"},
+        {"name": "pdf","type": "LONG"},
+        {"name": "qt","type": "LONG"},
+        {"name": "realp","type": "LONG"},
+        {"name": "wma","type": "LONG"},
+        {"name": "fla","type": "LONG"},
+        {"name": "java","type": "LONG"},
+        {"name": "ag","type": "LONG"},
+        {"name": "cookie","type": "LONG"},
+        {"name": "res","type": "STRING","kysz": 32},
+        {"name": "pv_id","type": "STRING","kysz": 12},
+        {"name": "pf_net","type": "LONG"},
+        {"name": "pf_srv","type": "LONG"},
+        {"name": "pf_tfr","type": "LONG"},
+        {"name": "pf_dm1","type": "LONG"},
+        {"name": "pf_dm2","type": "LONG"},
+        {"name": "pf_onl","type": "LONG"},
+        {"name": "ping","type": "LONG"},
+        {"name": "uid","type": "STRING","kysz": 120},
+        {"name": "url","type": "STRING","kysz": 280},
+        {"name": "_ref","type": "STRING","kysz": 280},
+        {"name": "e_c","type": "STRING","kysz": 32},
+        {"name": "e_a","type": "STRING","kysz": 32},
+        {"name": "e_n","type": "STRING","kysz": 32},
+        {"name": "ca","type": "LONG"},
+        {"name": "urlref","type": "STRING","kysz": 250},
+        {"name": "link", "type": "STRING","kysz": 250},
+        {"name": "download","type": "STRING","kysz": 250},
+        {"name": "user_agent","type": "STRING","kysz": 250},
+        {"name": "System","type":"OBJECT",
+          "fields":[
+            {"name": "System.platform","type": "STRING","kysz": 32},
+            {"name": "System.type","type": "STRING","kysz": 32},
+            {"name": "System.browser","type": "STRING","kysz": 32}
+          ],
+          "key_sep": "."
+        },
+        {"name": "e_v","type": "OBJECT",
+          "fields":[
+            {"name": "e_v.as","type":"STRING","kysz":128},
+            {"name": "e_v.asname","type":"STRING","kysz":128},
+            {"name": "e_v.city","type":"STRING","kysz":128},
+            {"name": "e_v.continent","type":"STRING","kysz":32},
+            {"name": "e_v.continentCode","type":"STRING","kysz":8},
+            {"name": "e_v.country","type":"STRING","kysz":82},
+            {"name": "e_v.countryCode","type":"STRING","kysz":8},
+            {"name": "e_v.currency","type":"STRING","kysz":8},
+            {"name": "e_v.district","type":"STRING","kysz":128},
+            {"name": "e_v.hosting","type":"STRING","kysz":128},
+            {"name": "e_v.isp","type":"STRING","kysz":128},
+            {"name": "e_v.lat","type":11},
+            {"name": "e_v.lon","type":11},
+            {"name": "e_v.mobile","type":"STRING","kysz": 32},
+            {"name": "e_v.offset","type":11},
+            {"name": "e_v.org","type":"STRING","kysz": 128},
+            {"name": "e_v.proxy","type":"STRING","kysz": 32},
+            {"name": "e_v.query","type":"STRING","kysz": 24},
+            {"name": "e_v.region","type":"STRING","kysz": 32},
+            {"name": "e_v.regionName","type":"STRING","kysz": 128},
+            {"name": "e_v.reverse","type":"STRING","kysz": 32},
+            {"name": "e_v.status","type":"STRING","kysz": 24},
+            {"name": "e_v.timezone","type":"STRING","kysz": 24},
+            {"name": "e_v.zip","type":"STRING","kysz": 24},
+            {"name": "e_v.product_id","type":"STRING","kysz": 64},
+            {"name": "e_v.seller_id","type":"STRING","kysz": 64},
+            {"name": "e_v.stock","type":"STRING","kysz": 32},
+            {"name": "e_v.price_per_unit","type":"DOUBLE"},
+            {"name": "e_v.user_id","type":"STRING","kysz": 64},
+            {"name": "e_v.order_id","type":"STRING","kysz": 64},
+            {"name": "e_v.order_type","type":"STRING","kysz": 32},
+            {"name": "e_v.payment_method","type":"STRING","kysz": 32},
+            {"name": "e_v.quantity","type":"LONG"},
+            {"name": "e_v.total_price","type":"DOUBLE"},
+            {"name": "e_v.coupon_code","type":"STRING","kysz": 32},
+            {"name": "e_v.coupon_type","type":"STRING","kysz": 32},
+            {"name": "e_v.coupon_used","type":"STRING","kysz": 32},
+            {"name": "e_v.discount","type":"DOUBLE"},
+            {"name": "e_v.revenue","type":"DOUBLE"},
+            {"name": "e_v.shipping_charges","type":"DOUBLE"},
+            {"name": "e_v.tax","type":"DOUBLE"},
+            {"name": "e_v.first_name","type":"STRING","kysz": 24},
+            {"name": "e_v.last_name","type":"STRING","kysz": 32},
+            {"name": "e_v.email","type":"STRING","kysz": 128}
+          ]
+        },
+        {"name": "URL","type": "OBJECT",
+          "fields": [
+            {"name": "URL.base_u","type": "STRING","kysz": 160},
+            {"name": "URL.gclid","type": "STRING","kysz": 128},
+            {"name": "URL.msclkid","type":"STRING","kysz": 128},
+            {"name": "URL.MSCLKID","type":"STRING","kysz": 128},
+            {"name": "URL.utm_source","type": "STRING","kysz": 64},
+            {"name": "URL.utm_medium","type": "STRING","kysz": 64},
+            {"name": "URL.utm_content","type": "STRING","kysz": 64},
+            {"name": "URL.utm_campaign","type": "STRING","kysz": 24},
+            {"name": "URL.affiliateid","type": "STRING","kysz": 32},
+            {"name": "URL.utm_agid","type": "STRING","kysz": 24},
+            {"name": "URL.campaignid","type": "STRING","kysz": 24},
+            {"name": "URL.adgroupid","type": "STRING","kysz": 24},
+            {"name": "URL.extensionid","type": "STRING","kysz": 64},
+            {"name": "URL.targetid","type": "STRING","kysz": 32},
+            {"name": "URL.utm_term","type": "STRING","kysz": 124},
+            {"name": "URL.devicemodel","type": "STRING","kysz": 12},
+            {"name": "URL.placement","type": "STRING","kysz": 12},
+            {"name": "URL.device","type": "STRING","kysz": 12},
+            {"name": "URL.network","type": "STRING","kysz": 32},
+            {"name": "URL.matchtype","type": "STRING","kysz": 12},
+            {"name": "URL.loc_interest_ms","type": "STRING","kysz": 32},
+            {"name": "URL.loc_physical_ms","type": "STRING","kysz": 32},
+            {"name": "URL.adposition","type": "STRING","kysz": 64},
+            {"name": "URL.gad","type": "STRING","kysz": 12},
+            {"name": "URL.wbraid","type": "STRING","kysz": 128},
+            {"name": "URL.gbraid","type": "STRING","kysz": 128},
+            {"name": "URL.lang","type": "STRING","kysz": 24},
+            {"name": "URL.language","type": "STRING","kysz": 24},
+            {"name": "URL.search","type": "STRING","kysz": 128},
+            {"name": "URL.q","type": "STRING","kysz": 128},
+            {"name": "URL.query","type": "STRING","kysz": 128},
+            {"name": "URL.client","type": "STRING","kysz": 32}
+          ],
+          "key_sep": "."
+        },
+        {"name": "_pk","type":"LONG"}
+      ],
+      "catr": [
+        {"name": "SessionID","iatr": ["_id","_idn"],"fnr": 1,"seq": 1,"type": "STRING","opnm": "ADD","kysz": 45},
+        {"name": "System","iatr": ["user_agent"],"fnr": 1,"seq": 0,"type": "OBJECT","opnm": "UA_PARSE"},
+        {"name": "System_platform", "iatr": ["System.platform"],"fnr": 1,"seq": 0,"type": "STRING", "opnm": "COPY", "kysz": 32,"key_sep":"."},
+        {"name": "System_type", "iatr": ["System.type"],"fnr": 1,"seq": 0,"type": "STRING", "opnm": "COPY", "kysz": 32,"key_sep":"."},
+        {"name": "System_browser", "iatr": ["System.browser"],"fnr": 1,"seq": 0,"type": "STRING", "opnm": "COPY", "kysz": 32,"key_sep":"."},
+        {"name": "BrowserLanguage","iatr": ["e_v"],"fqry" : {"name" : "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"BrowserLanguage\"}],\"qtype\":1}", "type" : 1},"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 16},
+        {"name": "Timestamp","iatr": ["_pk"],"fnr": 1,"seq": 0,"type": "LONG","opnm": "COPY"},
+        {"name": "URL","iatr": ["url"],"fnr": 1,"seq": 0,"type": "OBJECT","opnm": "URL_PARSE"},
+        {"name": "Base_u","iatr": ["URL.base_u"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz":250,"key_sep":"."},
+        {"name": "Base_u","alias":"a1","iatr": ["url"],"fnr": 3,"seq": 0,"type": "STRING","opnm": "COPY","kysz":250,"key_sep":"."},
+        {"name": "Clickidentifier","iatr": ["URL.gclid"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":128,"sidx": 1},
+        {"name": "Clickidentifier","alias":"a2","iatr": ["URL.msclkid"],"fnr": 2,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":128,"sidx": 1},
+        {"name": "Clickidentifier","alias":"a3","iatr": ["URL.wbraid"],"fnr": 2,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":128,"sidx": 1},
+        {"name": "Clickidentifier","alias":"a4","iatr": ["URL.gbraid"],"fnr": 2,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":128,"sidx": 1},
+        {"name": "Clickidentifier","alias":"a200","iatr": ["URL.MSCLKID"],"fnr": 2,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":128,"sidx": 1},
+        {"name": "UTM_Source","iatr": ["URL.utm_source"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":64},
+        {"name": "UTM_Medium","iatr": ["URL.utm_medium"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":64},
+        {"name": "UTM_Content","iatr": ["URL.utm_content"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":64},
+        {"name": "CampaignId","iatr": ["URL.utm_campaign"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":32},
+        {"name": "AdgroupId","iatr": ["URL.utm_agid"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":32},
+        {"name": "CampaignId","alias":"a5","iatr": ["URL.campaignid"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":32},
+        {"name": "AdgroupId","alias":"a6","iatr": ["URL.adgroupid"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":32},
+        {"name": "AffiliateId","iatr": ["URL.affiliateid"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":32},
+        {"name": "ExtensionId","iatr": ["URL.extensionid"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":64},
+        {"name": "KeywordId","iatr": ["URL.targetid"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":32},
+        {"name": "Search_term","iatr": ["URL.utm_term"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":120},
+        {"name": "Search_term","alias":"a18","iatr": ["URL.q"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":120},
+        {"name": "Search_term","alias":"a19","iatr": ["URL.search"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":120},
+        {"name": "Search_term","alias":"a20","iatr": ["URL.query"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":120},
+        {"name": "Client","iatr": ["URL.client"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":32},
+        {"name": "Devicemodel","iatr": ["URL.devicemodel"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":12},
+        {"name": "Placement","iatr": ["URL.placement"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":120},
+        {"name": "Network","iatr": ["URL.network"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":32},
+        {"name": "Matchtype","iatr": ["URL.matchtype"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":12},
+        {"name": "Location_interest","iatr": ["URL.loc_interest_ms"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":32},
+        {"name": "LocationId","iatr": ["URL.loc_physical_ms"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":32},
+        {"name": "Adposition","iatr": ["URL.adposition"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":64},
+        {"name": "Gad","iatr": ["URL.gad"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":12},
+        {"name": "ChannelType","iatr": ["Campaign"],"fqry" : {"name": "{\"query\":[{\"key\":\"CampaignId\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"Clickidentifier\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":100,\"key_sep\":\".\"}", "type" : 1},"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz":32},
+        {"name": "ChannelType","alias":"a7","iatr": ["Organic search"],"fqry" : {"name": "{\"query\":[{\"key\":\"_ref\",\"cmp_op\":\"EQ\",\"val\":\"$urlref\"}],\"qtype\":2}", "type" : 1},"fnr": 3,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz":32},
+        {"name": "Device","iatr": ["Mobile"],"fqry" : {"name" : "{\"query\":[{\"key\":\"URL.device\",\"cmp_op\":\"EQ\",\"val\":\"m\"}],\"qtype\":1,\"key_sep\":\".\"}", "type" : 1},"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz": 16},
+        {"name": "Device","alias":"a8","iatr": ["Tablet"],"fqry" : {"name" : "{\"query\":[{\"key\":\"URL.device\",\"cmp_op\":\"EQ\",\"val\":\"t\"}],\"qtype\":1,\"key_sep\":\".\"}", "type" : 1},"fnr": 3,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz": 16},
+        {"name": "Device","alias":"a9","iatr": ["Desktop"],"fqry" : {"name" : "{\"query\":[{\"key\":\"URL.device\",\"cmp_op\":\"EQ\",\"val\":\"d\"}],\"qtype\":1,\"key_sep\":\".\"}", "type" : 1},"fnr": 3,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz": 16},
+        {"name": "Device","alias":"a10","iatr": ["Connected_TV"],"fqry" : {"name" : "{\"query\":[{\"key\":\"URL.device\",\"cmp_op\":\"EQ\",\"val\":\"c\"}],\"qtype\":1,\"key_sep\":\".\"}", "type" : 1},"fnr": 3,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz": 16},
+        {"name": "Device","alias":"a11","iatr": ["Other"],"fqry" : {"name" : "{\"query\":[{\"key\":\"URL.device\",\"cmp_op\":\"EQ\",\"val\":\"o\"}],\"qtype\":1,\"key_sep\":\".\"}", "type" : 1},"fnr": 3,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz": 16},
+        {"name": "Device","alias":"a12","iatr": ["Mobile"],"fqry" : {"name" : "{\"query\":[{\"key\":\"System.platform\",\"cmp_op\":\"EQ\",\"val\":\"iPhone\"},{\"joinop\":0},{\"key\":\"System.platform\",\"cmp_op\":\"EQ\",\"val\":\"Android\"}],\"qtype\":100,\"key_sep\":\".\"}", "type" : 1},"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz": 16},
+        {"name": "Device","alias":"a13","iatr": ["Tablet"],"fqry" : {"name" : "{\"query\":[{\"key\":\"System.platform\",\"cmp_op\":\"EQ\",\"val\":\"iPad\"}],\"qtype\":1,\"key_sep\":\".\"}", "type" : 1},"fnr": 3,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz": 16},
+        {"name": "Device","alias":"a14","iatr": ["Desktop"],"fqry" : {"name" : "{\"query\":[{\"key\":\"System.platform\",\"cmp_op\":\"EQ\",\"val\":\"Linux\"},{\"joinop\":0},{\"key\":\"System.platform\",\"cmp_op\":\"EQ\",\"val\":\"Windows\"},{\"joinop\":0},{\"key\":\"System.platform\",\"cmp_op\":\"EQ\",\"val\":\"Mac\"}],\"qtype\":100,\"key_sep\":\".\"}", "type" : 1},"fnr": 3,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz": 16},
+        {"name": "ChannelType","alias":"a15","iatr": ["Direct"],"fqry" : {"name": "{\"query\":[{\"key\":\"urlref\",\"cmp_op\":\"NA\",\"val\":\"NA\"},{\"joinop\":0},{\"key\":\"_ref\",\"cmp_op\":\"NA\",\"val\":\"NA\"}],\"qtype\":1}", "type" : 1},"fnr": 3,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz":32},
+        {"name": "Campaign_Visitor","iatr":["Yes"],"fqry" : {"name": "{\"query\":[{\"key\":\"Clickidentifier\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":1}", "type" : 1},"fnr": 1,"seq": 0,"type":"STRING","kysz":4,"opnm":"COPY_VAL"},
+        {"name": "first_name","iatr": ["e_v.first_name"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":38},
+        {"name": "last_name","iatr": ["e_v.last_name"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":38},
+        {"name": "email","iatr": ["e_v.email"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":38}
+      ],
+      "fltr": [
+        {
+          "name": "Default_tracking_Data",
+          "fqry": {"type": 1,"name": "{\"query\":[{\"key\":\"action_name\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"ChannelType\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":\"1\"}"},
+          "fatr": ["_id","_idn","SessionID","res","System_platform","System_type","System_browser","Timestamp","Device","Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","AdgroupId","ExtensionId","KeywordId","Search_term","Devicemodel","Placement","Network","Matchtype","Location_interest","LocationId","Adposition","Gad","ChannelType","Campaign_Visitor","UTM_Medium","UTM_Content","AffiliateId","Client"],
+          "ostm": "LandingPage_Data"
+        },
+        {
+          "name": "Data_BrowserLanguage",
+          "fqry": {"type": 1,"name": "{\"query\":[{\"key\":\"action_name\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"ChannelType\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":\"1\"}"},
+          "fatr": ["_id","BrowserLanguage","Device"],
+          "ostm": "Data_BrowserLanguage"
+        },
+        {
+          "name": "Error_Data","fqry": {"type": 1,"name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"JavaScript Errors\"}],\"qtype\":1}"},
+          "fatr": ["_id","SessionID","e_a","e_n","System_platform","System_type","System_browser","Base_u","Device","Timestamp","Client"],
+          "ostm": "Error_Data"
+        },
+        {
+          "name": "User_GeoAnalysis","fqry": {"type": 1,"name": "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"Location\"}],\"qtype\":1}"},
+          "fatr": ["_id","_idn","SessionID","Device","e_v.as","e_v.asname","e_v.city","e_v.continent","e_v.continentCode","e_v.country","e_v.countryCode","e_v.currency","e_v.district","e_v.hosting","e_v.isp","e_v.lat","e_v.lon","e_v.mobile","e_v.offset","e_v.org","e_v.proxy","e_v.query","e_v.region","e_v.regionName","e_v.reverse","e_v.status","e_v.timezone","e_v.zip","System_platform","System_type","System_browser","Timestamp","Clickidentifier","ChannelType","UTM_Source","UTM_Medium","UTM_Content","CampaignId","Campaign_Visitor","Client","AffiliateId"],"key_sep":".",
+          "ostm": "Location_Data"
+        },
+        {
+          "name": "WebsiteAnalysis","fqry": {"type": 1,"name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageViewURL\"},{\"joinop\":0},{\"key\":\"link\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"WindowUnload\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageClick\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"download\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"historyChange\"}],\"qtype\":100}"},
+          "fatr": ["_id","e_c","e_v","pf_dm1","SessionID","System_platform","System_type","System_browser","Timestamp","link","download","Base_u","url","urlref"],
+          "ostm": "WebsiteAnalysis_Data"
+        },
+        
+      ],
+      "node": [
+        {
+          "sub": "_id","label": "Visitor",
+          "props": ["_id","_idn",{"name":"SessionID","label":"Latest_Session"},"System_platform","System_type","System_browser","Timestamp","res","_ref","urlref","Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","AdgroupId","ExtensionId","KeywordId","Search_term","Device","Devicemodel","Placement","Network","Matchtype","Location_interest","LocationId","Adposition","Gad","Campaign_Visitor","UTM_Medium","UTM_Content","AffiliateId","Client"],
+          "updt": 1
+        }
+      ]
+    },
+    {
+      "name": "LandingPage_Data","inpt": ["Date"],"swsz": 7862400,"type": 2,
+      "attr":[
+        {"name": "_id","type": "STRING","kysz": 40,"stat": "UCOUNT","gran_type": "MIN", "gran": 1,"sidx": 1},
+        {"name": "_idn","type": "LONG"},
+        {"name": "SessionID","type": "STRING","kysz": 45,"stat": "COUNT","gran_type": "MIN", "gran": 1,"sidx": 1},
+        {"name": "System_platform","type": "STRING","kysz":32},
+        {"name": "System_type","type": "STRING","kysz":32},
+        {"name": "System_browser","type": "STRING","kysz":32},
+        {"name": "url","type": "STRING","kysz": 250},
+        {"name": "pf_dm1","type": "LONG","stat": "RSTAT","gran_type": "MIN", "gran": 15},
+        {"name": "Timestamp","type": "LONG"},
+        {"name": "res","type": "STRING","kysz": 32},
+        {"name": "_ref","type": "STRING","kysz": 280},
+        {"name": "urlref","type": "STRING","kysz": 250},
+        {"name": "Base_u","type": "STRING","kysz": 250},
+        {"name": "Clickidentifier","type":"STRING","kysz": 128},
+        {"name": "UTM_Source","type": "STRING","kysz":64},
+        {"name": "UTM_Medium","type": "STRING","kysz":64},
+        {"name": "UTM_Content","type": "STRING","kysz":64},
+        {"name": "CampaignId","type": "STRING","kysz":32,"stat": "UCOUNT"},
+        {"name": "AdgroupId","type": "STRING","kysz":32},
+        {"name": "ExtensionId","type": "STRING","kysz":64},
+        {"name": "KeywordId","type": "STRING","kysz":32},
+        {"name": "Search_term","type": "STRING","kysz":120},
+        {"name": "Device","type":"STRING","kysz": 16},
+        {"name": "Devicemodel","type": "STRING","kysz":12},
+        {"name": "Placement","type": "STRING","kysz":120},
+        {"name": "Network","type": "STRING","kysz":32},
+        {"name": "Matchtype","type": "STRING","kysz":12},
+        {"name": "Location_interest","type": "STRING","kysz":32},
+        {"name": "LocationId","type": "STRING","kysz":32},
+        {"name": "Adposition","type": "STRING","kysz":64},
+        {"name": "Gad","type": "STRING","kysz":12},
+        {"name": "ChannelType","type":"STRING","kysz": 32},
+        {"name": "Campaign_Visitor","type":"STRING","kysz":4},
+        {"name": "UTM_Medium","type": "STRING","kysz": 64},
+        {"name": "UTM_Content","type": "STRING","kysz": 64},
+        {"name": "Client","type":"STRING","kysz": 32},
+        {"name": "AffiliateId","type":"STRING","kysz": 32}
+      ],
+      "catr": [
+        {"name": "action","iatr": ["default_data"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz":12},
+        {"name": "Session","iatr": ["($_idn+1)"],"fnr": 1,"seq": 0,"type": "LONG","opnm": "MATH_EXP","stat":"RSTAT"},
+        {"name": "referred_From","iatr":["_ref"],"fnr": 1,"seq": 0,"type":"STRING","kysz":250,"opnm":"COPY"}
+      ],
+      "gpby": [
+        {"gpat": ["Device"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["System_platform"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "pf_dm1","stat": "RSTAT"},
+        {"gpat": ["System_type"],"gran": 900,"kysz": 250,"swsz": 94608000,"iatr": "pf_dm1","stat": "RSTAT"},
+        {"gpat": ["System_browser"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "pf_dm1","stat": "RSTAT"},
+        {"gpat": ["res"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["referred_From"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["CampaignId"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["KeywordId"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Base_u"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "pf_dm1","stat": "RSTAT"},
+        {"gpat": ["CampaignId","AdgroupId"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["UTM_Source"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["UTM_Medium"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["UTM_Content"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Search_term"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["ChannelType"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["UTM_Source","CampaignId"],"gran": 900,"kysz": 250,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Device","System_platform","System_browser"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Campaign_Visitor"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"}
+      ],
+      "rels": [
+        {
+          "sub": "_id","sub_label": "Visitor","obj": "Base_u","obj_label": "Base_u","rel": "HAS_VIEWED_PAGES",
+          "sub_props": ["ChannelType","Campaign_Visitor"],
+          "rel_props": ["Timestamp","action","SessionID"],
+          "sub_updt": 1
+        }
+      ]
+    },
+    {
+      "name": "Data_BrowserLanguage","inpt": ["Data"],"swsz": 7862400,"type": 2,
+      "attr": [
+        {"name": "_id","type": "STRING","kysz": 40},
+        {"name": "BrowserLanguage","type": "STRING","kysz": 32},
+        {"name": "Device","type":"STRING","kysz": 16}
+      ],
+      "gpby": [
+        {"gpat": ["BrowserLanguage"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "UCOUNT"},
+        {"gpat": ["BrowserLanguage","Device"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "UCOUNT"}
+      ],
+      "node": [
+        {
+          "sub": "_id", "label": "Visitors", 
+          "props": ["BrowserLanguage"], "updt": 1
+        }
+      ]
+    },
+    {
+      "name": "Error_Data","inpt": ["Data"],"swsz": 7862400,"type": 2,
+      "attr": [
+        {"name": "_id","type": "STRING","kysz": 40,"stat": "COUNT"},
+        {"name": "e_a","type": "STRING","kysz": 32},
+        {"name": "e_n","type": "STRING","kysz": 32},
+        {"name": "SessionID","type": "STRING","kysz": 45,"sidx": 1},
+        {"name": "System_platform","type": "STRING","kysz":32},
+        {"name": "System_type","type": "STRING","kysz":32},
+        {"name": "System_browser","type": "STRING","kysz":32},
+        {"name": "Device","type":"STRING","kysz": 16},
+        {"name": "Base_u","type":"STRING","kysz": 250},
+        {"name": "Timestamp","type": "LONG"},
+        {"name": "Client","type":"STRING","kysz": 32}
+      ],
+      "catr":[
+        {"name": "action","iatr": ["error"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz":12}
+      ],
+      "gpby": [
+        {"gpat": ["System_browser"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Device"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["e_n"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Base_u"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["e_n","Base_u"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["System_platform"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Client"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"}
+      ],
+      "rels": [
+        {
+          "sub": "_id","sub_label": "Visitor","obj": "Base_u","obj_label": "Base_u","rel": "HAS_VIEWED_PAGES",
+          "rel_props": ["Timestamp",{"name":"e_a","label":"error_type"},{"name":"e_n","label":"error"},"action","SessionID"]
+        }
+      ]
+    },
+    {
+      "name": "Location_Data","inpt": ["Date"],"swsz": 7862400,"type": 2,
+      "attr": [
+        {"name": "_id","type": "STRING","kysz": 40,"sidx": 1},
+        {"name": "_idn","type": "LONG"},
+        {"name": "SessionID","type": "STRING","kysz": 45},
+        {"name": "Device","type":"STRING","kysz": 16},
+        {"name": "System_platform","type": "STRING","kysz":32},
+        {"name": "System_type","type": "STRING","kysz":32},
+        {"name": "System_browser","type": "STRING","kysz":32},
+        {"name": "Timestamp","type": "LONG"},
+        {"name": "Clickidentifier","type": "STRING","kysz": 128},
+        {"name": "ChannelType","type":"STRING","kysz": 32},
+        {"name": "UTM_Source","type": "STRING","kysz":64},
+        {"name": "CampaignId","type": "STRING","kysz":32},
+        {"name": "e_v","type": "OBJECT",
+          "fields":[
+            {"name": "e_v.as","type":"STRING","kysz":128},
+            {"name": "e_v.asname","type":"STRING","kysz":128},
+            {"name": "e_v.city","type":"STRING","kysz":128},
+            {"name": "e_v.continent","type":"STRING","kysz":32},
+            {"name": "e_v.continentCode","type":"STRING","kysz":8},
+            {"name": "e_v.country","type":"STRING","kysz":82},
+            {"name": "e_v.countryCode","type":"STRING","kysz":8},
+            {"name": "e_v.currency","type":"STRING","kysz":8},
+            {"name": "e_v.district","type":"STRING","kysz":128},
+            {"name": "e_v.hosting","type":"STRING","kysz":128},
+            {"name": "e_v.isp","type":"STRING","kysz":128},
+            {"name": "e_v.lat","type":11},
+            {"name": "e_v.lon","type":11},
+            {"name": "e_v.mobile","type":"STRING","kysz": 32},
+            {"name": "e_v.offset","type":11},
+            {"name": "e_v.org","type":"STRING","kysz": 128},
+            {"name": "e_v.proxy","type":"STRING","kysz": 32},
+            {"name": "e_v.query","type":"STRING","kysz": 24},
+            {"name": "e_v.region","type":"STRING","kysz": 32},
+            {"name": "e_v.regionName","type":"STRING","kysz": 128},
+            {"name": "e_v.reverse","type":"STRING","kysz": 32},
+            {"name": "e_v.status","type":"STRING","kysz": 24},
+            {"name": "e_v.timezone","type":"STRING","kysz": 24},
+            {"name": "e_v.zip","type":"STRING","kysz": 24}
+          ],
+          "key_sep":"."
+        },
+        {"name": "Campaign_Visitor","type":"STRING","kysz":4},
+        {"name": "UTM_Medium","type": "STRING","kysz": 64},
+        {"name": "UTM_Content","type": "STRING","kysz": 64},
+        {"name": "Client","type":"STRING","kysz": 32},
+        {"name": "AffiliateId","type":"STRING","kysz": 32}
+      ],
+      "refr" : [
+        {"name": "Location_Data_Ref","rstm": "Location_Data","jqry": {"cond": ["IPAddress"],"cmp": ["EQ"],"opnm": "ATTR","args": ["IPAddress"]},"iatr": ["Revisit"],"ratr":[{"val":"TRUE"}],"fnr": 1}
+      ],
+      "catr": [
+        {"name": "IPAddress","iatr": ["e_v.query"],"fnr": 1,"seq": 1,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":32,"sidx":1},
+        {"name": "User_Status","iatr": ["Revisit"],"fqry" : {"name": "{\"query\":[{\"key\":\"_idn\",\"cmp_op\":\"NE\",\"val\":0},{\"joinop\":0},{\"key\":\"Revisit\",\"cmp_op\":\"EQ\",\"val\":\"TRUE\"}],\"qtype\":1,\"key_sep\":\".\"}", "type" : 1},"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz":12},
+        {"name": "User_Status","alias":"a16","iatr": ["First_Time"],"fnr": 3,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz":12},
+        {"name": "City","iatr": ["e_v.city"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":128},
+        {"name": "Continent","iatr": ["e_v.continent"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":32},
+        {"name": "Country","iatr": ["e_v.country"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":128},
+        {"name": "Service_Provider","iatr": ["e_v.isp"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":128},
+        {"name": "State","iatr": ["e_v.regionName"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":128},
+        {"name": "Zipcode","iatr": ["e_v.zip"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":24},
+        {"name": "District","iatr": ["e_v.district"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","key_sep": ".","kysz":24}
+      ],
+      "gpby": [
+        {"gpat": ["User_Status"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Country"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Country","Campaign_Visitor"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Country","User_Status"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Country","ChannelType"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Country","State","Device"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Country","State","System_platform"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Country","State"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Country","State","City"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Service_Provider"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Country","State","ChannelType"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Country","State","UTM_Source"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Country","State","CampaignId"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"}
+      ],
+      "node": [
+        {
+          "sub": "_id", "label": "Visitors", 
+          "props": ["IPAddress","User_Status","City","Continent","Country","Service_Provider","State","Zipcode","District"], "updt": 1
+        }
+      ]
+    },
+    {
+      "name": "WebsiteAnalysis_Data","inpt": ["Data"],"swsz": 94608000,"type": 2,
+      "attr": [
+        {"name": "_id","type": "STRING","kysz": 40,"sidx": 1},
+        {"name": "e_c","type": "STRING","kysz": 32},
+        {"name": "e_v","type": "OBJECT"},
+        {"name": "pf_dm1","type": "LONG"},
+        {"name": "SessionID","type": "STRING","kysz": 45},
+        {"name": "System_platform","type": "STRING","kysz":32},
+        {"name": "System_type","type": "STRING","kysz":32},
+        {"name": "System_browser","type": "STRING","kysz":32},
+        {"name": "Timestamp","type":"LONG"},
+        {"name": "link", "type": "STRING","kysz": 250,"stat":"COUNT","gran":15,"gran_type":"MIN"},
+        {"name": "download","type": "STRING","kysz": 250,"stat":"COUNT","gran":15,"gran_type":"MIN"},
+        {"name": "Base_u","type":"STRING","kysz":250},
+        {"name": "Campaign_Visitor","type":"STRING","kysz":4},
+        {"name": "url","type":"STRING","kysz":250},
+        {"name": "urlref","type": "STRING","kysz": 250},
+        {"name": "LastPageURL","type": "OBJECT",
+          "fields": [
+            {"name": "LastPageURL.base_u","type": "STRING","kysz": 160}
+          ],
+          "key_sep": "."
+        }
+      ],
+      "refr" : [
+        {"name": "CampaignDetails_Ref","rstm": "LandingPage_Data","jqry": {"cond": ["_id","Campaign_Visitor"],"cmp": ["EQ","EQ"],"opnm": "HYBRID","args": ["_id","Yes"]},"iatr": ["UTM_Source","CampaignId","KeywordId","ChannelType","Device","Campaign_Visitor","UTM_Medium","UTM_Content","AffiliateId"],"ratr": ["UTM_Source","CampaignId","KeywordId","ChannelType","Device","Campaign_Visitor","UTM_Medium","UTM_Content","AffiliateId"],"fnr": 1,"tloc": 86400},
+        {"name": "BangDBLocation_Ref","rstm": "Location_Data","jqry": {"cond": ["SessionID"],"cmp": ["EQ"],"opnm": "ATTR","args": ["SessionID"]},"iatr": ["Country","City","State"],"ratr": ["Country","City","State"],"fnr": 1,"tloc": 86400},
+        {"name": "Session_Time_Ref","rstm": "WebsiteAnalysis_Data",
+          "fqry" : {"name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageViewURL\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"WindowUnload\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"historyChange\"}],\"qtype\":100,\"key_sep\":\".\"}", "type" : 1},
+          "jqry": {"cond": ["SessionID"],"cmp": ["EQ"],"opnm": "ATTR","args": ["SessionID"]},"iatr": ["StartTime","PreviousPage"],"ratr": ["StartTime","Page"],"fnr": 1,"tloc": 3600
+        }
+      ],
+      "catr": [
+        {"name": "action","iatr": ["Pageview"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz":12},
+        {"name": "Page","iatr": ["Base_u"],"fnr": 1,"seq": 1,"type": "STRING","opnm": "COPY","kysz":250},
+        {"name": "Pageview","iatr": ["Page"],"fqry" : {"name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageViewURL\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"historyChange\"}],\"qtype\":100,\"key_sep\":\".\"}", "type" : 1},"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz":4,"stat":"COUNT","gran":15,"gran_type":"MIN"},
+        {"name": "StartTime","iatr":["Timestamp"],"fqry" : {"name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageViewURL\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"WindowUnload\"},,{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"historyChange\"}],\"qtype\":100,\"key_sep\":\".\"}", "type" : 1},"opnm":"COPY","fnr":3,"seq":0,"type":"LONG"},
+        {"name": "SessionTime","iatr": ["(($Timestamp-$StartTime)/86400)"],"fnr": 1,"seq": 0,"type": "LONG","opnm": "MATH_EXP","stat": "RSTAT","gran_type": "MIN", "gran": 1}
+      ],
+      "gpby": [
+        {"gpat": ["link"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["download"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Pageview"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "COUNT"},
+        {"gpat": ["Country"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "link","stat": "COUNT"},
+        {"gpat": ["Country"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "Pageview","stat": "COUNT"},
+        {"gpat": ["Country","State"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "link","stat": "COUNT"},
+        {"gpat": ["Country","State"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "Pageview","stat": "COUNT"},
+        {"gpat": ["Country","State"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "download","stat": "COUNT"},
+        {"gpat": ["System_browser"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "Pageview","stat": "COUNT"},
+        {"gpat": ["System_browser"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "link","stat": "COUNT"},
+        {"gpat": ["System_browser"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "download","stat": "COUNT"},
+        {"gpat": ["UTM_Source"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "Pageview","stat": "COUNT"},
+        {"gpat": ["UTM_Source"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "link","stat": "COUNT"},
+        {"gpat": ["UTM_Source"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "download","stat": "COUNT"},
+        {"gpat": ["UTM_Medium"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "Pageview","stat": "COUNT"},
+        {"gpat": ["UTM_Medium"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "link","stat": "COUNT"},
+        {"gpat": ["UTM_Medium"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "download","stat": "COUNT"},
+        {"gpat": ["ChannelType"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "Pageview","stat": "COUNT"},
+        {"gpat": ["ChannelType"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "link","stat": "COUNT"},
+        {"gpat": ["ChannelType"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "download","stat": "COUNT"},
+        {"gpat": ["CampaignId"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "Pageview","stat": "COUNT"},
+        {"gpat": ["CampaignId"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "link","stat": "COUNT"},
+        {"gpat": ["CampaignId"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "download","stat": "COUNT"},
+        {"gpat": ["Device"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "Pageview","stat": "COUNT"},
+        {"gpat": ["Device"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "link","stat": "COUNT"},
+        {"gpat": ["Device"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "download","stat": "COUNT"},
+        {"gpat": ["Campaign_Visitor"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "Pageview","stat": "COUNT"},
+        {"gpat": ["Campaign_Visitor"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "link","stat": "COUNT"},
+        {"gpat": ["Campaign_Visitor"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "download","stat": "COUNT"},
+        {"gpat": ["Country"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "SessionTime","stat": "RSTAT"},
+        {"gpat": ["PreviousPage"],"gran": 900,"kysz": 250,"swsz": 94608000,"iatr": "SessionTime","stat": "RSTAT"}
+      ],
+      "rels": [
+        {
+          "sub": "_id","sub_label": "Visitor","obj": "Pageview","obj_label": "Page","rel": "HAS_VIEWED_PAGES",
+          "rel_props": ["Timestamp","SessionID","action","SessionID"]
+        }
+      ]
+    }
+  ]
+}

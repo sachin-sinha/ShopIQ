@@ -1,0 +1,28 @@
+{
+    "work_name": "Leads_Management2",
+    "name": "Leads Management",
+    "apply_quota": 1,
+    "group_filter_policy": "ALL", 
+    "display_raw_json": 0,
+    "cross_user_view":1,
+    "localization":{
+        "pipe":"Company",
+        "work":"CRM",
+        "job":"Lead"
+    },
+    "form":[],
+    "status":["Unassign","Voice Mail","Quoted","Invalid","In Progress","Sale","Order Received","Yard Confirmed","Shipped Out","Shipped Successfully"],
+    "states":[
+        {"state":"Inbox","status":["Quoted","Unassign","Voice Mail","Invalid","In Progress","Sale"],"default_status":"Quoted"},
+        {"state":"In Progress","status":["Order Received","Yard Confirmed","Shipped Out"]},
+        {"state":"Sale Confirmed","status":["Shipped Successfully"]}
+    ],
+    "default_state":"Inbox",
+    "work_admin": [
+        {
+            "userid": "burhan",
+            "status": 1
+        }
+    ],
+    "groups":[]
+}
