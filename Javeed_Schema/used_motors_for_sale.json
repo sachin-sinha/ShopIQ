@@ -249,10 +249,15 @@
         {"name":"error","iatr":["e_n"],"fnr":1,"seq":0,"type":"STRING","opnm":"COPY","kysz":32,"fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"JavaScript Errors\"}],\"qtype\":1}"}},
         {"name":"Call_Page","iatr":["Base_url"],"fnr":1,"seq":0,"type":"STRING","opnm":"COPY","kysz":250,"fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"CallButton\"}],\"qtype\":1}"}},
         {"name":"StartTime","iatr":["Timestamp"],"opnm":"COPY","fnr":3,"seq":0,"type":"LONG"},
-        {"name":"SessionTime","iatr":["(($Timestamp-$StartTime)/60000000)"],"fnr":1,"seq":0,"type":"DOUBLE","opnm":"MATH_EXP","stat":"RSTAT","gran_type":"MIN","gran":1},
-        {"name":"Visitor_Duration","type":"DOUBLE","opnm":"COPY","iatr":["SessionTime"],"fnr":2,"seq":0},
-        {"name":"Visitor_Duration","alias":"a121","type":"DOUBLE","opnm":"COPY_VAL","iatr":["0"],"fnr":3,"seq":0},
-        {"name":"Campaign_Visitor","alias":"130","iatr":["No"],"fnr":3,"seq":0,"type":"STRING","kysz":4,"opnm":"COPY_VAL"}
+        {"name":"SessionTime","iatr":["(($Timestamp-$StartTime)/60000000)"],"fnr":1,"seq":0,"type":"DOUBLE","opnm":"MATH_EXP","gran_type":"MIN","gran":1},
+        {"name":"Visitor_Duration","type":"DOUBLE","opnm":"COPY_VAL","iatr":["0"],"fnr":2,"seq":0,"fqry":{"type":1,"name":"{\"query\":[{\"key\":\"SessionTime\",\"cmp_op\":\"GT\",\"val\":20}],\"qtype\":1}"}},
+        {"name":"StartTime","alias":"400","iatr":["Timestamp"],"opnm":"COPY","fnr":2,"seq":0,"type":"LONG","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"SessionTime\",\"cmp_op\":\"GT\",\"val\":20}],\"qtype\":1}"}},
+        {"name":"Visitor_Duration","alias":"a121","type":"DOUBLE","opnm":"COPY","iatr":["SessionTime"],"fnr":2,"seq":0},
+        {"name":"Visitor_Duration","alias":"a122","type":"DOUBLE","opnm":"COPY_VAL","iatr":["0"],"fnr":2,"seq":0,"fqry":{"type":1,"name":"{\"query\":[{\"key\":\"SessionTime\",\"cmp_op\":\"GT\",\"val\":20}],\"qtype\":1}"}},
+        {"name":"Visitor_Duration","alias":"a123","type":"DOUBLE","opnm":"COPY_VAL","iatr":["0"],"fnr":3,"seq":0},
+        {"name":"Campaign_Visitor","alias":"130","iatr":["No"],"fnr":3,"seq":0,"type":"STRING","kysz":4,"opnm":"COPY_VAL"},
+        {"name":"User_Status","type":"STRING","opnm":"COPY_VAL","iatr":["Revisit"],"fnr":1,"kysz": 12,"seq":0,"fqry":{"type":1,"name":"{\"query\":[{\"key\":\"SessionTime\",\"cmp_op\":\"GT\",\"val\":20}],\"qtype\":1}"}},
+        {"name":"Scrolled","iatr":["e_v"],"fqry":{"name":"{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"Scrolled\"}],\"qtype\":1}","type":1},"fnr":1,"seq":0,"type":"LONG","opnm":"COPY"}
       ],
       "refr":[
         {"name":"CampaignDetails_Ref","rstm":"Data","jqry":{"cond":["_id"],"cmp":["EQ"],"opnm":"ATTR","args":["_id"]},"iatr":["Campaign_Visitor"],"ratr":["Campaign_Visitor"],"fnr":1},
@@ -267,8 +272,10 @@
         {"name":"Error_Data","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"JavaScript Errors\"}],\"qtype\":1}"},"fatr":["Visitor_Duration","_id","SessionID","e_a","error","error_type","System_platform","System_type","System_browser","Base_url","Device","Timestamp","Client","Campaign_Visitor"],"ostm":"Error_Data"},
         {"name":"User_GeoAnalysis","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"IP\"}],\"qtype\":1}"},"fatr":["_id","_idn","SessionID","Device","IPAddress","BangDB_City","BangDB_Continent","BangDB_Country","BangDB_Service_Provider","KeywordId","Search_term","BangDB_State","BangDB_Zipcode","BangDB_District","System_platform","System_type","System_browser","Timestamp","Clickidentifier","ChannelType","UTM_Source","UTM_Medium","UTM_Content","CampaignId","Campaign_Visitor","Client","AffiliateId"],"key_sep":".","ostm":"Location_Data"},
         {"name":"WebsiteAnalysis","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageViewURL\"},{\"joinop\":0},{\"key\":\"link\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"WindowUnload\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageClick\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"download\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"historyChange\"}],\"qtype\":100}"},"fatr":["Visitor_Duration","_id","e_c","e_v","pf_dm1","SessionID","System_platform","System_type","System_browser","Timestamp","link","download","Base_url","url","urlref","Campaign_Visitor"],"ostm":"WebsiteAnalysis_Data"},
-        {"name":"Leads_Data","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"quoteForm\"}],\"qtype\":1}"},"fatr":["Visitor_Duration","_id","_idn","SessionID","System_platform","System_type","System_browser","Year","Make","Model","Size","Part","Name","Phone","Email","Timestamp","Campaign_Visitor"],"ostm":"MT_Leads_Data"},
-        {"name":"Pattern_1","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"quoteForm\"},{\"joinop\":0},{\"key\":\"Linked_event\",\"cmp_op\":\"EQ\",\"val\":\"Link_clicked\"},{\"joinop\":0},{\"key\":\"scroll_event\",\"cmp_op\":\"EQ\",\"val\":\"Srolled\"}],\"qtype\":1}"},"fatr":["Visitor_Duration","_id","_idn","SessionID","System_platform","System_type","System_browser","Year","Make","Model","Size","Part","Name","Phone","Email","Timestamp","Campaign_Visitor"],"ostm":"Scroll_Link_form"},          {"name":"CallsAnalysis","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"CallButton\"},{\"joinop\":0},{\"key\":\"e_v\",\"cmp_op\":\"NE\",\"val\":\"null\"},{\"joinop\":0},{\"key\":\"e_v\",\"cmp_op\":\"NE\",\"val\":\"\"}],\"qtype\":1}"},"fatr":["_id","_idn","SessionID","System_platform","System_type","System_browser","Timestamp","Call_Page"],"ostm":"CallsAnalysis"}
+        {"name":"Leads_form","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"quoteForm\"}],\"qtype\":1}"},"fatr":["Visitor_Duration","_id","_idn","SessionID","System_platform","System_type","System_browser","Year","Make","Model","Size","Part","Name","Phone","Email","Timestamp","Campaign_Visitor","idsite"],"ostm":"Leads_Data"},
+        {"name":"Pattern_1","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"quoteForm\"},{\"joinop\":0},{\"key\":\"Linked_event\",\"cmp_op\":\"EQ\",\"val\":\"Link_clicked\"},{\"joinop\":0},{\"key\":\"scroll_event\",\"cmp_op\":\"EQ\",\"val\":\"Srolled\"}],\"qtype\":1}"},"fatr":["Visitor_Duration","_id","_idn","SessionID","System_platform","System_type","System_browser","Year","Make","Model","Size","Part","Name","Phone","Email","Timestamp","Campaign_Visitor"],"ostm":"Scroll_Link_form"},          {"name":"CallsAnalysis","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"CallButton\"},{\"joinop\":0},{\"key\":\"e_v\",\"cmp_op\":\"NE\",\"val\":\"null\"},{\"joinop\":0},{\"key\":\"e_v\",\"cmp_op\":\"NE\",\"val\":\"\"}],\"qtype\":1}"},"fatr":["_id","_idn","SessionID","System_platform","System_type","System_browser","Timestamp","Call_Page"],"ostm":"CallsAnalysis"},
+        {"name":"Second_form","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"quoteForm2\"}],\"qtype\":1}"},"fatr":["Visitor_Duration","_id","_idn","SessionID","System_platform","System_type","System_browser","Year","Make","Model","Size","Part","Name","Phone","Email","Timestamp","Campaign_Visitor","idsite"],"ostm":"Leads_form2"},
+        {"name":"Data_Scrolled","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"Scrolled\"}],\"qtype\":\"1\"}"},"fatr":["Visitor_Duration","_id","Scrolled","Device"],"ostm":"Data_Scrolling"}
       ],
       "node":[
         {"sub":"_id","label":"Visitor","props":["_id","StartTime","Visitor_Duration",{"name":"SessionID","label":"Latest_Session"},"System_platform","System_type","System_browser","Timestamp","res","_ref","urlref","Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","AdgroupId","ExtensionId","KeywordId","Search_term","Device","Devicemodel","Placement","Network","Matchtype","Location_interest","LocationId","Adposition","Gad","Campaign_Visitor","UTM_Medium","UTM_Content","AffiliateId","Client",{"name":"Timestamp","label":"EndTime"}],"updt":1}
@@ -358,7 +365,7 @@
       ],
       "rels":[
         {
-          "sub":"_id","sub_label":"Visitor","obj":"Base_url","obj_label":"Base_url","rel":"HAS_VIEWED_PAGES",
+          "sub":"_id","sub_label":"Visitor","obj":"Base_url","obj_label":"Page","rel":"HAS_VIEWED_PAGES",
           "sub_props":["ChannelType","Campaign_Visitor","URL_City","URL_State","URL_Country","CampaignName","AdgroupName","Keyword"],
           "rel_props":["Timestamp","action","SessionID"],"sub_updt":1
         }
@@ -383,6 +390,20 @@
       ],
       "node":[
         {"sub":"_id","label":"Visitor","props":["BrowserLanguage"],"updt":1}
+      ]
+    },
+    {
+      "name":"Data_Scrolling",
+      "inpt":["Data"],"swsz":7862400,"type":2,
+      "attr":[
+        {"name":"_id","type":"STRING","kysz":40},
+        {"name":"Scrolled","type":"LONG"},
+        {"name":"Device","type":"STRING","kysz":16},
+        {"name":"Visitor_Duration","type":"DOUBLE"},
+        {"name":"Campaign_Visitor","type":"STRING","kysz":4}
+      ],
+      "tbls":[
+        {"name":"Visitors_details4","tblname":"used_motors_for_sale_Visit_Details","pk":"_id","primary":1}
       ]
     },
     {
@@ -421,7 +442,7 @@
       ],
       "rels":[
         {
-          "sub":"_id","sub_label":"Visitor","obj":"Base_url","obj_label":"Base_url","rel":"HAS_VIEWED_PAGES",
+          "sub":"_id","sub_label":"Visitor","obj":"Base_url","obj_label":"Page","rel":"HAS_VIEWED_PAGES",
           "rel_props":["Timestamp",{"name":"e_a","label":"error_type"},{"name":"e_n","label":"error"},"action","SessionID"]
         }
       ]
@@ -490,7 +511,7 @@
       ],
       "tbls":[
         {"name":"Visitors_details4","tblname":"used_motors_for_sale_Visit_Details","pk":"_id","primary":1},
-        {"name":"IP_table","tblname":"Visitors_IPAddress_table","pk":"IPAddress","primary":1,"iatr":["IPAddress","used_motors_for_sale","BangDB_Country","BangDB_City","BangDB_State","BangDB_Service_Provider"]}
+        {"name":"IP_table","tblname":"Visitors_IPAddress_table","pk":"IPAddress","primary":1}
       ],  
       "node":[
         {
@@ -587,8 +608,44 @@
       ]
     },
     {
-      "name":"MT_Leads_Data",
+      "name":"Leads_Data",
       "inpt":["Date"],"swsz":7862400,"type":2,
+      "attr":[
+        {"name":"_id","type":"STRING","kysz":40,"sidx":1},
+        {"name":"_idn","type":"LONG"},
+        {"name":"SessionID","type":"STRING","kysz":45,"sidx":1},
+        {"name":"System_platform","type":"STRING","kysz":32},
+        {"name":"System_type","type":"STRING","kysz":32},
+        {"name":"System_browser","type":"STRING","kysz":32},
+        {"name":"Timestamp","type":"LONG","sidx": 1},
+        {"name":"Year","type":"STRING","kysz":4},
+        {"name":"idsite","type":"STRING","kysz":120},
+        {"name":"Make","type":"STRING","kysz":64},
+        {"name":"Model","type":"STRING","kysz":120},
+        {"name":"Size","type":"STRING","kysz":32},
+        {"name":"Part","type":"STRING","kysz":120},
+        {"name":"Name","type":"STRING","kysz":128},
+        {"name":"Phone","type":"STRING","kysz":15},
+        {"name":"Email","type":"STRING","kysz":128},
+        {"name":"Visitor_Duration","type":"DOUBLE"},
+        {"name":"Campaign_Visitor","type":"STRING","kysz":4},
+        {"name":"_pk","type":"STRING","kysz":120}
+      ],
+      "catr":[
+        {"name":"Sp","type":"STRING","kysz":2,"opnm":"COPY_VAL","iatr":[" "],"seq":1,"fnr":1},
+        {"name":"title","iatr":["Phone","Sp","Make","Sp","Model","Sp","Size","Sp","Part","Year"],"kysz":124,"type":"STRING","opnm":"ADD","fnr":1,"seq":1,"sidx":1},
+        {"name":"time_dif","iatr":["($_pk - 1800000000)"],"type":"LONG","opnm":"MATH_EXP","fnr":1,"seq":1}
+      ],
+      "refr":[
+        {"name":"checking_lead_id","rstm":"Leads_Data","jqry":{"cond":["title","_id","time_dif"],"cmp":["EQ","EQ","GT"],"opnm":"ATTR","args":["title","_id","Timestamp"]},"iatr":["lead_exist"],"ratr":[{"val":"YES"}],"tloc": 1800}
+      ],
+      "fltr":[
+        {"name":"unique_leads","fqry":{"type":1,"name":"{\"query\":[{\"key\":\"lead_exist\",\"cmp_op\":\"NA\",\"val\":\"NA\"}],\"qtype\":1}"},"fatr":["Visitor_Duration","_id","_idn","SessionID","System_platform","System_type","System_browser","Year","Make","Model","Size","Part","Name","Phone","Email","Timestamp","Campaign_Visitor","title","idsite"],"ostm":"Unique_Leads"}
+      ]
+    },
+    {
+      "name":"Unique_Leads",
+      "inpt":["Leads_Data"],"swsz":7862400,"type":2,
       "attr":[
         {"name":"_id","type":"STRING","kysz":40,"sidx":1,"stat":"COUNT"},
         {"name":"_idn","type":"LONG"},
@@ -596,7 +653,8 @@
         {"name":"System_platform","type":"STRING","kysz":32},
         {"name":"System_type","type":"STRING","kysz":32},
         {"name":"System_browser","type":"STRING","kysz":32},
-        {"name":"Timestamp","type":"LONG"},
+        {"name":"idsite","type":"STRING","kysz":120},
+        {"name":"Timestamp","type":"LONG","sidx": 1},
         {"name":"Year","type":"STRING","kysz":4},
         {"name":"Make","type":"STRING","kysz":64},
         {"name":"Model","type":"STRING","kysz":120},
@@ -605,30 +663,41 @@
         {"name":"Name","type":"STRING","kysz":128},
         {"name":"Phone","type":"STRING","kysz":15},
         {"name":"Email","type":"STRING","kysz":128},
+        {"name":"title","type":"STRING","kysz": 120},
         {"name":"Product_Category","type":"STRING","kysz":24},
         {"name":"Visitor_Duration","type":"DOUBLE"},
         {"name":"Campaign_Visitor","type":"STRING","kysz":4},
         {"name":"_meta","type":"OBJECT",
           "fields":[
-            {"name":"_meta.created_time","type":"LONG"}
+            {"name":"_meta.created_time","type":"LONG"},
+            {"name":"_meta.idsite","type":"STRING","kysz":120}
           ],
           "key_sep":"."
         },
+        {"name":"c_f","type":"OBJECT"},
         {"name":"_pk","type":"LONG"}
       ],
       "catr":[
-        {"name":"ts","iatr":["_pk"],"opnm":"COPY","fnr":1,"seq":1,"type":"LONG"},
+        {"name":"jid","iatr":["Timestamp"],"opnm":"COPY","fnr":1,"seq":1,"type":"LONG"},
         {"name":"FormSubmitted","iatr":["Yes"],"opnm":"COPY_VAL","fnr":1,"seq":1,"type":"STRING","kysz":4},
         {"name":"Timestamp","iatr":["_pk"],"opnm":"COPY","fnr":1,"seq":1,"type":"LONG"},
         {"name":"PhoneLocCode","iatr":["SUBSTR($Phone,0,3)"],"opnm":"MATH_EXP","fnr":1,"seq":1,"type":"STRING","kysz":4},
-        {"name":"Sp","type":"STRING","kysz":2,"opnm":"COPY_VAL","iatr":[" "],"seq":0,"fnr":1},
-        {"name":"title","type":"STRING","kysz":64,"opnm":"ADD","iatr":["Make","Sp","Model","Sp","Size","Sp","Year"],"seq":0,"fnr":1},
-        {"name":"FormSubmit_Timestamp","iatr":["Timestamp"],"opnm":"COPY","fnr":1,"seq":0,"type":"LONG"},
+        {"name":"FormSubmit_Timestamp","iatr":["Timestamp"],"opnm":"COPY","fnr":1,"seq":0,"type":"STRING","kysz": 24},
         {"name":"_meta.created_time","iatr":["Timestamp"],"fnr":1,"seq":0,"type":"LONG","opnm":"COPY","key_sep":"."},
-        {"name":"Visitor_Duration","type":"DOUBLE","opnm":"COPY_VAL","iatr":["1.5"],"fnr":2,"seq":0,"fqry":{"name":"{\"query\":[{\"key\":\"Visitor_Duration\",\"cmp_op\":\"EQ\",\"val\":0}],\"qtype\":1}","type":1}}
+        {"name":"Visitor_Duration","type":"DOUBLE","opnm":"COPY_VAL","iatr":["1.5"],"fnr":2,"seq":0,"fqry":{"name":"{\"query\":[{\"key\":\"Visitor_Duration\",\"cmp_op\":\"EQ\",\"val\":0}],\"qtype\":1}","type":1}},
+        {"name":"_meta.idsite","iatr":["idsite"],"fnr":1,"seq":0,"type":"STRING","kysz": 120,"opnm":"COPY","key_sep":"."},
+        {"name":"Second_form","iatr":["NO"],"fnr":1,"seq":0,"kysz":4,"type":"STRING","opnm":"COPY_VAL"},
+        {"name":"c_f.Year","iatr":["Year"],"fnr":1,"seq":0,"type":"STRING","kysz": 4,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Make","iatr":["Make"],"fnr":1,"seq":0,"type":"STRING","kysz": 64,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Model","iatr":["Model"],"fnr":1,"seq":0,"type":"STRING","kysz": 120,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Size","iatr":["Size"],"fnr":1,"seq":0,"type":"STRING","kysz": 32,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Part","iatr":["Part"],"fnr":1,"seq":0,"type":"STRING","kysz": 120,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Name","iatr":["Name"],"fnr":1,"seq":0,"type":"STRING","kysz": 128,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Phone","iatr":["Phone"],"fnr":1,"seq":0,"type":"STRING","kysz": 15,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Email","iatr":["Email"],"fnr":1,"seq":0,"type":"STRING","kysz": 128,"opnm":"COPY","key_sep":"."}
       ],
       "refr":[
-        {"name":"CampaignDetails_Ref","rstm":"used_motors_for_sale_Visit_Details","jqry":{"cond":["_id"],"cmp":["EQ"],"opnm":"ATTR","args":["_id"]},"iatr":["Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","KeywordId","ChannelType","Device","AffiliateId","URL_Country","URL_City","URL_State","Search_term"],"ratr":["Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","KeywordId","ChannelType","Device","AffiliateId","URL_Country","URL_City","URL_State","Search_term"],"rstm_type":"TABLE"},
+        {"name":"CampaignDetails_Ref","rstm":"used_motors_for_sale_Visit_Details","jqry":{"cond":["_id"],"cmp":["EQ"],"opnm":"ATTR","args":["_id"]},"iatr":["Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","KeywordId","ChannelType","Device","AffiliateId","URL_Country","URL_City","URL_State","Search_term","IPAddress","User_Status","BangDB_City","BangDB_Continent","BangDB_Country","BangDB_Service_Provider","BangDB_State","BangDB_Zipcode","BangDB_District"],"ratr":["Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","KeywordId","ChannelType","Device","AffiliateId","URL_Country","URL_City","URL_State","Search_term","IPAddress","User_Status","BangDB_City","BangDB_Continent","BangDB_Country","BangDB_Service_Provider","BangDB_State","BangDB_Zipcode","BangDB_District"],"rstm_type":"TABLE"},
         {"name":"PhoneLocationRef","rstm":"Phone_Number_Area_Code","jqry":{"cond":["PhoneLocCode"],"cmp":["EQ"],"opnm":"ATTR","args":["Code"]},"iatr":["Phone_State"],"ratr":["State"],"fnr":1,"rstm_type":"TABLE"},
         {"name":"Parts_ref","rstm":"Product_Data","jqry":{"cond":["Part","Product_Category"],"cmp":["EQ","EQ"],"opnm":"HYBRID","args":["Value","Part"]},"iatr":["Part"],"ratr":["Product"],"fnr":1},
         {"name":"Make_ref","rstm":"Product_Data","jqry":{"cond":["Make","Product_Category"],"cmp":["EQ","EQ"],"opnm":"HYBRID","args":["Value","Make"]},"iatr":["Make"],"ratr":["Product"],"fnr":1}
@@ -660,12 +729,91 @@
       ],
       "rels":[
         {
-          "sub":"_id","sub_label":"Visitor","obj":"Timestamp","obj_label":"FormSubmit","rel":"HAS_SUMBITTED_FORM",
-          "sub_props":["FormSubmitted"],"rel_props":["Timestamp","SessionID","action","SessionID"],"obj_updt":1
+          "sub":"_id","sub_label":"Visitor","obj":"FormSubmit_Timestamp","obj_label":"FormSubmit","rel":"HAS_SUMBITTED_FORM",
+          "sub_props":["FormSubmitted","Year","Make","Model","Size","Part","Name","Phone","Email"],"rel_props":["Timestamp","SessionID","action","SessionID"],"obj_props":["Year","Make","Model","Size","Part","Name","Phone","Email"],"obj_updt":1,"sub_updt":1
+        }
+      ],
+      "join": [
+        {
+          "name": "leads_stream1",
+          "jqry": {
+            "cond": ["_id"],
+            "cmp": ["EQ"],
+            "opnm": "ATTR",
+            "args": ["_id"]
+          },
+          "tloc": 60,
+          "type": 1,
+          "rstm": "CallsAnalysis",
+          "ostm": "Calls_Leads",
+          "ratr": ["_id"],"iatr": ["jid","Year","Make","Model","Size","Part","Name","Phone","Email","title","idsite"]
         }
       ],
       "work":[
-        {"name":"Test_Visitors_Leads","work_name":"Leads_Management","iatr":["ts","Name","Phone","Email","Make","Model","Year","Size","Part","title","_meta"]}
+        {
+          "name":"Test_Visitors_Leads","work_name":"Leads_Management",
+          "iatr":["c_f","title","_meta"],
+          "pk": "jid",
+          "updt": 1
+        }
+      ]
+    },
+    {
+      "name":"Leads_form2",
+      "inpt":["Data"],"swsz":7862400,"type":2,
+      "attr":[
+        {"name":"_id","type":"STRING","kysz":40,"sidx":1,"stat":"COUNT"},
+        {"name":"_idn","type":"LONG"},
+        {"name":"SessionID","type":"STRING","kysz":45,"sidx":1},
+        {"name":"System_platform","type":"STRING","kysz":32},
+        {"name":"idsite","type":"STRING","kysz":120},
+        {"name":"System_type","type":"STRING","kysz":32},
+        {"name":"System_browser","type":"STRING","kysz":32},
+        {"name":"Timestamp","type":"LONG"},
+        {"name":"Year","type":"STRING","kysz":4},
+        {"name":"Make","type":"STRING","kysz":64},
+        {"name":"Model","type":"STRING","kysz":120},
+        {"name":"Size","type":"STRING","kysz":32},
+        {"name":"Part","type":"STRING","kysz":120},
+        {"name":"Name","type":"STRING","kysz":128},
+        {"name":"Phone","type":"STRING","kysz":15},
+        {"name":"Email","type":"STRING","kysz":128},
+        {"name":"Visitor_Duration","type":"DOUBLE"},
+        {"name":"Campaign_Visitor","type":"STRING","kysz":4},
+        {"name":"c_f","type":"OBJECT"}
+      ],
+      "catr":[
+        {"name":"Second_form","iatr":["YES"],"fnr":1,"seq":0,"kysz":4,"type":"STRING","opnm":"COPY_VAL"},
+        {"name":"c_f.Year","iatr":["Year"],"fnr":1,"seq":0,"type":"STRING","kysz": 4,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Make","iatr":["Make"],"fnr":1,"seq":0,"type":"STRING","kysz": 64,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Model","iatr":["Model"],"fnr":1,"seq":0,"type":"STRING","kysz": 120,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Size","iatr":["Size"],"fnr":1,"seq":0,"type":"STRING","kysz": 32,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Part","iatr":["Part"],"fnr":1,"seq":0,"type":"STRING","kysz": 120,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Name","iatr":["Name"],"fnr":1,"seq":0,"type":"STRING","kysz": 128,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Phone","iatr":["Phone"],"fnr":1,"seq":0,"type":"STRING","kysz": 15,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Email","iatr":["Email"],"fnr":1,"seq":0,"type":"STRING","kysz": 128,"opnm":"COPY","key_sep":"."}
+      ],
+      "refr":[
+        {"name":"data_leadform1","rstm":"Unique_Leads","jqry":{"cond":["_id"],"cmp":["EQ"],"opnm":"ATTR","args":["_id"]},"iatr":["jid"],"ratr":["jid"]}
+      ],
+      "tbls":[
+        {"name":"Visitors_details2","tblname":"used_motors_for_sale_Visit_Details","pk":"_id","primary":1},
+        {"name":"Leads_Data","tblname":"used_motors_for_sale_Leads_Details","pk":"Timestamp","primary":1}
+      ],
+      "node":[
+        {
+          "sub":"_id","label":"Visitor",
+          "props":["Year","Make","Model","Size","Part","Name","Phone","Email"],
+          "updt":1
+        }
+      ],
+      "work":[
+        {
+          "name":"Test_Visitors_Leads","work_name":"Leads_Management",
+          "iatr":["c_f"],
+          "pk": "jid",
+          "updt": 1
+        }
       ]
     },
     {
@@ -681,11 +829,98 @@
         {"name":"Timestamp","type":"LONG"},
         {"name":"Call_Page","type":"STRING","kysz":250}
       ],
+      "catr":[
+        {"name":"Timestamp","iatr":["($Timestamp - 60000000)"],"type":"LONG","opnm":"MATH_EXP","fnr":1,"seq":1}
+      ],
       "gpby":[
         {"gpat":["Call_Page"],"gran":900,"kysz":64,"swsz":94608000,"iatr":"_id","stat":"COUNT"}
       ],
       "tbls":[
         {"name":"Visitors_details1","tblname":"used_motors_for_sale_Visit_Details","pk":"_id","primary":1}
+      ],
+      "join": [
+        {
+          "name": "call_stream1",
+          "jqry": {
+            "cond": ["_id"],
+            "cmp": ["EQ"],
+            "opnm": "ATTR",
+            "args": ["_id"]
+          },
+          "tloc": 60,
+          "type": 1,
+          "rstm": "Unique_Leads",
+          "ostm": "Calls_Leads",
+          "iatr": ["_id"],"ratr": ["jid","Year","Make","Model","Size","Part","Name","Phone","Email","title","idsite"]
+        }
+      ]
+    },
+    {
+      "name":"Calls_Leads",
+      "inpt":["Unique_Leads","CallsAnalysis"],"swsz":7862400,"type":3,
+      "attr":[
+        {"name":"_id","type":"STRING","kysz":40,"sidx":1,"stat":"COUNT"},
+        {"name":"idsite","type":"STRING","kysz":120},
+        {"name":"title","type":"STRING","kysz":120},
+        {"name":"Year","type":"STRING","kysz":4},
+        {"name":"Make","type":"STRING","kysz":64},
+        {"name":"Model","type":"STRING","kysz":120},
+        {"name":"Size","type":"STRING","kysz":32},
+        {"name":"Part","type":"STRING","kysz":120},
+        {"name":"Name","type":"STRING","kysz":128},
+        {"name":"Phone","type":"STRING","kysz":15},
+        {"name":"Email","type":"STRING","kysz":128},
+        {"name":"title","type":"STRING","kysz": 120},
+        {"name":"jid","type":"LONG"},
+        {"name":"_meta","type":"OBJECT",
+          "fields":[
+            {"name":"_meta.created_time","type":"LONG"},
+            {"name":"_meta.idsite","type":"STRING","kysz":120}
+          ],
+          "key_sep":"."
+        },
+        {"name":"c_f","type":"OBJECT"}
+      ],
+      "catr":[
+        {"name":"_meta.created_time","iatr":["jid"],"fnr":1,"seq":0,"type":"LONG","opnm":"COPY","key_sep":"."},
+        {"name":"_meta.idsite","iatr":["idsite"],"fnr":1,"seq":0,"type":"STRING","kysz": 120,"opnm":"COPY","key_sep":"."},
+        {"name":"_meta.call","iatr":["YES"],"fnr":1,"seq":0,"type":"STRING","kysz":4,"opnm":"COPY_VAL","key_sep":"."},
+        {"name":"c_f.Year","iatr":["Year"],"fnr":1,"seq":0,"type":"STRING","kysz": 4,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Make","iatr":["Make"],"fnr":1,"seq":0,"type":"STRING","kysz": 64,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Model","iatr":["Model"],"fnr":1,"seq":0,"type":"STRING","kysz": 120,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Size","iatr":["Size"],"fnr":1,"seq":0,"type":"STRING","kysz": 32,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Part","iatr":["Part"],"fnr":1,"seq":0,"type":"STRING","kysz": 120,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Name","iatr":["Name"],"fnr":1,"seq":0,"type":"STRING","kysz": 128,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Phone","iatr":["Phone"],"fnr":1,"seq":0,"type":"STRING","kysz": 15,"opnm":"COPY","key_sep":"."},
+        {"name":"c_f.Email","iatr":["Email"],"fnr":1,"seq":0,"type":"STRING","kysz": 128,"opnm":"COPY","key_sep":"."}
+      ],
+      "work":[
+        {
+          "name":"Test_Visitors_Leads","work_name":"Leads_Management",
+          "iatr":["c_f","title","_meta"],
+          "pk": "jid",
+          "updt": 1
+        },
+        {
+          "name": "leads_1",
+          "work_name": "Leads_Management",
+          "userid": "Sirohi Divya",
+          "groupid": "Leads_Group_1",
+          "pipeid": "*",
+          "pk": "jid",
+          "del": 1,
+          "seq": 1
+        },
+        {
+          "name": "leads_2",
+          "work_name": "Leads_Management",
+          "userid": "Sirohi Divya",
+          "groupid": "website_leads",
+          "pipeid": "*",
+          "pk": "jid",
+          "del": 1,
+          "seq": 1
+        }
       ]
     },
     {
@@ -712,7 +947,7 @@
         {"name":"Campaign_Visitor","type":"STRING","kysz":4}
       ],
       "refr":[
-        {"name":"CampaignDetails_Ref","rstm":"LandingPage_Data","jqry":{"cond":["_id","Clickidentifier"],"cmp":["EQ","NE"],"opnm":"HYBRID","args":["_id","0"]},"iatr":["Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","KeywordId","ChannelType","Device","AffiliateId","URL_Country","URL_City","URL_State","Search_term"],"ratr":["Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","KeywordId","ChannelType","Device","AffiliateId","URL_Country","URL_City","URL_State","Search_term"],"fnr":1,"tloc":86400},
+        {"name":"CampaignDetails_Ref","rstm":"used_motors_for_sale_Visit_Details","jqry":{"cond":["_id"],"cmp":["EQ"],"opnm":"ATTR","args":["_id"]},"iatr":["Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","KeywordId","ChannelType","Device","AffiliateId","URL_Country","URL_City","URL_State","Search_term","IPAddress","User_Status","BangDB_City","BangDB_Continent","BangDB_Country","BangDB_Service_Provider","BangDB_State","BangDB_Zipcode","BangDB_District"],"ratr":["Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","KeywordId","ChannelType","Device","AffiliateId","URL_Country","URL_City","URL_State","Search_term","IPAddress","User_Status","BangDB_City","BangDB_Continent","BangDB_Country","BangDB_Service_Provider","BangDB_State","BangDB_Zipcode","BangDB_District"],"rstm_type":"TABLE"},
         {"name":"PhoneLocationRef","rstm":"Phone_Number_Area_Code","jqry":{"cond":["PhoneLocCode"],"cmp":["EQ"],"opnm":"ATTR","args":["Code"]},"iatr":["Phone_State"],"ratr":["State"],"fnr":1,"rstm_type":"TABLE"},
         {"name":"Parts_ref","rstm":"Product_Data","jqry":{"cond":["Part","Product_Category"],"cmp":["EQ","EQ"],"opnm":"HYBRID","args":["Value","Part"]},"iatr":["Part"],"ratr":["Product"],"fnr":1},
         {"name":"Make_ref","rstm":"Product_Data","jqry":{"cond":["Make","Product_Category"],"cmp":["EQ","EQ"],"opnm":"HYBRID","args":["Value","Make"]},"iatr":["Make"],"ratr":["Product"],"fnr":1}
@@ -739,300 +974,6 @@
       "attr":[
         {"name":"Visit_Duration","type":"DOUBLE"},
         {"name":"Visitor_id","kysz":40,"type":"STRING","pk":1,"sidx":1}
-      ]
-    },
-    {
-      "name": "Leads_Data",
-      "inpt": [
-        "Date"
-      ],
-      "swsz": 7862400,
-      "type": 2,
-      "attr": [
-        {
-          "name": "_id",
-          "type": "STRING",
-          "kysz": 40,
-          "sidx": 1,
-          "stat": "COUNT"
-        },
-        {
-          "name": "_idn",
-          "type": "LONG"
-        },
-        {
-          "name": "SessionID",
-          "type": "STRING",
-          "kysz": 45,
-          "sidx": 1
-        },
-        {
-          "name": "System_platform",
-          "type": "STRING",
-          "kysz": 32
-        },
-        {
-          "name": "System_type",
-          "type": "STRING",
-          "kysz": 32
-        },
-        {
-          "name": "System_browser",
-          "type": "STRING",
-          "kysz": 32
-        },
-        {
-          "name": "Timestamp",
-          "type": "LONG"
-        },
-        {
-          "name": "Year",
-          "type": "STRING",
-          "kysz": 4
-        },
-        {
-          "name": "Make",
-          "type": "STRING",
-          "kysz": 64
-        },
-        {
-          "name": "Model",
-          "type": "STRING",
-          "kysz": 120
-        },
-        {
-          "name": "Size",
-          "type": "STRING",
-          "kysz": 32
-        },
-        {
-          "name": "Part",
-          "type": "STRING",
-          "kysz": 120
-        },
-        {
-          "name": "Name",
-          "type": "STRING",
-          "kysz": 128
-        },
-        {
-          "name": "Phone",
-          "type": "STRING",
-          "kysz": 15
-        },
-        {
-          "name": "Email",
-          "type": "STRING",
-          "kysz": 128
-        },
-        {
-          "name": "Product_Category",
-          "type": "STRING",
-          "kysz": 24
-        },
-        {
-          "name": "Visitor_Duration",
-          "type": "DOUBLE"
-        },
-        {
-          "name": "Campaign_Visitor",
-          "type": "STRING",
-          "kysz": 4
-        },
-        {
-          "name": "_meta",
-          "type": "OBJECT",
-          "fields": [
-            {
-              "name": "_meta.created_time",
-              "type": "LONG"
-            }
-          ],
-          "key_sep": "."
-        },
-        {
-          "name": "_pk",
-          "type": "LONG"
-        }
-      ],
-      "catr": [
-        {
-          "name": "ts",
-          "iatr": [
-            "_pk"
-          ],
-          "opnm": "COPY",
-          "fnr": 1,
-          "seq": 1,
-          "type": "LONG"
-        },
-        {
-          "name": "Timestamp",
-          "iatr": [
-            "_pk"
-          ],
-          "opnm": "COPY",
-          "fnr": 1,
-          "seq": 1,
-          "type": "LONG"
-        },
-        {
-          "name": "PhoneLocCode",
-          "iatr": [
-            "SUBSTR($Phone,0,3)"
-          ],
-          "opnm": "MATH_EXP",
-          "fnr": 1,
-          "seq": 1,
-          "type": "STRING",
-          "kysz": 4
-        },
-        {
-          "name": "Sp",
-          "type": "STRING",
-          "kysz": 2,
-          "opnm": "COPY_VAL",
-          "iatr": [
-            " "
-          ],
-          "seq": 0,
-          "fnr": 1
-        },
-        {
-          "name": "title",
-          "type": "STRING",
-          "kysz": 64,
-          "opnm": "ADD",
-          "iatr": [
-            "Make",
-            "Sp",
-            "Model",
-            "Sp",
-            "Size",
-            "Sp",
-            "Year"
-          ],
-          "seq": 0,
-          "fnr": 1
-        },
-        {
-          "name": "FormSubmit_Timestamp",
-          "iatr": [
-            "Timestamp"
-          ],
-          "opnm": "COPY",
-          "fnr": 1,
-          "seq": 0,
-          "type": "LONG"
-        },
-        {
-          "name": "_meta.created_time",
-          "iatr": [
-            "Timestamp"
-          ],
-          "fnr": 1,
-          "seq": 0,
-          "type": "LONG",
-          "opnm": "COPY",
-          "key_sep": "."
-        }
-      ],
-      "refr": [
-        {
-          "name": "PhoneLocationRef",
-          "rstm": "Phone_Number_Area_Code",
-          "jqry": {
-            "cond": [
-              "PhoneLocCode"
-            ],
-            "cmp": [
-              "EQ"
-            ],
-            "opnm": "ATTR",
-            "args": [
-              "Code"
-            ]
-          },
-          "iatr": [
-            "Phone_State"
-          ],
-          "ratr": [
-            "State"
-          ],
-          "fnr": 1,
-          "rstm_type": "TABLE"
-        },
-        {
-          "name": "Parts_ref",
-          "rstm": "Product_Data",
-          "jqry": {
-            "cond": [
-              "Part",
-              "Product_Category"
-            ],
-            "cmp": [
-              "EQ",
-              "EQ"
-            ],
-            "opnm": "HYBRID",
-            "args": [
-              "Value",
-              "Part"
-            ]
-          },
-          "iatr": [
-            "Part"
-          ],
-          "ratr": [
-            "Product"
-          ],
-          "fnr": 1
-        },
-        {
-          "name": "Make_ref",
-          "rstm": "Product_Data",
-          "jqry": {
-            "cond": [
-              "Make",
-              "Product_Category"
-            ],
-            "cmp": [
-              "EQ",
-              "EQ"
-            ],
-            "opnm": "HYBRID",
-            "args": [
-              "Value",
-              "Make"
-            ]
-          },
-          "iatr": [
-            "Make"
-          ],
-          "ratr": [
-            "Product"
-          ],
-          "fnr": 1
-        }
-      ],
-      "work": [
-        {
-          "name": "Test_Visitors_Leads",
-          "work_name": "Leads_Management",
-          "iatr": [
-            "ts",
-            "Name",
-            "Phone",
-            "Email",
-            "Make",
-            "Model",
-            "Year",
-            "Size",
-            "Part",
-            "title",
-            "_meta"
-          ]
-        }
       ]
     }
   ]
