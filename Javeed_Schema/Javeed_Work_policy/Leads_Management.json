@@ -6,7 +6,7 @@
   "display_raw_json": 0,
   "cross_user_view": 0,
   "localization": {
-    "pipe": "Company",
+    "piInboundpe": "Company",
     "work": "CRM",
     "job": "Lead"
   },
@@ -65,6 +65,13 @@
   ],
   "groups": [
     {
+      "id": "Nextday",
+      "description": "Leads will be sent to this group on the next day with same timing (here only date will change time will remain same )",
+      "pipe_filter_policy": "ALL",
+      "pipes": [],
+      "status": 0
+    },
+    {
       "pipe_filter_policy": "ALL",
       "id": "Leads_Group_1",
       "form_sections": 1,
@@ -78,99 +85,468 @@
       ],
       "pipes": [
         {
-          "id": "QualityAuto",
-          "description": "Quality Auto Recycling",
+          "id": "Usedengine",
+          "description": "Used Engine Locator",
           "user_filter_policy": "RR",
           "users": [
             {
-              "userid": "paul7105",
-              "phone": "",
-              "email": "",
+              "userid": "daniel0027",
+              "phone": "7137140027",
+              "email": "justforyou9010@gmail.com",
               "status": 1,
-              "is_pipe_admin": 0
-            },
-            {
-              "userid": "alex6504",
-              "phone": "",
-              "email": "",
-              "status": 0,
-              "is_pipe_admin": 0
-            },
-            {
-              "userid": "jack0607",
-              "phone": "",
-              "email": "javeed.gilly@gmail.com",
-              "status": 0,
-              "is_pipe_admin": 0
-            },
-            {
-              "userid": "dave0609",
-              "phone": "",
-              "email": "",
-              "status": 1,
-              "is_pipe_admin": 0
-            },
-            {
-              "userid": "maxcooper8908",
-              "phone": "",
-              "email": "",
-              "status": 0,
-              "is_pipe_admin": 0
-            },
-            {
-              "userid": "kevin8038",
-              "phone": "9523518038",
-              "email": "momluvs247@gmail.com",
-              "status": 0,
-              "is_pipe_admin": 0
-            },
-            {
-              "userid": "david0608",
-              "phone": "",
-              "email": "",
-              "status": 0,
-              "is_pipe_admin": 0
-            },
-            {
-              "userid": "mark1631",
-              "phone": "",
-              "email": "",
-              "status": 0,
-              "is_pipe_admin": 1
-            },
-            {
-              "userid": "richard1694",
-              "phone": "9522221694",
-              "email": "myjesus626@gmail.com",
-              "status": 0,
-              "is_pipe_admin": 0
-            },
-            {
-              "userid": "john1694",
-              "phone": "",
-              "email": "",
-              "status": 0,
-              "is_pipe_admin": 1
-            }
-          ]
-        },
-        {
-          "id": "Usedengine",
-          "description": "Used Engine Locator",
-          "users": [
-            {
-              "userid": "joseph2930",
-              "phone": "7135892930",
-              "email": "lovemum4lyf@gmail.com",
-              "status": 1,
-              "is_pipe_admin": 0
+              "is_pipe_admin": 1,
+              "check_logged_user": 0
             },
             {
               "userid": "jenny8401",
               "phone": "7132448401",
               "email": "praiselord801@gmail.com ",
               "status": 1,
-              "is_pipe_admin": 0
+              "is_pipe_admin": 1,
+              "check_logged_user": 0
+            },
+            {
+              "userid": "joseph2930",
+              "phone": "7135892930",
+              "email": "lovemum4lyf@gmail.com",
+              "status": 1,
+              "is_pipe_admin": 1,
+              "check_logged_user": 0
+            },
+            {
+              "userid": "justin5070",
+              "phone": "7135895070",
+              "email": "staycool040@gmail.com",
+              "status": 1,
+              "is_pipe_admin": 1,
+              "check_logged_user": 0
+            }
+          ]
+        },
+        {
+          "id": "QualityAuto",
+          "description": "Quality Auto Recycling",
+          "user_filter_policy": "RR",
+          "users": [
+            {
+              "userid": "alex6504",
+              "phone": "",
+              "email": "",
+              "status": 1,
+              "is_pipe_admin": 1,
+              "check_logged_user": 0
+            },
+            {
+              "userid": "dave0609",
+              "phone": "",
+              "email": "",
+              "status": 1,
+              "is_pipe_admin": 1,
+              "check_logged_user": 0
+            },
+            {
+              "userid": "david0608",
+              "phone": "",
+              "email": "",
+              "status": 1,
+              "is_pipe_admin": 1,
+              "check_logged_user": 0
+            },
+            {
+              "userid": "jack0607",
+              "phone": "",
+              "email": "javeed.gilly@gmail.com",
+              "status": 1,
+              "is_pipe_admin": 1,
+              "check_logged_user": 0
+            },
+            {
+              "userid": "john1694",
+              "phone": "",
+              "email": "",
+              "status": 1,
+              "is_pipe_admin": 1,
+              "check_logged_user": 0,
+              "display_columns": [
+                {
+                  "label": "Reporter",
+                  "name": "_meta.reporter"
+                },
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Tags",
+                  "name": "_meta.tags"
+                },
+                {
+                  "label": "Severity",
+                  "name": "_meta.pri"
+                },
+                {
+                  "label": "Due Date",
+                  "name": "_meta.due_date"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                },
+                {
+                  "label": "State",
+                  "name": "_meta.state"
+                }
+              ]
+            },
+            {
+              "userid": "kevin8038",
+              "phone": "9523518038",
+              "email": "momluvs247@gmail.com",
+              "status": 1,
+              "is_pipe_admin": 1,
+              "check_logged_user": 0
+            },
+            {
+              "userid": "mark1631",
+              "phone": "",
+              "email": "",
+              "status": 1,
+              "is_pipe_admin": 1,
+              "check_logged_user": 0
+            },
+            {
+              "userid": "paul7105",
+              "phone": "",
+              "email": "",
+              "status": 1,
+              "is_pipe_admin": 1,
+              "check_logged_user": 0
+            },
+            {
+              "userid": "richard1694",
+              "phone": "9522221694",
+              "email": "myjesus626@gmail.com",
+              "status": 1,
+              "is_pipe_admin": 1,
+              "check_logged_user": 0
+            }
+          ]
+        },
+        {
+          "users": [
+            {
+              "userid": "adam@darrenauto",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1
+            },
+            {
+              "userid": "daisy@darrenauto",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1
+            },
+            {
+              "userid": "maxcooper@darrenauto",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1,
+              "check_logged_user": 0
+            },
+            {
+              "userid": "mounica@darrenauto",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Tags",
+                  "name": "_meta.tags"
+                },
+                {
+                  "label": "Severity",
+                  "name": "_meta.pri"
+                },
+                {
+                  "label": "Due Date",
+                  "name": "_meta.due_date"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                },
+                {
+                  "label": "State",
+                  "name": "_meta.state"
+                }
+              ]
+            },
+            {
+              "userid": "tomparker@darrenauto",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1,
+              "display_columns": [
+                {
+                  "label": "Reporter",
+                  "name": "_meta.reporter"
+                },
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Tags",
+                  "name": "_meta.tags"
+                },
+                {
+                  "label": "Severity",
+                  "name": "_meta.pri"
+                },
+                {
+                  "label": "State",
+                  "name": "_meta.state"
+                }
+              ]
+            }
+          ],
+          "id": "darrenauto",
+          "description": "Darren Auto Parts ",
+          "user_filter_policy": "RR"
+        }
+      ],
+      "form": [
+        {
+          "section_title": "Shipping Details",
+          "items": [
+            {
+              "field": "Carriers",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Tracking Id",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1,
+              "list": []
+            },
+            {
+              "field": "Status",
+              "type": "list",
+              "size_limit": "100",
+              "optional": 1,
+              "list": [
+                "Pick Up",
+                "In Transist",
+                "Delivered"
+              ],
+              "multi_select": 0
+            },
+            {
+              "field": "note",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            }
+          ]
+        },
+        {
+          "section_title": "Yard Details",
+          "items": [
+            {
+              "field": "Name",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Phone",
+              "type": "integer",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Spoke Person Name",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Charged Amount",
+              "type": "integer",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Note",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            }
+          ]
+        },
+        {
+          "section_title": "Billing Details",
+          "items": [
+            {
+              "field": "name",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "phone",
+              "type": "integer",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Card Number",
+              "type": "integer",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Exp Date",
+              "type": "expiry date",
+              "size_limit": 256,
+              "optional": 1
+            },
+            {
+              "field": "CVV",
+              "type": "integer",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Important_Note",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            }
+          ]
+        },
+        {
+          "section_title": "Order Details",
+          "items": [
+            {
+              "field": "#VIN",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Notes",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            }
+          ]
+        },
+        {
+          "section_title": "Price Details",
+          "items": [
+            {
+              "field": "Price Quoted ($)",
+              "type": "integer",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Miles (KM)",
+              "type": "integer",
+              "size_limit": "100",
+              "optional": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "website_leads",
+      "description": "website based leads distribution",
+      "pipe_filter_policy": "FILTER",
+      "pipes": [
+        {
+          "users": [
+            {
+              "userid": "david0608",
+              "phone": "",
+              "email": "",
+              "status": 1,
+              "is_pipe_admin": 1
+            }
+          ],
+          "id": "ExclusiveLeads",
+          "description": "Exclusive leads ",
+          "user_filter_policy": "RR",
+          "pipe_filter": "_meta.idsite = \"engines-store\"",
+          "groupid": "website_leads",
+          "status": 0
+        }
+      ],
+      "status": 0
+    },
+    {
+      "pipe_filter_policy": "FILTER",
+      "id": "CallLeads_Group",
+      "form_sections": 1,
+      "description": "Leads followed by call",
+      "group_admin": [
+        {
+          "userid": "Sirohi Divya",
+          "email": "Sirohi Divya",
+          "status": 1
+        }
+      ],
+      "pipes": [
+        {
+          "id": "PremiumLeads",
+          "description": "Formsubmit and call",
+          "pipe_filter": "_meta.call = \"YES\"",
+          "user_filter_policy": "RR",
+          "users": [
+            {
+              "userid": "javeed.gilly@gmail.com",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1
             }
           ]
         }
@@ -379,6 +755,5 @@
         }
       ]
     }
-  ],
-  "_pk": "Leads_Management"
+  ]
 }
