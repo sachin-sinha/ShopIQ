@@ -56,6 +56,13 @@
           ],
           "key_sep":"."
         },
+        {"name":"milestone","type":"OBJECT",
+          "fields": [
+            {"name":"milestone.name","type":"STRING","kysz":32},
+            {"name":"milestone.id","type":"STRING","kysz": 20}
+          ],
+          "key_sep":"."
+        },
         {"name":"bug_number","type":"STRING","kysz":32},
         {"name":"reporter_non_zuser","type":"STRING","kysz":8},
         {"name":"reported_person","type":"STRING","kysz":64},
@@ -108,24 +115,24 @@
         {"name": "_meta.tags","iatr":["tags.name"],"type":"ARRAY","opnm": "COPY"},
         {"name": "_meta.reproducible","iatr": ["reproducible.type"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 32,"key_sep":"."},
         {"name": "_meta.state","iatr": ["module.type"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 32,"key_sep":"."},
-        {"name": "_meta.classification","iatr": ["classification.type"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 32,"key_sep":"."},
-        {"name": "_meta.s","iatr": ["CLOSED"],"fqry" : {"name" : "{\"query\":[{\"key\":\"status.type\",\"cmp_op\":\"EQ\",\"val\":\"Closed\"}],\"qtype\":1}", "type" : 1},"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz": 32,"key_sep":"."},
+        {"name": "_meta.c","iatr": ["classification.type"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 32,"key_sep":"."},
+        {"name": "_meta.milestone","iatr": ["milestone.name"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 32,"key_sep":"."},
         {"name": "_meta.s","alias":"a5","iatr": ["status.type"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 32,"key_sep":"."},
         {"name": "_meta.pri","iatr": ["0"],"fqry" : {"name" : "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"Show stopper\"}],\"qtype\":1}", "type" : 1},"fnr": 1,"seq": 0,"type": "LONG","opnm": "COPY_VAL","key_sep":"."},
         {"name": "_meta.pri","alias":"a1","iatr": ["1"],"fqry" : {"name" : "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"Critical\"}],\"qtype\":1}", "type" : 1},"fnr": 1,"seq": 0,"type": "LONG","opnm": "COPY_VAL","key_sep":"."},
         {"name": "_meta.pri","alias":"a2","iatr": ["2"],"fqry" : {"name" : "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"Major\"}],\"qtype\":1}", "type" : 1},"fnr": 1,"seq": 0,"type": "LONG","opnm": "COPY_VAL","key_sep":"."},
         {"name": "_meta.pri","alias":"a3","iatr": ["3"],"fqry" : {"name" : "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"Minor\"}],\"qtype\":1}", "type" : 1},"fnr": 1,"seq": 0,"type": "LONG","opnm": "COPY_VAL","key_sep":"."},
         {"name": "_meta.pri","alias":"a4","iatr": ["4"],"fqry" : {"name" : "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"None\"}],\"qtype\":1}", "type" : 1},"fnr": 1,"seq": 0,"type": "LONG","opnm": "COPY_VAL","key_sep":"."},
-        {"name": "_meta.due_date","iatr": ["due_date"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 24,"key_sep":"."},
-        {"name": "_meta.due_date_ts","iatr": ["due_date_long"],"fnr": 1,"seq": 0,"type": "LONG","opnm": "COPY","key_sep":"."},
+        {"name": "_meta.due_date","iatr": ["($due_date_long*1000)"],"fnr": 1,"seq": 0,"type": "LONG","opnm": "MATH_EXP","key_sep":"."},
         {"name": "_meta.a","iatr": ["assignee_name"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 64,"key_sep":"."},
-        {"name": "_meta.reporter","iatr": ["reported_person"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 64,"key_sep":"."}
+        {"name": "_meta.reporter","iatr": ["reported_person"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 64,"key_sep":"."},
+        {"name" : "_meta.created_time","iatr": ["($created_time_long*1000)"],"fnr": 1,"seq": 0, "type": "LONG","opnm": "MATH_EXP","key_sep":"."}
       ],
       "work": [
         {
           "name": "BugTracker",
           "work_name": "BugTracker",
-          "iatr": ["_meta","title","bug_prefix","_desc_","Zoho_bugId","Attachment_count","created_time"],
+          "iatr": ["_meta","title","bug_prefix","_desc_","Zoho_bugId","Attachment_count"],
           "process_comments":{"key":"comments","type":"ARRAY"}
         }
       ]
