@@ -1,0 +1,305 @@
+{
+  "work_name": "Premium_Lead",
+  "name": "CRM",
+  "job_create_email_template_id": "2518b.2f361ca8e178de0f.k1.c62c7c40-8841-11ee-aa03-525400b0b0f3.18bf0d64a04",
+  "apply_quota": 1,
+  "group_filter_policy": "ALL",
+  "display_raw_json": 0,
+  "cross_user_view": 0,
+  "localization": {
+    "pipe": "Company",
+    "work": "CRM",
+    "job": "Lead"
+  },
+  "status": [
+    "Unassign",
+    "Voice Mail",
+    "Quoted",
+    "Invalid",
+    "In Progress",
+    "Sale",
+    "Order Received",
+    "Yard Confirmed",
+    "Shipped Out",
+    "Shipped Successfully"
+  ],
+  "states": [
+    {
+      "state": "Inbox",
+      "status": [
+        "Quoted",
+        "Unassign",
+        "Voice Mail",
+        "Invalid",
+        "In Progress",
+        "Sale"
+      ],
+      "default_status": "Quoted"
+    },
+    {
+      "state": "In Progress",
+      "status": [
+        "Order Received",
+        "Yard Confirmed",
+        "Shipped Out"
+      ]
+    },
+    {
+      "state": "Sale Confirmed",
+      "status": [
+        "Shipped Successfully"
+      ]
+    }
+  ],
+  "classifications": [
+    "Inbound"
+  ],
+  "default_state": "Inbox",
+  "default_close_status": "Shipped Successfully",
+  "default_open_status": "Quoted",
+  "manual_job_create_class": "Inbound",
+  "work_admin": [
+    {
+      "userid": "javeed.gilly@gmail.com",
+      "status": 1
+    }
+  ],
+  "groups": [
+    {
+      "pipe_filter_policy": "FILTER",
+      "id": "Call_Leads",
+      "group_admin": [
+        {
+          "userid": "javeed.gilly@gmail.com",
+          "email": "javeed.gilly@gmail.com",
+          "status": 1
+        }
+      ],
+      "description": "Leads followed by call",
+      "form_sections": 1,
+      "pipes": [
+        {
+          "users": [
+            {
+              "userid": "javeed.gilly@gmail.com",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1
+            }
+          ],
+          "id": "PremiumLeads",
+          "description": "Formsubmit and call",
+          "user_filter_policy": "RR",
+          "pipe_filter": "_meta.call = \"YES\"",
+          "send_email": 1,
+          "email_to_groups": [
+            "javeed.gilly@gmail.com"
+          ]
+        }
+      ],
+      "form": [
+        {
+          "section_title": "Yard Details",
+          "items": [
+            {
+              "field": "Yard Name",
+              "type": "string",
+              "size_limit": 100,
+              "optional": 1
+            },
+            {
+              "field": "Yard Phone",
+              "type": "integer",
+              "size_limit": 100,
+              "optional": 1
+            },
+            {
+              "field": "Spoke Person Name",
+              "type": "string",
+              "size_limit": 100,
+              "optional": 1
+            },
+            {
+              "field": "Yard Charged Amount",
+              "type": "integer",
+              "size_limit": 100,
+              "optional": 1
+            },
+            {
+              "field": "Yard Note",
+              "type": "string",
+              "size_limit": 100,
+              "optional": 1
+            }
+          ]
+        },
+        {
+          "section_title": "Shipping Details",
+          "items": [
+            {
+              "field": "Shipping Carriers",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Shipping Tracking Id",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Shipping Status",
+              "type": "list",
+              "size_limit": "100",
+              "optional": 1,
+              "list": [
+                "Pick Up",
+                "In Transist",
+                "Delivered"
+              ],
+              "multi_select": 0
+            },
+            {
+              "field": "Shipping Note",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            }
+          ]
+        },
+        {
+          "section_title": "Billing Details",
+          "items": [
+            {
+              "field": "Billing Name",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Billing Phone",
+              "type": "integer",
+              "optional": 1
+            },
+            {
+              "field": "Billing Card Number",
+              "type": "integer",
+              "optional": 1
+            },
+            {
+              "field": "Billing Card Exp Date",
+              "type": "expiry date",
+              "size_limit": 256,
+              "optional": 1
+            },
+            {
+              "field": "Billing Card CVV",
+              "type": "integer",
+              "optional": 1
+            },
+            {
+              "field": "Billing Note",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            }
+          ]
+        },
+        {
+          "section_title": "Order Details",
+          "items": [
+            {
+              "field": "#VIN",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            },
+            {
+              "field": "Order Note",
+              "type": "string",
+              "size_limit": "100",
+              "optional": 1
+            }
+          ]
+        },
+        {
+          "section_title": "Price Details",
+          "items": [
+            {
+              "field": "Price Quoted ($)",
+              "type": "integer",
+              "optional": 1
+            },
+            {
+              "field": "Miles (KM)",
+              "type": "integer",
+              "optional": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "class": "Inbound",
+      "items": [
+        {
+          "field": "Name",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Phone",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Email",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Make",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Model",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Year",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Size",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Part",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        }
+      ]
+    },
+    {
+      "class": "default",
+      "items": []
+    }
+  ],
+  "_pk": "Premium_Lead"
+}
