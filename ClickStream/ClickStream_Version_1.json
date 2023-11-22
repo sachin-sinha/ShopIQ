@@ -200,13 +200,13 @@
         {
           "name": "Default_tracking_Data",
           "fqry": {"type": 1,"name": "{\"query\":[{\"key\":\"action_name\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"ChannelType\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":\"1\"}"},
-          "fatr": ["_id","_idn","SessionID","res","System_platform","System_type","System_browser","Timestamp","Device","Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","AdgroupId","ExtensionId","KeywordId","Search_term","Devicemodel","Placement","Network","Matchtype","Location_interest","LocationId","Adposition","Gad","ChannelType","Campaign_Visitor","UTM_Medium","UTM_Content","AffiliateId","Client"],
+          "fatr": ["_id","_idn","SessionID","res","System_platform","System_type","System_browser","Timestamp","Device","Clickidentifier","UTM_Source","UTM_Medium","UTM_Content","CampaignId","AdgroupId","ExtensionId","KeywordId","Search_term","Devicemodel","Placement","Network","Matchtype","Location_interest","LocationId","Adposition","Gad","ChannelType","Campaign_Visitor","AffiliateId","Client"],
           "ostm": "LandingPage_Data"
         },
         {
           "name": "Data_BrowserLanguage",
-          "fqry": {"type": 1,"name": "{\"query\":[{\"key\":\"action_name\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"ChannelType\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":\"1\"}"},
-          "fatr": ["_id","BrowserLanguage","Device"],
+          "fqry": {"type": 1,"name": "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"BrowserLanguage\"}],\"qtype\":\"1\"}"},
+          "fatr": ["_id","BrowserLanguage","Device","System_platform","System_type","System_browser","UTM_Source","UTM_Medium","UTM_Content"],
           "ostm": "Data_BrowserLanguage"
         },
         {
@@ -220,11 +220,15 @@
           "ostm": "Location_Data"
         },
         {
-          "name": "WebsiteAnalysis","fqry": {"type": 1,"name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageViewURL\"},{\"joinop\":0},{\"key\":\"link\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"WindowUnload\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageClick\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"download\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"historyChange\"}],\"qtype\":100}"},
+          "name": "WebsiteAnalysis","fqry": {"type": 1,"name": "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"PageViewURL\"},{\"joinop\":0},{\"key\":\"link\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"WindowUnload\"},{\"joinop\":0},{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"PageClick\"},{\"joinop\":0},{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"download\"},{\"joinop\":0},{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"historyChange\"}],\"qtype\":100}"},
           "fatr": ["_id","e_c","e_v","pf_dm1","SessionID","System_platform","System_type","System_browser","Timestamp","link","download","Base_u","url","urlref"],
           "ostm": "WebsiteAnalysis_Data"
         },
-        
+        {
+          "name": "quoteForm","fqry": {"type": 1,"name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"quoteForm\"}],\"qtype\":1}"},"key_sep": ".","repeated_obj":1,
+          "fatr": ["_id","e_c","e_v","SessionID","System_platform","System_type","System_browser","Timestamp","url","urlref"],
+          "ostm": "quoteForm_stream"
+        }
       ],
       "node": [
         {
@@ -270,8 +274,6 @@
         {"name": "Gad","type": "STRING","kysz":12},
         {"name": "ChannelType","type":"STRING","kysz": 32},
         {"name": "Campaign_Visitor","type":"STRING","kysz":4},
-        {"name": "UTM_Medium","type": "STRING","kysz": 64},
-        {"name": "UTM_Content","type": "STRING","kysz": 64},
         {"name": "Client","type":"STRING","kysz": 32},
         {"name": "AffiliateId","type":"STRING","kysz": 32}
       ],
@@ -314,7 +316,13 @@
       "attr": [
         {"name": "_id","type": "STRING","kysz": 40},
         {"name": "BrowserLanguage","type": "STRING","kysz": 32},
-        {"name": "Device","type":"STRING","kysz": 16}
+        {"name": "Device","type":"STRING","kysz": 16},
+        {"name": "UTM_Medium","type": "STRING","kysz": 64},
+        {"name": "UTM_Content","type": "STRING","kysz": 64},
+        {"name": "UTM_Source","type": "STRING","kysz":64},
+        {"name": "System_platform","type": "STRING","kysz":32},
+        {"name": "System_type","type": "STRING","kysz":32},
+        {"name": "System_browser","type": "STRING","kysz":32}
       ],
       "gpby": [
         {"gpat": ["BrowserLanguage"],"gran": 900,"kysz": 120,"swsz": 94608000,"iatr": "_id","stat": "UCOUNT"},
@@ -526,6 +534,68 @@
           "sub": "_id","sub_label": "Visitor","obj": "Pageview","obj_label": "Page","rel": "HAS_VIEWED_PAGES",
           "rel_props": ["Timestamp","SessionID","action","SessionID"]
         }
+      ]
+    },
+    {
+      "name": "quoteForm_stream","inpt": ["Data"],"swsz": 94608000,"type": 2,
+      "attr": [
+        {"name": "_id","type": "STRING","kysz": 40,"sidx": 1},
+        {"name": "e_c","type": "STRING","kysz": 32},
+         {"name": "e_v","type": "OBJECT",
+          "fields":[
+            {"name": "e_v.as","type":"STRING","kysz":128},
+            {"name": "e_v.asname","type":"STRING","kysz":128},
+            {"name": "e_v.city","type":"STRING","kysz":128},
+            {"name": "e_v.continent","type":"STRING","kysz":32},
+            {"name": "e_v.continentCode","type":"STRING","kysz":8},
+            {"name": "e_v.country","type":"STRING","kysz":82},
+            {"name": "e_v.countryCode","type":"STRING","kysz":8},
+            {"name": "e_v.currency","type":"STRING","kysz":8},
+            {"name": "e_v.district","type":"STRING","kysz":128},
+            {"name": "e_v.hosting","type":"STRING","kysz":128},
+            {"name": "e_v.isp","type":"STRING","kysz":128},
+            {"name": "e_v.lat","type":11},
+            {"name": "e_v.lon","type":11},
+            {"name": "e_v.mobile","type":"STRING","kysz": 32},
+            {"name": "e_v.offset","type":11},
+            {"name": "e_v.org","type":"STRING","kysz": 128},
+            {"name": "e_v.proxy","type":"STRING","kysz": 32},
+            {"name": "e_v.query","type":"STRING","kysz": 24},
+            {"name": "e_v.region","type":"STRING","kysz": 32},
+            {"name": "e_v.regionName","type":"STRING","kysz": 128},
+            {"name": "e_v.reverse","type":"STRING","kysz": 32},
+            {"name": "e_v.status","type":"STRING","kysz": 24},
+            {"name": "e_v.timezone","type":"STRING","kysz": 24},
+            {"name": "e_v.zip","type":"STRING","kysz": 24},
+            {"name": "e_v.product_id","type":"STRING","kysz": 64},
+            {"name": "e_v.seller_id","type":"STRING","kysz": 64},
+            {"name": "e_v.stock","type":"STRING","kysz": 32},
+            {"name": "e_v.price_per_unit","type":"DOUBLE"},
+            {"name": "e_v.user_id","type":"STRING","kysz": 64},
+            {"name": "e_v.order_id","type":"STRING","kysz": 64},
+            {"name": "e_v.order_type","type":"STRING","kysz": 32},
+            {"name": "e_v.payment_method","type":"STRING","kysz": 32},
+            {"name": "e_v.quantity","type":"LONG"},
+            {"name": "e_v.total_price","type":"DOUBLE"},
+            {"name": "e_v.coupon_code","type":"STRING","kysz": 32},
+            {"name": "e_v.coupon_type","type":"STRING","kysz": 32},
+            {"name": "e_v.coupon_used","type":"STRING","kysz": 32},
+            {"name": "e_v.discount","type":"DOUBLE"},
+            {"name": "e_v.revenue","type":"DOUBLE"},
+            {"name": "e_v.shipping_charges","type":"DOUBLE"},
+            {"name": "e_v.tax","type":"DOUBLE"},
+            {"name": "e_v.first_name","type":"STRING","kysz": 24},
+            {"name": "e_v.last_name","type":"STRING","kysz": 32},
+            {"name": "e_v.email","type":"STRING","kysz": 128}
+          ]
+        },
+        {"name": "SessionID","type": "STRING","kysz": 45},
+        {"name": "System_platform","type": "STRING","kysz":32},
+        {"name": "System_type","type": "STRING","kysz":32},
+        {"name": "System_browser","type": "STRING","kysz":32},
+        {"name": "Timestamp","type":"LONG"},
+        {"name": "url","type":"STRING","kysz":250},
+        {"name": "urlref","type": "STRING","kysz": 250}
       ]
     }
   ]
