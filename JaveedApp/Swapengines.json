@@ -1,0 +1,6237 @@
+{
+  "schema": "Swapengines",
+  "streams": [
+    {
+      "name": "Campaign_Groups",
+      "inpt": [],
+      "swsz": 94608000,
+      "type": 1,
+      "attr": [
+        {
+          "name": "KeywordId",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Keyword",
+          "type": "STRING",
+          "kysz": 80
+        },
+        {
+          "name": "CampaignId",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "CampaignName",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "AdgroupId",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "AdgroupName",
+          "type": "STRING",
+          "kysz": 128
+        }
+      ],
+      "refr": [
+        {
+          "name": "CampaignNameRef",
+          "rstm": "Campaign_Groups",
+          "jqry": {
+            "cond": [
+              "CampaignId"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "CampaignId"
+            ]
+          },
+          "iatr": [
+            "CampaignName"
+          ],
+          "ratr": [
+            "CampaignName"
+          ],
+          "fnr": 3
+        },
+        {
+          "name": "AdgroupNameRef",
+          "rstm": "Campaign_Groups",
+          "jqry": {
+            "cond": [
+              "AdgroupId"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "AdgroupId"
+            ]
+          },
+          "iatr": [
+            "AdgroupName"
+          ],
+          "ratr": [
+            "AdgroupName"
+          ],
+          "fnr": 3
+        },
+        {
+          "name": "KeywordRef",
+          "rstm": "Campaign_Groups",
+          "jqry": {
+            "cond": [
+              "KeywordId"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "KeywordId"
+            ]
+          },
+          "iatr": [
+            "Keyword"
+          ],
+          "ratr": [
+            "Keyword"
+          ],
+          "fnr": 3
+        }
+      ],
+      "catr": [
+        {
+          "name": "keyid",
+          "iatr": [
+            "kwd-"
+          ],
+          "fnr": 1,
+          "seq": 1,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 4
+        },
+        {
+          "name": "KeywordID",
+          "iatr": [
+            "keyid",
+            "KeywordId"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "ADD",
+          "kysz": 32
+        },
+        {
+          "name": "CampaignID",
+          "iatr": [
+            "CampaignId"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 32
+        },
+        {
+          "name": "AdgroupID",
+          "iatr": [
+            "AdgroupId"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 32
+        }
+      ],
+      "node": [
+        {
+          "sub": "KeywordID",
+          "label": "Keyword",
+          "props": [
+            "KeywordId",
+            "Keyword"
+          ],
+          "updt": 1
+        },
+        {
+          "sub": "CampaignID",
+          "label": "Campaign",
+          "props": [
+            "CampaignId",
+            "CampaignName"
+          ],
+          "updt": 1
+        },
+        {
+          "sub": "AdgroupID",
+          "label": "Adgroup",
+          "props": [
+            "AdgroupId",
+            "AdgroupName"
+          ],
+          "updt": 1
+        }
+      ],
+      "rels": [
+        {
+          "sub": "KeywordID",
+          "sub_label": "Keyword",
+          "rel": "FOR_CAMPAIGN",
+          "obj": "CampaignID",
+          "obj_label": "Campaign",
+          "rel_props": [
+            {
+              "name": "_pk",
+              "label": "Timestamp"
+            }
+          ]
+        },
+        {
+          "sub": "CampaignID",
+          "sub_label": "Campaign",
+          "rel": "HAVE_ADGROUP",
+          "obj": "AdgroupID",
+          "obj_label": "Adgroup",
+          "rel_props": [
+            {
+              "name": "_pk",
+              "label": "Timestamp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Product_Data",
+      "inpt": [],
+      "swsz": 94608000,
+      "type": 1,
+      "attr": [
+        {
+          "name": "Product_Category",
+          "type": "STRING",
+          "kysz": 40
+        },
+        {
+          "name": "Product",
+          "type": "STRING",
+          "kysz": 40
+        },
+        {
+          "name": "Value",
+          "type": "STRING",
+          "kysz": 4
+        }
+      ]
+    },
+    {
+      "name": "Data",
+      "inpt": [],
+      "swsz": 7862400,
+      "type": 1,
+      "attr": [
+        {
+          "name": "action_name",
+          "type": "STRING",
+          "kysz": 40
+        },
+        {
+          "name": "idsite",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "rec",
+          "type": "LONG"
+        },
+        {
+          "name": "r",
+          "type": "LONG"
+        },
+        {
+          "name": "h",
+          "type": "LONG"
+        },
+        {
+          "name": "m",
+          "type": "LONG"
+        },
+        {
+          "name": "s",
+          "type": "LONG"
+        },
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40
+        },
+        {
+          "name": "_idn",
+          "type": "LONG"
+        },
+        {
+          "name": "_refts",
+          "type": "LONG"
+        },
+        {
+          "name": "send_image",
+          "type": "LONG"
+        },
+        {
+          "name": "pdf",
+          "type": "LONG"
+        },
+        {
+          "name": "qt",
+          "type": "LONG"
+        },
+        {
+          "name": "realp",
+          "type": "LONG"
+        },
+        {
+          "name": "wma",
+          "type": "LONG"
+        },
+        {
+          "name": "fla",
+          "type": "LONG"
+        },
+        {
+          "name": "java",
+          "type": "LONG"
+        },
+        {
+          "name": "ag",
+          "type": "LONG"
+        },
+        {
+          "name": "cookie",
+          "type": "LONG"
+        },
+        {
+          "name": "res",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "pv_id",
+          "type": "STRING",
+          "kysz": 12
+        },
+        {
+          "name": "pf_net",
+          "type": "LONG"
+        },
+        {
+          "name": "pf_srv",
+          "type": "LONG"
+        },
+        {
+          "name": "pf_tfr",
+          "type": "LONG"
+        },
+        {
+          "name": "pf_dm1",
+          "type": "LONG"
+        },
+        {
+          "name": "pf_dm2",
+          "type": "LONG"
+        },
+        {
+          "name": "pf_onl",
+          "type": "LONG"
+        },
+        {
+          "name": "ping",
+          "type": "LONG"
+        },
+        {
+          "name": "uid",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "url",
+          "type": "STRING",
+          "kysz": 280
+        },
+        {
+          "name": "_ref",
+          "type": "STRING",
+          "kysz": 280
+        },
+        {
+          "name": "e_c",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "e_a",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "e_n",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "ca",
+          "type": "LONG"
+        },
+        {
+          "name": "urlref",
+          "type": "STRING",
+          "kysz": 250
+        },
+        {
+          "name": "link",
+          "type": "STRING",
+          "kysz": 250
+        },
+        {
+          "name": "download",
+          "type": "STRING",
+          "kysz": 250
+        },
+        {
+          "name": "user_agent",
+          "type": "STRING",
+          "kysz": 250
+        },
+        {
+          "name": "System",
+          "type": "OBJECT",
+          "fields": [
+            {
+              "name": "System.platform",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "System.type",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "System.browser",
+              "type": "STRING",
+              "kysz": 32
+            }
+          ],
+          "key_sep": "."
+        },
+        {
+          "name": "e_v",
+          "type": "OBJECT",
+          "fields": [
+            {
+              "name": "e_v.as",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "e_v.asname",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "e_v.city",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "e_v.continent",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "e_v.continentCode",
+              "type": "STRING",
+              "kysz": 8
+            },
+            {
+              "name": "e_v.country",
+              "type": "STRING",
+              "kysz": 82
+            },
+            {
+              "name": "e_v.countryCode",
+              "type": "STRING",
+              "kysz": 8
+            },
+            {
+              "name": "e_v.currency",
+              "type": "STRING",
+              "kysz": 8
+            },
+            {
+              "name": "e_v.district",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "e_v.hosting",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "e_v.isp",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "e_v.lat",
+              "type": 11
+            },
+            {
+              "name": "e_v.lon",
+              "type": 11
+            },
+            {
+              "name": "e_v.mobile",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "e_v.offset",
+              "type": 11
+            },
+            {
+              "name": "e_v.org",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "e_v.proxy",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "e_v.query",
+              "type": "STRING",
+              "kysz": 24
+            },
+            {
+              "name": "e_v.region",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "e_v.regionName",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "e_v.reverse",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "e_v.status",
+              "type": "STRING",
+              "kysz": 24
+            },
+            {
+              "name": "e_v.timezone",
+              "type": "STRING",
+              "kysz": 24
+            },
+            {
+              "name": "e_v.zip",
+              "type": "STRING",
+              "kysz": 24
+            },
+            {
+              "name": "e_v.sel_year",
+              "type": "STRING",
+              "kysz": 4
+            },
+            {
+              "name": "e_v.sel_make",
+              "type": "STRING",
+              "kysz": 64
+            },
+            {
+              "name": "e_v.sel_mode",
+              "type": "STRING",
+              "kysz": 120
+            },
+            {
+              "name": "e_v.sel_size",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "e_v.sel_part",
+              "type": "STRING",
+              "kysz": 120
+            },
+            {
+              "name": "e_v.txt_name",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "e_v.txt_phon",
+              "type": "STRING",
+              "kysz": 15
+            },
+            {
+              "name": "e_v.email",
+              "type": "STRING",
+              "kysz": 250
+            }
+          ],
+          "key_sep": "."
+        },
+        {
+          "name": "URL",
+          "type": "OBJECT",
+          "fields": [
+            {
+              "name": "URL.base_u",
+              "type": "STRING",
+              "kysz": 160
+            },
+            {
+              "name": "URL.gclid",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "URL.msclkid",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "URL.MSCLKID",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "URL.utm_source",
+              "type": "STRING",
+              "kysz": 64
+            },
+            {
+              "name": "URL.utm_medium",
+              "type": "STRING",
+              "kysz": 64
+            },
+            {
+              "name": "URL.utm_content",
+              "type": "STRING",
+              "kysz": 64
+            },
+            {
+              "name": "URL.utm_campaign",
+              "type": "STRING",
+              "kysz": 24
+            },
+            {
+              "name": "URL.affiliateid",
+              "type": "STRING",
+              "kysz": 64
+            },
+            {
+              "name": "URL.utm_agid",
+              "type": "STRING",
+              "kysz": 24
+            },
+            {
+              "name": "URL.campaignid",
+              "type": "STRING",
+              "kysz": 24
+            },
+            {
+              "name": "URL.adgroupid",
+              "type": "STRING",
+              "kysz": 24
+            },
+            {
+              "name": "URL.extensionid",
+              "type": "STRING",
+              "kysz": 64
+            },
+            {
+              "name": "URL.targetid",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "URL.utm_term",
+              "type": "STRING",
+              "kysz": 124
+            },
+            {
+              "name": "URL.devicemodel",
+              "type": "STRING",
+              "kysz": 12
+            },
+            {
+              "name": "URL.placement",
+              "type": "STRING",
+              "kysz": 12
+            },
+            {
+              "name": "URL.device",
+              "type": "STRING",
+              "kysz": 12
+            },
+            {
+              "name": "URL.network",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "URL.matchtype",
+              "type": "STRING",
+              "kysz": 12
+            },
+            {
+              "name": "URL.loc_interest_ms",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "URL.loc_physical_ms",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "URL.adposition",
+              "type": "STRING",
+              "kysz": 64
+            },
+            {
+              "name": "URL.gad",
+              "type": "STRING",
+              "kysz": 12
+            },
+            {
+              "name": "URL.wbraid",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "URL.gbraid",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "URL.lang",
+              "type": "STRING",
+              "kysz": 24
+            },
+            {
+              "name": "URL.language",
+              "type": "STRING",
+              "kysz": 24
+            },
+            {
+              "name": "URL.search",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "URL.q",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "URL.query",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "URL.client",
+              "type": "STRING",
+              "kysz": 32
+            }
+          ],
+          "key_sep": "."
+        },
+        {
+          "name": "_pk",
+          "type": "LONG"
+        }
+      ],
+      "catr": [
+        {
+          "name": "SessionID",
+          "iatr": [
+            "_id",
+            "_idn"
+          ],
+          "fnr": 1,
+          "seq": 1,
+          "type": "STRING",
+          "opnm": "ADD",
+          "kysz": 45
+        },
+        {
+          "name": "Total_Sessions",
+          "iatr": [
+            "($_idn+1)"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "LONG",
+          "opnm": "MATH_EXP"
+        },
+        {
+          "name": "System",
+          "iatr": [
+            "user_agent"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "OBJECT",
+          "opnm": "UA_PARSE"
+        },
+        {
+          "name": "System_platform",
+          "iatr": [
+            "System.platform"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 32,
+          "key_sep": "."
+        },
+        {
+          "name": "System_type",
+          "iatr": [
+            "System.type"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 32,
+          "key_sep": "."
+        },
+        {
+          "name": "System_browser",
+          "iatr": [
+            "System.browser"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 32,
+          "key_sep": "."
+        },
+        {
+          "name": "BrowserLanguage",
+          "iatr": [
+            "e_v"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"BrowserLanguage\"}],\"qtype\":1}",
+            "type": 1
+          },
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 16
+        },
+        {
+          "name": "Timestamp",
+          "iatr": [
+            "_pk"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "LONG",
+          "opnm": "COPY"
+        },
+        {
+          "name": "URL",
+          "iatr": [
+            "url"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "OBJECT",
+          "opnm": "URL_PARSE"
+        },
+        {
+          "name": "Base_url",
+          "iatr": [
+            "URL.base_u"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 250,
+          "key_sep": "."
+        },
+        {
+          "name": "Base_url",
+          "alias": "a1",
+          "iatr": [
+            "url"
+          ],
+          "fnr": 3,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 250,
+          "key_sep": "."
+        },
+        {
+          "name": "Clickidentifier",
+          "iatr": [
+            "URL.gclid"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 128,
+          "sidx": 1
+        },
+        {
+          "name": "Clickidentifier",
+          "alias": "a2",
+          "iatr": [
+            "URL.msclkid"
+          ],
+          "fnr": 2,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 128,
+          "sidx": 1
+        },
+        {
+          "name": "Clickidentifier",
+          "alias": "a200",
+          "iatr": [
+            "URL.MSCLKID"
+          ],
+          "fnr": 2,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 128,
+          "sidx": 1
+        },
+        {
+          "name": "Clickidentifier",
+          "alias": "a3",
+          "iatr": [
+            "URL.wbraid"
+          ],
+          "fnr": 2,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 128,
+          "sidx": 1
+        },
+        {
+          "name": "Clickidentifier",
+          "alias": "a4",
+          "iatr": [
+            "URL.gbraid"
+          ],
+          "fnr": 2,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 128,
+          "sidx": 1
+        },
+        {
+          "name": "UTM_Source",
+          "iatr": [
+            "URL.utm_source"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 64
+        },
+        {
+          "name": "UTM_Medium",
+          "iatr": [
+            "URL.utm_medium"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 64
+        },
+        {
+          "name": "UTM_Content",
+          "iatr": [
+            "URL.utm_content"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 64
+        },
+        {
+          "name": "CampaignId",
+          "iatr": [
+            "URL.utm_campaign"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 32
+        },
+        {
+          "name": "AdgroupId",
+          "iatr": [
+            "URL.utm_agid"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 32
+        },
+        {
+          "name": "CampaignId",
+          "alias": "a5",
+          "iatr": [
+            "URL.campaignid"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 32
+        },
+        {
+          "name": "AdgroupId",
+          "alias": "a6",
+          "iatr": [
+            "URL.adgroupid"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 32
+        },
+        {
+          "name": "AffiliateId",
+          "iatr": [
+            "URL.affiliateid"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 64
+        },
+        {
+          "name": "ExtensionId",
+          "iatr": [
+            "URL.extensionid"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 64
+        },
+        {
+          "name": "KeywordId",
+          "iatr": [
+            "URL.targetid"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 32
+        },
+        {
+          "name": "Search_term",
+          "iatr": [
+            "URL.utm_term"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 120
+        },
+        {
+          "name": "Search_term",
+          "alias": "a18",
+          "iatr": [
+            "URL.q"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 120
+        },
+        {
+          "name": "Search_term",
+          "alias": "a19",
+          "iatr": [
+            "URL.search"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 120
+        },
+        {
+          "name": "Search_term",
+          "alias": "a20",
+          "iatr": [
+            "URL.query"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 120
+        },
+        {
+          "name": "Client",
+          "iatr": [
+            "URL.client"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 32
+        },
+        {
+          "name": "Devicemodel",
+          "iatr": [
+            "URL.devicemodel"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 12
+        },
+        {
+          "name": "Placement",
+          "iatr": [
+            "URL.placement"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 120
+        },
+        {
+          "name": "Network",
+          "iatr": [
+            "URL.network"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 32
+        },
+        {
+          "name": "Matchtype",
+          "iatr": [
+            "URL.matchtype"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 12
+        },
+        {
+          "name": "Location_interest",
+          "iatr": [
+            "URL.loc_interest_ms"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 32
+        },
+        {
+          "name": "LocationId",
+          "iatr": [
+            "URL.loc_physical_ms"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 32
+        },
+        {
+          "name": "Adposition",
+          "iatr": [
+            "URL.adposition"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 64
+        },
+        {
+          "name": "Gad",
+          "iatr": [
+            "URL.gad"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 12
+        },
+        {
+          "name": "ChannelType",
+          "iatr": [
+            "Campaign"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"CampaignId\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"Clickidentifier\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":100,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 32
+        },
+        {
+          "name": "ChannelType",
+          "alias": "a7",
+          "iatr": [
+            "Organic search"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"_ref\",\"cmp_op\":\"EQ\",\"val\":\"$urlref\"}],\"qtype\":2}",
+            "type": 1
+          },
+          "fnr": 3,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 32
+        },
+        {
+          "name": "Device",
+          "iatr": [
+            "Mobile"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"URL.device\",\"cmp_op\":\"EQ\",\"val\":\"m\"}],\"qtype\":1,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 16
+        },
+        {
+          "name": "Device",
+          "alias": "a8",
+          "iatr": [
+            "Tablet"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"URL.device\",\"cmp_op\":\"EQ\",\"val\":\"t\"}],\"qtype\":1,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "fnr": 3,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 16
+        },
+        {
+          "name": "Device",
+          "alias": "a9",
+          "iatr": [
+            "Desktop"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"URL.device\",\"cmp_op\":\"EQ\",\"val\":\"d\"},{\"joinop\":0},{\"key\":\"URL.device\",\"cmp_op\":\"EQ\",\"val\":\"c\"}],\"qtype\":100,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "fnr": 3,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 16
+        },
+        {
+          "name": "Device",
+          "alias": "a11",
+          "iatr": [
+            "Other"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"URL.device\",\"cmp_op\":\"EQ\",\"val\":\"o\"}],\"qtype\":1,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "fnr": 3,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 16
+        },
+        {
+          "name": "Device",
+          "alias": "a12",
+          "iatr": [
+            "Mobile"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"System.platform\",\"cmp_op\":\"EQ\",\"val\":\"iPhone\"},{\"joinop\":0},{\"key\":\"System.platform\",\"cmp_op\":\"EQ\",\"val\":\"Android\"}],\"qtype\":100,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 16
+        },
+        {
+          "name": "Device",
+          "alias": "a13",
+          "iatr": [
+            "Tablet"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"System.platform\",\"cmp_op\":\"EQ\",\"val\":\"iPad\"}],\"qtype\":1,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "fnr": 3,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 16
+        },
+        {
+          "name": "Device",
+          "alias": "a14",
+          "iatr": [
+            "Desktop"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"System.platform\",\"cmp_op\":\"EQ\",\"val\":\"Linux\"},{\"joinop\":0},{\"key\":\"System.platform\",\"cmp_op\":\"EQ\",\"val\":\"Windows\"},{\"joinop\":0},{\"key\":\"System.platform\",\"cmp_op\":\"EQ\",\"val\":\"Mac\"}],\"qtype\":100,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "fnr": 3,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 16
+        },
+        {
+          "name": "ChannelType",
+          "alias": "a15",
+          "iatr": [
+            "Direct"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"urlref\",\"cmp_op\":\"NA\",\"val\":\"NA\"},{\"joinop\":0},{\"key\":\"_ref\",\"cmp_op\":\"NA\",\"val\":\"NA\"}],\"qtype\":1}",
+            "type": 1
+          },
+          "fnr": 3,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 32
+        },
+        {
+          "name": "ChannelType",
+          "alias": "a16",
+          "iatr": [
+            "Campaign"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"_ref\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"CampaignId\",\"cmp_op\":\"NA\",\"val\":\"NA\"}],\"qtype\":1}",
+            "type": 1
+          },
+          "fnr": 3,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 32
+        },
+        {
+          "name": "Campaign_Visitor",
+          "iatr": [
+            "Yes"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"Clickidentifier\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":1}",
+            "type": 1
+          },
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 4,
+          "opnm": "COPY_VAL"
+        },
+        {
+          "name": "Campaign_Session",
+          "iatr": [
+            "Yes"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"CampaignId\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"Clickidentifier\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":100,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "fnr": 2,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 4,
+          "opnm": "COPY_VAL"
+        },
+        {
+          "name": "URL_parameters",
+          "iatr": [
+            "Campaign_Visitor"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 4,
+          "opnm": "COPY"
+        },
+        {
+          "name": "Year",
+          "iatr": [
+            "e_v.sel_year"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 4
+        },
+        {
+          "name": "Make",
+          "iatr": [
+            "e_v.sel_make"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 64
+        },
+        {
+          "name": "Model",
+          "iatr": [
+            "e_v.sel_mode"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 120
+        },
+        {
+          "name": "Size",
+          "iatr": [
+            "e_v.sel_size"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 32
+        },
+        {
+          "name": "Part",
+          "iatr": [
+            "e_v.sel_part"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 120
+        },
+        {
+          "name": "Name",
+          "iatr": [
+            "e_v.txt_name"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 128
+        },
+        {
+          "name": "Phone",
+          "iatr": [
+            "e_v.txt_phon"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 15
+        },
+        {
+          "name": "Email",
+          "iatr": [
+            "e_v.email"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 128
+        },
+        {
+          "name": "IPAddress",
+          "iatr": [
+            "e_v.query"
+          ],
+          "fnr": 1,
+          "seq": 1,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 32,
+          "sidx": 1
+        },
+        {
+          "name": "BangDB_City",
+          "iatr": [
+            "e_v.city"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 128
+        },
+        {
+          "name": "BangDB_Continent",
+          "iatr": [
+            "e_v.continent"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 32
+        },
+        {
+          "name": "BangDB_Country",
+          "iatr": [
+            "e_v.country"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 128
+        },
+        {
+          "name": "BangDB_Service_Provider",
+          "iatr": [
+            "e_v.isp"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 128
+        },
+        {
+          "name": "BangDB_State",
+          "iatr": [
+            "e_v.regionName"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 128
+        },
+        {
+          "name": "BangDB_Zipcode",
+          "iatr": [
+            "e_v.zip"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 24
+        },
+        {
+          "name": "BangDB_District",
+          "iatr": [
+            "e_v.district"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "key_sep": ".",
+          "kysz": 24
+        },
+        {
+          "name": "error_type",
+          "iatr": [
+            "e_c"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 32,
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"JavaScript Errors\"}],\"qtype\":1}"
+          }
+        },
+        {
+          "name": "error",
+          "iatr": [
+            "e_n"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 32,
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"JavaScript Errors\"}],\"qtype\":1}"
+          }
+        },
+        {
+          "name": "Call_Page",
+          "iatr": [
+            "Base_url"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 250,
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"CallButton\"}],\"qtype\":1}"
+          }
+        },
+        {
+          "name": "StartTime",
+          "iatr": [
+            "Timestamp"
+          ],
+          "opnm": "COPY",
+          "fnr": 3,
+          "seq": 0,
+          "type": "LONG"
+        },
+        {
+          "name": "SessionTime",
+          "iatr": [
+            "(($Timestamp-$StartTime)/60000000)"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "DOUBLE",
+          "opnm": "MATH_EXP",
+          "gran_type": "MIN",
+          "gran": 1
+        },
+        {
+          "name": "Visitor_Duration",
+          "type": "DOUBLE",
+          "opnm": "COPY_VAL",
+          "iatr": [
+            "0"
+          ],
+          "fnr": 2,
+          "seq": 0,
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"SessionTime\",\"cmp_op\":\"GT\",\"val\":20}],\"qtype\":1}"
+          }
+        },
+        {
+          "name": "StartTime",
+          "alias": "400",
+          "iatr": [
+            "Timestamp"
+          ],
+          "opnm": "COPY",
+          "fnr": 2,
+          "seq": 0,
+          "type": "LONG",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"SessionTime\",\"cmp_op\":\"GT\",\"val\":20}],\"qtype\":1}"
+          }
+        },
+        {
+          "name": "Visitor_Duration",
+          "alias": "a121",
+          "type": "DOUBLE",
+          "opnm": "COPY",
+          "iatr": [
+            "SessionTime"
+          ],
+          "fnr": 2,
+          "seq": 0
+        },
+        {
+          "name": "Visitor_Duration",
+          "alias": "a122",
+          "type": "DOUBLE",
+          "opnm": "COPY_VAL",
+          "iatr": [
+            "0"
+          ],
+          "fnr": 2,
+          "seq": 0,
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"SessionTime\",\"cmp_op\":\"GT\",\"val\":20}],\"qtype\":1}"
+          }
+        },
+        {
+          "name": "Visitor_Duration",
+          "alias": "a123",
+          "type": "DOUBLE",
+          "opnm": "COPY_VAL",
+          "iatr": [
+            "0"
+          ],
+          "fnr": 3,
+          "seq": 0
+        },
+        {
+          "name": "Campaign_Visitor",
+          "alias": "130",
+          "iatr": [
+            "No"
+          ],
+          "fnr": 3,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 4,
+          "opnm": "COPY_VAL"
+        },
+        {
+          "name": "User_Status",
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "iatr": [
+            "Revisit"
+          ],
+          "fnr": 1,
+          "kysz": 12,
+          "seq": 0,
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"SessionTime\",\"cmp_op\":\"GT\",\"val\":20}],\"qtype\":1}"
+          }
+        },
+        {
+          "name": "Scrolled",
+          "iatr": [
+            "e_v"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"Scrolled\"}],\"qtype\":1}",
+            "type": 1
+          },
+          "fnr": 1,
+          "seq": 0,
+          "type": "LONG",
+          "opnm": "COPY"
+        }
+      ],
+      "refr": [
+        {
+          "name": "CampaignDetails_Ref",
+          "rstm": "Data",
+          "jqry": {
+            "cond": [
+              "_id"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "_id"
+            ]
+          },
+          "iatr": [
+            "Campaign_Visitor"
+          ],
+          "ratr": [
+            "Campaign_Visitor"
+          ],
+          "fnr": 1
+        },
+        {
+          "name": "Session_Time_Ref",
+          "rstm": "Data",
+          "jqry": {
+            "cond": [
+              "SessionID"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "SessionID"
+            ]
+          },
+          "iatr": [
+            "StartTime"
+          ],
+          "ratr": [
+            "StartTime"
+          ],
+          "fnr": 1,
+          "tloc": 3600
+        },
+        {
+          "name": "Scrolling",
+          "rstm": "Data",
+          "jqry": {
+            "cond": [
+              "_id",
+              "e_c"
+            ],
+            "cmp": [
+              "EQ",
+              "EQ"
+            ],
+            "opnm": "HYBRID",
+            "args": [
+              "_id",
+              "Srolled"
+            ]
+          },
+          "iatr": [
+            "scroll_event"
+          ],
+          "ratr": [
+            "e_c"
+          ],
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"Link_clicked\"}],\"qtype\":1}"
+          }
+        },
+        {
+          "name": "Linked_clicked",
+          "rstm": "Data",
+          "jqry": {
+            "cond": [
+              "_id",
+              "e_c"
+            ],
+            "cmp": [
+              "EQ",
+              "EQ"
+            ],
+            "opnm": "HYBRID",
+            "args": [
+              "_id",
+              "Link_clicked"
+            ]
+          },
+          "iatr": [
+            "Linked_event",
+            "scroll_event"
+          ],
+          "ratr": [
+            "e_c",
+            "scroll_event"
+          ],
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"quoteForm\"}],\"qtype\":1}"
+          }
+        },
+        {
+          "name": "Visit_Duration",
+          "rstm": "VisitorDuration_Entity",
+          "fnr": 1,
+          "ratr": [
+            "Visit_Duration.sum"
+          ],
+          "iatr": [
+            "Visitor_Duration"
+          ],
+          "jqry": {
+            "args": [
+              "Visitor_id"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "cond": [
+              "_id"
+            ],
+            "opnm": "ATTR"
+          }
+        }
+      ],
+      "fltr": [
+        {
+          "name": "Default_tracking_Data",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"action_name\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"ChannelType\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":\"1\"}"
+          },
+          "fatr": [
+            "Visitor_Duration",
+            "_id",
+            "_idn",
+            "SessionID",
+            "res",
+            "System_platform",
+            "System_type",
+            "System_browser",
+            "Timestamp",
+            "Device",
+            "Clickidentifier",
+            "UTM_Source",
+            "UTM_Medium",
+            "UTM_Content",
+            "CampaignId",
+            "AdgroupId",
+            "ExtensionId",
+            "KeywordId",
+            "Search_term",
+            "Devicemodel",
+            "Placement",
+            "Network",
+            "Matchtype",
+            "Location_interest",
+            "LocationId",
+            "Adposition",
+            "Gad",
+            "ChannelType",
+            "Campaign_Visitor",
+            "UTM_Medium",
+            "UTM_Content",
+            "AffiliateId",
+            "Client"
+          ],
+          "ostm": "LandingPage_Data"
+        },
+        {
+          "name": "Data_BrowserLanguage",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"BrowserLanguage\"}],\"qtype\":\"1\"}"
+          },
+          "fatr": [
+            "Visitor_Duration",
+            "_id",
+            "BrowserLanguage",
+            "Device"
+          ],
+          "ostm": "Data_BrowserLanguage"
+        },
+        {
+          "name": "Error_Data",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"JavaScript Errors\"}],\"qtype\":1}"
+          },
+          "fatr": [
+            "Visitor_Duration",
+            "_id",
+            "SessionID",
+            "e_a",
+            "error",
+            "error_type",
+            "System_platform",
+            "System_type",
+            "System_browser",
+            "Base_url",
+            "Device",
+            "Timestamp",
+            "Client",
+            "Campaign_Visitor"
+          ],
+          "ostm": "Error_Data"
+        },
+        {
+          "name": "User_GeoAnalysis",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"IP\"}],\"qtype\":1}"
+          },
+          "fatr": [
+            "_id",
+            "_idn",
+            "SessionID",
+            "Device",
+            "IPAddress",
+            "BangDB_City",
+            "BangDB_Continent",
+            "BangDB_Country",
+            "BangDB_Service_Provider",
+            "KeywordId",
+            "Search_term",
+            "BangDB_State",
+            "BangDB_Zipcode",
+            "BangDB_District",
+            "System_platform",
+            "System_type",
+            "System_browser",
+            "Timestamp",
+            "Clickidentifier",
+            "ChannelType",
+            "UTM_Source",
+            "UTM_Medium",
+            "UTM_Content",
+            "CampaignId",
+            "Campaign_Visitor",
+            "Client",
+            "AffiliateId"
+          ],
+          "key_sep": ".",
+          "ostm": "Location_Data"
+        },
+        {
+          "name": "WebsiteAnalysis",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageViewURL\"},{\"joinop\":0},{\"key\":\"link\",\"cmp_op\":\"NE\",\"val\":\"0\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"WindowUnload\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageClick\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"download\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"historyChange\"}],\"qtype\":100}"
+          },
+          "fatr": [
+            "Visitor_Duration",
+            "_id",
+            "e_c",
+            "e_v",
+            "pf_dm1",
+            "SessionID",
+            "System_platform",
+            "System_type",
+            "System_browser",
+            "Timestamp",
+            "link",
+            "download",
+            "Base_url",
+            "url",
+            "urlref",
+            "Campaign_Visitor"
+          ],
+          "ostm": "WebsiteAnalysis_Data"
+        },
+        {
+          "name": "Leads_form",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"quoteForm\"}],\"qtype\":1}"
+          },
+          "fatr": [
+            "Visitor_Duration",
+            "_id",
+            "_idn",
+            "SessionID",
+            "System_platform",
+            "System_type",
+            "System_browser",
+            "Year",
+            "Make",
+            "Model",
+            "Size",
+            "Part",
+            "Name",
+            "Phone",
+            "Email",
+            "Timestamp",
+            "Campaign_Visitor",
+            "idsite"
+          ],
+          "ostm": "Leads_Data"
+        },
+        {
+          "name": "Pattern_1",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"quoteForm\"},{\"joinop\":0},{\"key\":\"Linked_event\",\"cmp_op\":\"EQ\",\"val\":\"Link_clicked\"},{\"joinop\":0},{\"key\":\"scroll_event\",\"cmp_op\":\"EQ\",\"val\":\"Srolled\"}],\"qtype\":1}"
+          },
+          "fatr": [
+            "Visitor_Duration",
+            "_id",
+            "_idn",
+            "SessionID",
+            "System_platform",
+            "System_type",
+            "System_browser",
+            "Year",
+            "Make",
+            "Model",
+            "Size",
+            "Part",
+            "Name",
+            "Phone",
+            "Email",
+            "Timestamp",
+            "Campaign_Visitor"
+          ],
+          "ostm": "Scroll_Link_form"
+        },
+        {
+          "name": "CallsAnalysis",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"CallButton\"},{\"joinop\":0},{\"key\":\"e_v\",\"cmp_op\":\"NE\",\"val\":\"null\"},{\"joinop\":0},{\"key\":\"e_v\",\"cmp_op\":\"NE\",\"val\":\"\"}],\"qtype\":1}"
+          },
+          "fatr": [
+            "_id",
+            "_idn",
+            "SessionID",
+            "System_platform",
+            "System_type",
+            "System_browser",
+            "Timestamp",
+            "Call_Page"
+          ],
+          "ostm": "CallsAnalysis"
+        },
+        {
+          "name": "Second_form",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"quoteForm2\"}],\"qtype\":1}"
+          },
+          "fatr": [
+            "Visitor_Duration",
+            "_id",
+            "_idn",
+            "SessionID",
+            "System_platform",
+            "System_type",
+            "System_browser",
+            "Year",
+            "Make",
+            "Model",
+            "Size",
+            "Part",
+            "Name",
+            "Phone",
+            "Email",
+            "Timestamp",
+            "Campaign_Visitor",
+            "idsite"
+          ],
+          "ostm": "Leads_form2"
+        },
+        {
+          "name": "Data_Scrolled",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_a\",\"cmp_op\":\"EQ\",\"val\":\"Scrolled\"}],\"qtype\":\"1\"}"
+          },
+          "fatr": [
+            "Visitor_Duration",
+            "_id",
+            "Scrolled",
+            "Device"
+          ],
+          "ostm": "Data_Scrolling"
+        }
+      ],
+      "node": [
+        {
+          "sub": "_id",
+          "label": "Visitor",
+          "props": [
+            "_id",
+            "StartTime",
+            "Visitor_Duration",
+            {
+              "name": "SessionID",
+              "label": "Latest_Session"
+            },
+            "System_platform",
+            "System_type",
+            "System_browser",
+            "Timestamp",
+            "res",
+            "_ref",
+            "urlref",
+            "Clickidentifier",
+            "UTM_Source",
+            "UTM_Medium",
+            "UTM_Content",
+            "CampaignId",
+            "AdgroupId",
+            "ExtensionId",
+            "KeywordId",
+            "Search_term",
+            "Device",
+            "Devicemodel",
+            "Placement",
+            "Network",
+            "Matchtype",
+            "Location_interest",
+            "LocationId",
+            "Adposition",
+            "Gad",
+            "Campaign_Visitor",
+            "UTM_Medium",
+            "UTM_Content",
+            "AffiliateId",
+            "Client",
+            {
+              "name": "Timestamp",
+              "label": "EndTime"
+            }
+          ],
+          "updt": 1
+        }
+      ],
+      "enty": [
+        {
+          "name": "Visitor_Duration",
+          "pkatr": [
+            {
+              "name": "Visitor_id",
+              "iatr": [
+                "_id"
+              ],
+              "opnm": "COPY",
+              "kysz": 12,
+              "type": "STRING"
+            }
+          ],
+          "rstm": "VisitorDuration_Entity",
+          "iatr": [
+            "SessionTime"
+          ],
+          "ratr": [
+            "Visit_Duration"
+          ],
+          "opnm": "RSTAT"
+        }
+      ],
+      "cepq": [
+        {
+          "tloc": 1000,
+          "type": 6,
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_v\",\"cmp_op\":\"NA\",\"val\":\"NA\"}],\"qtype\":1}"
+          },
+          "name": "empty_e_v",
+          "notf": 101
+        }
+      ],
+      "join": [],
+      "gpby": []
+    },
+    {
+      "name": "LandingPage_Data",
+      "inpt": [
+        "Date"
+      ],
+      "swsz": 7862400,
+      "type": 2,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40,
+          "stat": "UCOUNT",
+          "gran_type": "MIN",
+          "gran": 1,
+          "sidx": 1
+        },
+        {
+          "name": "_idn",
+          "type": "LONG"
+        },
+        {
+          "name": "SessionID",
+          "type": "STRING",
+          "kysz": 45,
+          "stat": "COUNT",
+          "gran_type": "MIN",
+          "gran": 1,
+          "sidx": 1
+        },
+        {
+          "name": "System_platform",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_type",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_browser",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "url",
+          "type": "STRING",
+          "kysz": 250
+        },
+        {
+          "name": "pf_dm1",
+          "type": "LONG",
+          "stat": "RSTAT",
+          "gran_type": "MIN",
+          "gran": 15
+        },
+        {
+          "name": "Timestamp",
+          "type": "LONG"
+        },
+        {
+          "name": "res",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "_ref",
+          "type": "STRING",
+          "kysz": 280
+        },
+        {
+          "name": "urlref",
+          "type": "STRING",
+          "kysz": 250
+        },
+        {
+          "name": "Base_url",
+          "type": "STRING",
+          "kysz": 250
+        },
+        {
+          "name": "Clickidentifier",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "UTM_Source",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "UTM_Medium",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "UTM_Content",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "CampaignId",
+          "type": "STRING",
+          "kysz": 32,
+          "stat": "UCOUNT"
+        },
+        {
+          "name": "AdgroupId",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "ExtensionId",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "KeywordId",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Search_term",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Device",
+          "type": "STRING",
+          "kysz": 16
+        },
+        {
+          "name": "Devicemodel",
+          "type": "STRING",
+          "kysz": 12
+        },
+        {
+          "name": "Placement",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Network",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Matchtype",
+          "type": "STRING",
+          "kysz": 12
+        },
+        {
+          "name": "Location_interest",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "LocationId",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Adposition",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "Gad",
+          "type": "STRING",
+          "kysz": 12
+        },
+        {
+          "name": "ChannelType",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Campaign_Visitor",
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "UTM_Medium",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "UTM_Content",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "Client",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "AffiliateId",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Visitor_Duration",
+          "type": "DOUBLE"
+        }
+      ],
+      "catr": [
+        {
+          "name": "action",
+          "iatr": [
+            "default_data"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 12
+        },
+        {
+          "name": "Session",
+          "iatr": [
+            "($_idn+1)"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "LONG",
+          "opnm": "MATH_EXP",
+          "stat": "RSTAT"
+        },
+        {
+          "name": "referred_From",
+          "iatr": [
+            "_ref"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 250,
+          "opnm": "COPY"
+        }
+      ],
+      "gpby": [
+        {
+          "gpat": [
+            "Device"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "System_platform"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "pf_dm1",
+          "stat": "RSTAT"
+        },
+        {
+          "gpat": [
+            "System_type"
+          ],
+          "gran": 900,
+          "kysz": 250,
+          "swsz": 94608000,
+          "iatr": "pf_dm1",
+          "stat": "RSTAT"
+        },
+        {
+          "gpat": [
+            "System_browser"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "pf_dm1",
+          "stat": "RSTAT"
+        },
+        {
+          "gpat": [
+            "res"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "referred_From"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "CampaignId"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "KeywordId"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Base_url"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "pf_dm1",
+          "stat": "RSTAT"
+        },
+        {
+          "gpat": [
+            "CampaignId",
+            "AdgroupId"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Source"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Medium"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Content"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Search_term"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "ChannelType"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Source",
+            "CampaignId"
+          ],
+          "gran": 900,
+          "kysz": 250,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Device",
+            "System_platform",
+            "System_browser"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Campaign_Visitor"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        }
+      ],
+      "refr": [
+        {
+          "name": "Loc_physicalRef",
+          "rstm": "Location_ID",
+          "jqry": {
+            "cond": [
+              "LocationId"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "LocationId"
+            ]
+          },
+          "iatr": [
+            "URL_City",
+            "URL_State",
+            "URL_Country"
+          ],
+          "ratr": [
+            "City",
+            "State",
+            "Country"
+          ],
+          "fnr": 1,
+          "rstm_type": "TABLE"
+        },
+        {
+          "name": "CampaignNameRef",
+          "rstm": "Campaign_Groups",
+          "jqry": {
+            "cond": [
+              "CampaignId"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "CampaignId"
+            ]
+          },
+          "iatr": [
+            "CampaignName"
+          ],
+          "ratr": [
+            "CampaignName"
+          ],
+          "fnr": 1
+        },
+        {
+          "name": "AdgroupNameRef",
+          "rstm": "Campaign_Groups",
+          "jqry": {
+            "cond": [
+              "AdgroupId"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "AdgroupId"
+            ]
+          },
+          "iatr": [
+            "AdgroupName"
+          ],
+          "ratr": [
+            "AdgroupName"
+          ],
+          "fnr": 1
+        },
+        {
+          "name": "KeywordRef",
+          "rstm": "Campaign_Groups",
+          "jqry": {
+            "cond": [
+              "KeywordId"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "KeywordId"
+            ]
+          },
+          "iatr": [
+            "Keyword"
+          ],
+          "ratr": [
+            "Keyword"
+          ],
+          "fnr": 1
+        }
+      ],
+      "tbls": [
+        {
+          "name": "Visitors_details5",
+          "tblname": "Swapengines_Visit_Details",
+          "pk": "_id",
+          "primary": 1
+        }
+      ],
+      "rels": [
+        {
+          "sub": "_id",
+          "sub_label": "Visitor",
+          "obj": "Base_url",
+          "obj_label": "Page",
+          "rel": "HAS_VIEWED_PAGES",
+          "sub_props": [
+            "ChannelType",
+            "Campaign_Visitor",
+            "URL_City",
+            "URL_State",
+            "URL_Country",
+            "CampaignName",
+            "AdgroupName",
+            "Keyword"
+          ],
+          "rel_props": [
+            "Timestamp",
+            "action",
+            "SessionID"
+          ],
+          "sub_updt": 1
+        }
+      ]
+    },
+    {
+      "name": "Data_BrowserLanguage",
+      "inpt": [
+        "Data"
+      ],
+      "swsz": 7862400,
+      "type": 2,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40
+        },
+        {
+          "name": "BrowserLanguage",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Device",
+          "type": "STRING",
+          "kysz": 16
+        },
+        {
+          "name": "Visitor_Duration",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "Campaign_Visitor",
+          "type": "STRING",
+          "kysz": 4
+        }
+      ],
+      "gpby": [
+        {
+          "gpat": [
+            "BrowserLanguage"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "UCOUNT"
+        },
+        {
+          "gpat": [
+            "BrowserLanguage",
+            "Device"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "UCOUNT"
+        }
+      ],
+      "tbls": [
+        {
+          "name": "Visitors_details4",
+          "tblname": "Swapengines_Visit_Details",
+          "pk": "_id",
+          "primary": 1
+        }
+      ],
+      "node": [
+        {
+          "sub": "_id",
+          "label": "Visitor",
+          "props": [
+            "BrowserLanguage"
+          ],
+          "updt": 1
+        }
+      ]
+    },
+    {
+      "name": "Data_Scrolling",
+      "inpt": [
+        "Data"
+      ],
+      "swsz": 7862400,
+      "type": 2,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40
+        },
+        {
+          "name": "Scrolled",
+          "type": "LONG"
+        },
+        {
+          "name": "Device",
+          "type": "STRING",
+          "kysz": 16
+        },
+        {
+          "name": "Visitor_Duration",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "Campaign_Visitor",
+          "type": "STRING",
+          "kysz": 4
+        }
+      ],
+      "tbls": [
+        {
+          "name": "Visitors_details4",
+          "tblname": "Swapengines_Visit_Details",
+          "pk": "_id",
+          "primary": 1
+        }
+      ]
+    },
+    {
+      "name": "Error_Data",
+      "inpt": [
+        "Data"
+      ],
+      "swsz": 7862400,
+      "type": 2,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40,
+          "stat": "COUNT"
+        },
+        {
+          "name": "e_a",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "error_type",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "error",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "SessionID",
+          "type": "STRING",
+          "kysz": 45,
+          "sidx": 1
+        },
+        {
+          "name": "System_platform",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_type",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_browser",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Device",
+          "type": "STRING",
+          "kysz": 16
+        },
+        {
+          "name": "Base_url",
+          "type": "STRING",
+          "kysz": 250
+        },
+        {
+          "name": "Timestamp",
+          "type": "LONG"
+        },
+        {
+          "name": "Client",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Visitor_Duration",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "Campaign_Visitor",
+          "type": "STRING",
+          "kysz": 4
+        }
+      ],
+      "catr": [
+        {
+          "name": "action",
+          "iatr": [
+            "error"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 12
+        }
+      ],
+      "gpby": [
+        {
+          "gpat": [
+            "System_browser"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Device"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "error"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Base_url"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "error",
+            "Base_url"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "System_platform"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Client"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        }
+      ],
+      "tbls": [
+        {
+          "name": "Visitors_details3",
+          "tblname": "Swapengines_Visit_Details",
+          "pk": "_id",
+          "primary": 1
+        }
+      ],
+      "rels": [
+        {
+          "sub": "_id",
+          "sub_label": "Visitor",
+          "obj": "Base_url",
+          "obj_label": "Page",
+          "rel": "HAS_VIEWED_PAGES",
+          "rel_props": [
+            "Timestamp",
+            {
+              "name": "e_a",
+              "label": "error_type"
+            },
+            {
+              "name": "e_n",
+              "label": "error"
+            },
+            "action",
+            "SessionID"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Location_Data",
+      "inpt": [
+        "Date"
+      ],
+      "swsz": 7862400,
+      "type": 2,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40,
+          "sidx": 1
+        },
+        {
+          "name": "_idn",
+          "type": "LONG"
+        },
+        {
+          "name": "SessionID",
+          "type": "STRING",
+          "kysz": 45
+        },
+        {
+          "name": "Device",
+          "type": "STRING",
+          "kysz": 16
+        },
+        {
+          "name": "System_platform",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_type",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_browser",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Timestamp",
+          "type": "LONG"
+        },
+        {
+          "name": "Clickidentifier",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "ChannelType",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "KeywordId",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Search_term",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "UTM_Source",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "CampaignId",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "IPAddress",
+          "type": "STRING",
+          "kysz": 32,
+          "sidx": 1
+        },
+        {
+          "name": "BangDB_City",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "BangDB_Continent",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "BangDB_Country",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "BangDB_Service_Provider",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "BangDB_State",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "BangDB_Zipcode",
+          "type": "STRING",
+          "kysz": 24
+        },
+        {
+          "name": "BangDB_District",
+          "type": "STRING",
+          "kysz": 24
+        },
+        {
+          "name": "Campaign_Visitor",
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "UTM_Medium",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "UTM_Content",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "Client",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "AffiliateId",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "AffiliateId",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Visitor_Duration",
+          "type": "DOUBLE"
+        }
+      ],
+      "refr": [
+        {
+          "name": "Location_Data_Ref",
+          "rstm": "Location_Data",
+          "jqry": {
+            "cond": [
+              "IPAddress"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "IPAddress"
+            ]
+          },
+          "iatr": [
+            "Previous_Timestamp",
+            "PrevioustoPrevious_TS"
+          ],
+          "ratr": [
+            "Timestamp",
+            "Previous_Timestamp"
+          ],
+          "fnr": 1
+        }
+      ],
+      "catr": [
+        {
+          "name": "Swapengines",
+          "iatr": [
+            "Visited"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 12
+        },
+        {
+          "name": "Time_difference",
+          "iatr": [
+            "($Timestamp-$Previous_Timestamp)"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "LONG",
+          "opnm": "MATH_EXP"
+        },
+        {
+          "name": "User_Status",
+          "iatr": [
+            "Revisit"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"Time_difference\",\"cmp_op\":\"GT\",\"val\":1800000000},{\"joinop\":0},{\"key\":\"PrevioustoPrevious_TS\",\"cmp_op\":\"EQ\",\"val\":0}],\"qtype\":100,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 12
+        },
+        {
+          "name": "User_Status",
+          "alias": "a16",
+          "iatr": [
+            "First_Time"
+          ],
+          "fnr": 3,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 12
+        }
+      ],
+      "gpby": [
+        {
+          "gpat": [
+            "User_Status"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "BangDB_Country"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "BangDB_Country",
+            "Campaign_Visitor"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "BangDB_Country",
+            "User_Status"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "BangDB_Country",
+            "ChannelType"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "BangDB_Country",
+            "BangDB_State",
+            "Device"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "BangDB_Country",
+            "BangDB_State",
+            "System_platform"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "BangDB_Country",
+            "BangDB_State"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "BangDB_Country",
+            "BangDB_State",
+            "BangDB_City"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "BangDB_Service_Provider"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "BangDB_Country",
+            "BangDB_State",
+            "ChannelType"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "BangDB_Country",
+            "BangDB_State",
+            "UTM_Source"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "BangDB_Country",
+            "BangDB_State",
+            "CampaignId"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        }
+      ],
+      "tbls": [
+        {
+          "name": "Visitors_details4",
+          "tblname": "Swapengines_Visit_Details",
+          "pk": "_id",
+          "primary": 1
+        },
+        {
+          "name": "IP_table",
+          "tblname": "Visitors_IPAddress_table",
+          "pk": "IPAddress",
+          "primary": 1
+        }
+      ],
+      "node": [
+        {
+          "sub": "_id",
+          "label": "Visitor",
+          "props": [
+            "IPAddress",
+            "User_Status",
+            "BangDB_City",
+            "BangDB_Continent",
+            "BangDB_Country",
+            "BangDB_Service_Provider",
+            "BangDB_State",
+            "BangDB_Zipcode",
+            "BangDB_District"
+          ],
+          "updt": 1
+        }
+      ]
+    },
+    {
+      "name": "WebsiteAnalysis_Data",
+      "inpt": [
+        "Data"
+      ],
+      "swsz": 94608000,
+      "type": 2,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40,
+          "sidx": 1
+        },
+        {
+          "name": "e_c",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "e_v",
+          "type": "OBJECT"
+        },
+        {
+          "name": "pf_dm1",
+          "type": "LONG"
+        },
+        {
+          "name": "SessionID",
+          "type": "STRING",
+          "kysz": 45
+        },
+        {
+          "name": "System_platform",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_type",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_browser",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Timestamp",
+          "type": "LONG"
+        },
+        {
+          "name": "link",
+          "type": "STRING",
+          "kysz": 250,
+          "stat": "COUNT",
+          "gran": 15,
+          "gran_type": "MIN"
+        },
+        {
+          "name": "download",
+          "type": "STRING",
+          "kysz": 250,
+          "stat": "COUNT",
+          "gran": 15,
+          "gran_type": "MIN"
+        },
+        {
+          "name": "Base_url",
+          "type": "STRING",
+          "kysz": 250
+        },
+        {
+          "name": "Campaign_Visitor",
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "url",
+          "type": "STRING",
+          "kysz": 250
+        },
+        {
+          "name": "urlref",
+          "type": "STRING",
+          "kysz": 250
+        },
+        {
+          "name": "LastPageURL",
+          "type": "OBJECT",
+          "fields": [
+            {
+              "name": "LastPageURL.base_u",
+              "type": "STRING",
+              "kysz": 160
+            }
+          ],
+          "key_sep": "."
+        },
+        {
+          "name": "Visitor_Duration",
+          "type": "DOUBLE"
+        }
+      ],
+      "refr": [
+        {
+          "name": "CampaignDetails_Ref",
+          "rstm": "LandingPage_Data",
+          "jqry": {
+            "cond": [
+              "_id",
+              "Campaign_Visitor"
+            ],
+            "cmp": [
+              "EQ",
+              "EQ"
+            ],
+            "opnm": "HYBRID",
+            "args": [
+              "_id",
+              "Yes"
+            ]
+          },
+          "iatr": [
+            "UTM_Source",
+            "CampaignId",
+            "KeywordId",
+            "ChannelType",
+            "Device",
+            "Campaign_Visitor",
+            "UTM_Medium",
+            "UTM_Content",
+            "AffiliateId"
+          ],
+          "ratr": [
+            "UTM_Source",
+            "CampaignId",
+            "KeywordId",
+            "ChannelType",
+            "Device",
+            "Campaign_Visitor",
+            "UTM_Medium",
+            "UTM_Content",
+            "AffiliateId"
+          ],
+          "fnr": 1,
+          "tloc": 86400
+        },
+        {
+          "name": "BangDBLocation_Ref",
+          "rstm": "Location_Data",
+          "jqry": {
+            "cond": [
+              "SessionID"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "SessionID"
+            ]
+          },
+          "iatr": [
+            "Country",
+            "City",
+            "State"
+          ],
+          "ratr": [
+            "BangDB_Country",
+            "BangDB_City",
+            "BangDB_State"
+          ],
+          "fnr": 1,
+          "tloc": 86400
+        },
+        {
+          "name": "Session_Time_Ref",
+          "rstm": "WebsiteAnalysis_Data",
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageViewURL\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"WindowUnload\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"historyChange\"}],\"qtype\":100,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "jqry": {
+            "cond": [
+              "SessionID"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "SessionID"
+            ]
+          },
+          "iatr": [
+            "StartTime",
+            "PreviousPage"
+          ],
+          "ratr": [
+            "StartTime",
+            "Page"
+          ],
+          "fnr": 1,
+          "tloc": 3600
+        }
+      ],
+      "catr": [
+        {
+          "name": "Pagecount",
+          "iatr": [
+            "1"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "LONG",
+          "opnm": "COPY_VAL"
+        },
+        {
+          "name": "action",
+          "iatr": [
+            "Pageview"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY_VAL",
+          "kysz": 12
+        },
+        {
+          "name": "Page",
+          "iatr": [
+            "Base_url"
+          ],
+          "fnr": 1,
+          "seq": 1,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 250
+        },
+        {
+          "name": "Pageview",
+          "iatr": [
+            "Page"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageViewURL\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"historyChange\"}],\"qtype\":100,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "opnm": "COPY",
+          "kysz": 4,
+          "stat": "COUNT",
+          "gran": 15,
+          "gran_type": "MIN"
+        },
+        {
+          "name": "StartTime",
+          "iatr": [
+            "Timestamp"
+          ],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"PageViewURL\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"WindowUnload\"},{\"joinop\":0},{\"key\":\"e_c\",\"cmp_op\":\"EQ\",\"val\":\"historyChange\"}],\"qtype\":100,\"key_sep\":\".\"}",
+            "type": 1
+          },
+          "opnm": "COPY",
+          "fnr": 3,
+          "seq": 0,
+          "type": "LONG"
+        },
+        {
+          "name": "SessionTime",
+          "iatr": [
+            "(($Timestamp-$StartTime)/86400)"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "LONG",
+          "opnm": "MATH_EXP",
+          "stat": "RSTAT",
+          "gran_type": "MIN",
+          "gran": 1
+        }
+      ],
+      "gpby": [
+        {
+          "gpat": [
+            "link"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "download"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Pageview"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Country"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "link",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Country"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "Pageview",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Country",
+            "State"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "link",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Country",
+            "State"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "Pageview",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Country",
+            "State"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "download",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "System_browser"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "Pageview",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "System_browser"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "link",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "System_browser"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "download",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Source"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "Pageview",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Source"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "link",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Source"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "download",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Medium"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "Pageview",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Medium"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "link",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Medium"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "download",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "ChannelType"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "Pageview",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "ChannelType"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "link",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "ChannelType"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "download",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "CampaignId"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "Pageview",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "CampaignId"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "link",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "CampaignId"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "download",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Device"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "Pageview",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Device"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "link",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Device"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "download",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Campaign_Visitor"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "Pageview",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Campaign_Visitor"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "link",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Campaign_Visitor"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "download",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Country"
+          ],
+          "gran": 900,
+          "kysz": 120,
+          "swsz": 94608000,
+          "iatr": "SessionTime",
+          "stat": "RSTAT"
+        },
+        {
+          "gpat": [
+            "PreviousPage"
+          ],
+          "gran": 900,
+          "kysz": 250,
+          "swsz": 94608000,
+          "iatr": "SessionTime",
+          "stat": "RSTAT"
+        }
+      ],
+      "enty": [
+        {
+          "name": "Visitor_Page_Count",
+          "pkatr": [
+            {
+              "name": "Visitor_id",
+              "iatr": [
+                "_id"
+              ],
+              "opnm": "COPY",
+              "kysz": 12,
+              "type": "STRING"
+            }
+          ],
+          "rstm": "VisitorPage_Entity",
+          "iatr": [
+            "Pagecount"
+          ],
+          "ratr": [
+            "TotalPages"
+          ],
+          "opnm": "RSTAT"
+        }
+      ],
+      "rels": [
+        {
+          "sub": "_id",
+          "sub_label": "Visitor",
+          "obj": "Pageview",
+          "obj_label": "Page",
+          "rel": "HAS_VIEWED_PAGES",
+          "rel_props": [
+            "Timestamp",
+            "SessionID",
+            "action",
+            "SessionID"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Leads_Data",
+      "inpt": [
+        "Date"
+      ],
+      "swsz": 7862400,
+      "type": 2,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40,
+          "sidx": 1
+        },
+        {
+          "name": "_idn",
+          "type": "LONG"
+        },
+        {
+          "name": "SessionID",
+          "type": "STRING",
+          "kysz": 45,
+          "sidx": 1
+        },
+        {
+          "name": "System_platform",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_type",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_browser",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Timestamp",
+          "type": "LONG",
+          "sidx": 1
+        },
+        {
+          "name": "Year",
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "idsite",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Make",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "Model",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Size",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Part",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Name",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "Phone",
+          "type": "STRING",
+          "kysz": 15
+        },
+        {
+          "name": "Email",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "Visitor_Duration",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "Campaign_Visitor",
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "_pk",
+          "type": "STRING",
+          "kysz": 120
+        }
+      ],
+      "catr": [
+        {
+          "name": "Sp",
+          "type": "STRING",
+          "kysz": 2,
+          "opnm": "COPY_VAL",
+          "iatr": [
+            " "
+          ],
+          "seq": 1,
+          "fnr": 1
+        },
+        {
+          "name": "title",
+          "iatr": [
+            "Phone",
+            "Sp",
+            "Make",
+            "Sp",
+            "Model",
+            "Sp",
+            "Size",
+            "Sp",
+            "Part",
+            "Year"
+          ],
+          "kysz": 124,
+          "type": "STRING",
+          "opnm": "ADD",
+          "fnr": 1,
+          "seq": 1,
+          "sidx": 1
+        },
+        {
+          "name": "time_dif",
+          "iatr": [
+            "($_pk - 1800000000)"
+          ],
+          "type": "LONG",
+          "opnm": "MATH_EXP",
+          "fnr": 1,
+          "seq": 1
+        }
+      ],
+      "refr": [
+        {
+          "name": "checking_lead_id",
+          "rstm": "Leads_Data",
+          "jqry": {
+            "cond": [
+              "title",
+              "_id",
+              "time_dif"
+            ],
+            "cmp": [
+              "EQ",
+              "EQ",
+              "GT"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "title",
+              "_id",
+              "Timestamp"
+            ]
+          },
+          "iatr": [
+            "lead_exist"
+          ],
+          "ratr": [
+            {
+              "val": "YES"
+            }
+          ],
+          "tloc": 1800
+        }
+      ],
+      "fltr": [
+        {
+          "name": "unique_leads",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"lead_exist\",\"cmp_op\":\"NA\",\"val\":\"NA\"},{\"joinop\":0},{\"key\":\"Phone\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":1}"
+          },
+          "fatr": [
+            "Visitor_Duration",
+            "_id",
+            "_idn",
+            "SessionID",
+            "System_platform",
+            "System_type",
+            "System_browser",
+            "Year",
+            "Make",
+            "Model",
+            "Size",
+            "Part",
+            "Name",
+            "Phone",
+            "Email",
+            "Timestamp",
+            "Campaign_Visitor",
+            "title",
+            "idsite"
+          ],
+          "ostm": "Unique_Leads"
+        }
+      ]
+    },
+    {
+      "name": "Unique_Leads",
+      "inpt": [
+        "Leads_Data"
+      ],
+      "swsz": 7862400,
+      "type": 2,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40,
+          "sidx": 1,
+          "stat": "COUNT"
+        },
+        {
+          "name": "_idn",
+          "type": "LONG"
+        },
+        {
+          "name": "SessionID",
+          "type": "STRING",
+          "kysz": 45,
+          "sidx": 1
+        },
+        {
+          "name": "System_platform",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_type",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_browser",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "idsite",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Timestamp",
+          "type": "LONG",
+          "sidx": 1
+        },
+        {
+          "name": "Year",
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "Make",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "Model",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Size",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Part",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Name",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "Phone",
+          "type": "STRING",
+          "kysz": 15
+        },
+        {
+          "name": "Email",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Product_Category",
+          "type": "STRING",
+          "kysz": 24
+        },
+        {
+          "name": "Visitor_Duration",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "Campaign_Visitor",
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "_meta",
+          "type": "OBJECT",
+          "fields": [
+            {
+              "name": "_meta.created_time",
+              "type": "LONG"
+            },
+            {
+              "name": "_meta.idsite",
+              "type": "STRING",
+              "kysz": 120
+            }
+          ],
+          "key_sep": "."
+        },
+        {
+          "name": "c_f",
+          "type": "OBJECT"
+        },
+        {
+          "name": "_pk",
+          "type": "LONG"
+        }
+      ],
+      "catr": [
+        {
+          "name": "jid",
+          "iatr": [
+            "Timestamp"
+          ],
+          "opnm": "COPY",
+          "fnr": 1,
+          "seq": 1,
+          "type": "LONG"
+        },
+        {
+          "name": "FormSubmitted",
+          "iatr": [
+            "Yes"
+          ],
+          "opnm": "COPY_VAL",
+          "fnr": 1,
+          "seq": 1,
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "Timestamp",
+          "iatr": [
+            "_pk"
+          ],
+          "opnm": "COPY",
+          "fnr": 1,
+          "seq": 1,
+          "type": "LONG"
+        },
+        {
+          "name": "PhoneLocCode",
+          "iatr": [
+            "SUBSTR($Phone,0,3)"
+          ],
+          "opnm": "MATH_EXP",
+          "fnr": 1,
+          "seq": 1,
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "FormSubmit_Timestamp",
+          "iatr": [
+            "Timestamp"
+          ],
+          "opnm": "COPY",
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 24
+        },
+        {
+          "name": "_meta.created_time",
+          "iatr": [
+            "Timestamp"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "LONG",
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "Visitor_Duration",
+          "type": "DOUBLE",
+          "opnm": "COPY_VAL",
+          "iatr": [
+            "1.5"
+          ],
+          "fnr": 2,
+          "seq": 0,
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"Visitor_Duration\",\"cmp_op\":\"EQ\",\"val\":0}],\"qtype\":1}",
+            "type": 1
+          }
+        },
+        {
+          "name": "_meta.idsite",
+          "iatr": [
+            "idsite"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 120,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "Second_form",
+          "iatr": [
+            "No"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "kysz": 4,
+          "type": "STRING",
+          "opnm": "COPY_VAL"
+        },
+        {
+          "name": "c_f.Year",
+          "iatr": [
+            "Year"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 4,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Make",
+          "iatr": [
+            "Make"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 64,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Model",
+          "iatr": [
+            "Model"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 120,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Size",
+          "iatr": [
+            "Size"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 32,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Part",
+          "iatr": [
+            "Part"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 120,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Name",
+          "iatr": [
+            "Name"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 128,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Phone",
+          "iatr": [
+            "Phone"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 15,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Email",
+          "iatr": [
+            "Email"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 128,
+          "opnm": "COPY",
+          "key_sep": "."
+        }
+      ],
+      "refr": [
+        {
+          "name": "CampaignDetails_Ref",
+          "rstm": "Swapengines_Visit_Details",
+          "jqry": {
+            "cond": [
+              "_id"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "_id"
+            ]
+          },
+          "iatr": [
+            "Clickidentifier",
+            "UTM_Source",
+            "UTM_Medium",
+            "UTM_Content",
+            "CampaignId",
+            "KeywordId",
+            "ChannelType",
+            "Device",
+            "AffiliateId",
+            "URL_Country",
+            "URL_City",
+            "URL_State",
+            "Search_term",
+            "IPAddress",
+            "User_Status",
+            "BangDB_City",
+            "BangDB_Continent",
+            "BangDB_Country",
+            "BangDB_Service_Provider",
+            "BangDB_State",
+            "BangDB_Zipcode",
+            "BangDB_District"
+          ],
+          "ratr": [
+            "Clickidentifier",
+            "UTM_Source",
+            "UTM_Medium",
+            "UTM_Content",
+            "CampaignId",
+            "KeywordId",
+            "ChannelType",
+            "Device",
+            "AffiliateId",
+            "URL_Country",
+            "URL_City",
+            "URL_State",
+            "Search_term",
+            "IPAddress",
+            "User_Status",
+            "BangDB_City",
+            "BangDB_Continent",
+            "BangDB_Country",
+            "BangDB_Service_Provider",
+            "BangDB_State",
+            "BangDB_Zipcode",
+            "BangDB_District"
+          ],
+          "rstm_type": "TABLE"
+        },
+        {
+          "name": "PhoneLocationRef",
+          "rstm": "Phone_Number_Area_Code",
+          "jqry": {
+            "cond": [
+              "PhoneLocCode"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "Code"
+            ]
+          },
+          "iatr": [
+            "Phone_State"
+          ],
+          "ratr": [
+            "State"
+          ],
+          "fnr": 1,
+          "rstm_type": "TABLE"
+        },
+        {
+          "name": "Parts_ref",
+          "rstm": "Product_Data",
+          "jqry": {
+            "cond": [
+              "Part",
+              "Product_Category"
+            ],
+            "cmp": [
+              "EQ",
+              "EQ"
+            ],
+            "opnm": "HYBRID",
+            "args": [
+              "Value",
+              "Part"
+            ]
+          },
+          "iatr": [
+            "Part"
+          ],
+          "ratr": [
+            "Product"
+          ],
+          "fnr": 1
+        },
+        {
+          "name": "Make_ref",
+          "rstm": "Product_Data",
+          "jqry": {
+            "cond": [
+              "Make",
+              "Product_Category"
+            ],
+            "cmp": [
+              "EQ",
+              "EQ"
+            ],
+            "opnm": "HYBRID",
+            "args": [
+              "Value",
+              "Make"
+            ]
+          },
+          "iatr": [
+            "Make"
+          ],
+          "ratr": [
+            "Product"
+          ],
+          "fnr": 1
+        }
+      ],
+      "tbls": [
+        {
+          "name": "Visitors_details2",
+          "tblname": "Swapengines_Visit_Details",
+          "pk": "_id",
+          "primary": 1
+        },
+        {
+          "name": "Leads_Data",
+          "tblname": "Swapengines_Leads_Details",
+          "pk": "Timestamp",
+          "primary": 1
+        }
+      ],
+      "gpby": [
+        {
+          "gpat": [
+            "Device"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Device",
+            "System_browser"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Part"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Device"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Device",
+            "Part"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "ChannelType"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "ChannelType",
+            "Part"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "URL_City"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "URL_City",
+            "Part"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "URL_State"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "URL_State",
+            "Part"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Search_term"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "CampaignId"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Content"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Source"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Source",
+            "Part"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "UTM_Medium"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "KeywordId"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        },
+        {
+          "gpat": [
+            "Campaign_Visitor"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "Timestamp",
+          "stat": "COUNT"
+        }
+      ],
+      "rels": [
+        {
+          "sub": "_id",
+          "sub_label": "Visitor",
+          "obj": "FormSubmit_Timestamp",
+          "obj_label": "FormSubmit",
+          "rel": "HAS_SUMBITTED_FORM",
+          "sub_props": [
+            "FormSubmitted",
+            "Year",
+            "Make",
+            "Model",
+            "Size",
+            "Part",
+            "Name",
+            "Phone",
+            "Email"
+          ],
+          "rel_props": [
+            "Timestamp",
+            "SessionID",
+            "action",
+            "SessionID"
+          ],
+          "obj_props": [
+            "Year",
+            "Make",
+            "Model",
+            "Size",
+            "Part",
+            "Name",
+            "Phone",
+            "Email"
+          ],
+          "obj_updt": 1,
+          "sub_updt": 1
+        }
+      ],
+      "join": [
+        {
+          "name": "leads_Swapengines_1",
+          "jqry": {
+            "cond": [
+              "_id",
+              "Timestamp"
+            ],
+            "cmp": [
+              "EQ",
+              "GT"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "_id",
+              "Timestamp"
+            ]
+          },
+          "tloc": 60,
+          "type": 1,
+          "rstm": "CallsAnalysis",
+          "ostm": "Calls_Leads",
+          "ratr": [
+            "_id"
+          ],
+          "iatr": [
+            "jid",
+            "Year",
+            "Make",
+            "Model",
+            "Size",
+            "Part",
+            "Name",
+            "Phone",
+            "Email",
+            "title",
+            "idsite"
+          ]
+        }
+      ],
+      "work": [
+        {
+          "name": "Test_Visitors_Leads",
+          "work_name": "Leads_Management",
+          "iatr": [
+            "c_f",
+            "title",
+            "_meta"
+          ],
+          "pk": "jid",
+          "updt": 1
+        }
+      ]
+    },
+    {
+      "name": "Leads_form2",
+      "inpt": [
+        "Data"
+      ],
+      "swsz": 7862400,
+      "type": 2,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40,
+          "sidx": 1,
+          "stat": "COUNT"
+        },
+        {
+          "name": "_idn",
+          "type": "LONG"
+        },
+        {
+          "name": "SessionID",
+          "type": "STRING",
+          "kysz": 45,
+          "sidx": 1
+        },
+        {
+          "name": "System_platform",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "idsite",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "System_type",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_browser",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Timestamp",
+          "type": "LONG"
+        },
+        {
+          "name": "Year",
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "Make",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "Model",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Size",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Part",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Name",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "Phone",
+          "type": "STRING",
+          "kysz": 15
+        },
+        {
+          "name": "Email",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "Visitor_Duration",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "Campaign_Visitor",
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "c_f",
+          "type": "OBJECT"
+        }
+      ],
+      "catr": [
+        {
+          "name": "Second_form",
+          "iatr": [
+            "Yes"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "kysz": 4,
+          "type": "STRING",
+          "opnm": "COPY_VAL"
+        },
+        {
+          "name": "c_f.Year",
+          "iatr": [
+            "Year"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 4,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Make",
+          "iatr": [
+            "Make"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 64,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Model",
+          "iatr": [
+            "Model"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 120,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Size",
+          "iatr": [
+            "Size"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 32,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Part",
+          "iatr": [
+            "Part"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 120,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Name",
+          "iatr": [
+            "Name"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 128,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Phone",
+          "iatr": [
+            "Phone"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 15,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Email",
+          "iatr": [
+            "Email"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 128,
+          "opnm": "COPY",
+          "key_sep": "."
+        }
+      ],
+      "refr": [
+        {
+          "name": "data_leadform1",
+          "rstm": "Unique_Leads",
+          "jqry": {
+            "cond": [
+              "_id"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "_id"
+            ]
+          },
+          "iatr": [
+            "jid"
+          ],
+          "ratr": [
+            "jid"
+          ]
+        }
+      ],
+      "tbls": [
+        {
+          "name": "Visitors_details2",
+          "tblname": "Swapengines_Visit_Details",
+          "pk": "_id",
+          "primary": 1
+        },
+        {
+          "name": "Leads_Data",
+          "tblname": "Swapengines_Leads_Details",
+          "pk": "Timestamp",
+          "primary": 1
+        }
+      ],
+      "node": [
+        {
+          "sub": "_id",
+          "label": "Visitor",
+          "props": [
+            "Year",
+            "Make",
+            "Model",
+            "Size",
+            "Part",
+            "Name",
+            "Phone",
+            "Email"
+          ],
+          "updt": 1
+        }
+      ],
+      "work": [
+        {
+          "name": "Test_Visitors_Leads",
+          "work_name": "Leads_Management",
+          "iatr": [
+            "c_f"
+          ],
+          "pk": "jid",
+          "updt": 1
+        }
+      ]
+    },
+    {
+      "name": "CallsAnalysis",
+      "inpt": [
+        "Data"
+      ],
+      "swsz": 94608000,
+      "type": 2,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40,
+          "sidx": 1,
+          "stat": "COUNT"
+        },
+        {
+          "name": "_idn",
+          "type": "LONG"
+        },
+        {
+          "name": "SessionID",
+          "type": "STRING",
+          "kysz": 45
+        },
+        {
+          "name": "System_platform",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_type",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_browser",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Timestamp",
+          "type": "LONG"
+        },
+        {
+          "name": "Call_Page",
+          "type": "STRING",
+          "kysz": 250
+        },
+        {
+          "name": "_pk",
+          "type": "LONG"
+        }
+      ],
+      "catr": [
+        {
+          "name": "Timestamp",
+          "iatr": [
+            "($_pk - 60000000)"
+          ],
+          "type": "LONG",
+          "opnm": "MATH_EXP",
+          "fnr": 2,
+          "seq": 1
+        },
+        {
+          "name": "Call",
+          "iatr": [
+            "YES"
+          ],
+          "type": "STRING",
+          "kysz": 4,
+          "opnm": "COPY_VAL",
+          "fnr": 1,
+          "seq": 0
+        }
+      ],
+      "gpby": [
+        {
+          "gpat": [
+            "Call_Page"
+          ],
+          "gran": 900,
+          "kysz": 64,
+          "swsz": 94608000,
+          "iatr": "_id",
+          "stat": "COUNT"
+        }
+      ],
+      "tbls": [
+        {
+          "name": "Visitors_details1",
+          "tblname": "Swapengines_Visit_Details",
+          "pk": "_id",
+          "primary": 1
+        }
+      ],
+      "join": [
+        {
+          "name": "call_Swapengines_1",
+          "jqry": {
+            "cond": [
+              "_id",
+              "Timestamp"
+            ],
+            "cmp": [
+              "EQ",
+              "GT"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "_id",
+              "Timestamp"
+            ]
+          },
+          "tloc": 60,
+          "type": 1,
+          "rstm": "Unique_Leads",
+          "ostm": "Calls_Leads",
+          "iatr": [
+            "_id"
+          ],
+          "ratr": [
+            "jid",
+            "Year",
+            "Make",
+            "Model",
+            "Size",
+            "Part",
+            "Name",
+            "Phone",
+            "Email",
+            "title",
+            "idsite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calls_Leads",
+      "inpt": [
+        "Unique_Leads",
+        "CallsAnalysis"
+      ],
+      "swsz": 7862400,
+      "type": 3,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40,
+          "sidx": 1,
+          "stat": "COUNT"
+        },
+        {
+          "name": "idsite",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Year",
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "Make",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "Model",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Size",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Part",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Name",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "Phone",
+          "type": "STRING",
+          "kysz": 15
+        },
+        {
+          "name": "Email",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "jid",
+          "type": "LONG"
+        },
+        {
+          "name": "_meta",
+          "type": "OBJECT",
+          "fields": [
+            {
+              "name": "_meta.created_time",
+              "type": "LONG"
+            },
+            {
+              "name": "_meta.idsite",
+              "type": "STRING",
+              "kysz": 120
+            }
+          ],
+          "key_sep": "."
+        },
+        {
+          "name": "c_f",
+          "type": "OBJECT"
+        }
+      ],
+      "catr": [
+        {
+          "name": "_meta.created_time",
+          "iatr": [
+            "jid"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "LONG",
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "_meta.idsite",
+          "iatr": [
+            "idsite"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 120,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "_meta.call",
+          "iatr": [
+            "YES"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 4,
+          "opnm": "COPY_VAL",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Year",
+          "iatr": [
+            "Year"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 4,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Make",
+          "iatr": [
+            "Make"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 64,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Model",
+          "iatr": [
+            "Model"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 120,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Size",
+          "iatr": [
+            "Size"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 32,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Part",
+          "iatr": [
+            "Part"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 120,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Name",
+          "iatr": [
+            "Name"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 128,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Phone",
+          "iatr": [
+            "Phone"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 15,
+          "opnm": "COPY",
+          "key_sep": "."
+        },
+        {
+          "name": "c_f.Email",
+          "iatr": [
+            "Email"
+          ],
+          "fnr": 1,
+          "seq": 0,
+          "type": "STRING",
+          "kysz": 128,
+          "opnm": "COPY",
+          "key_sep": "."
+        }
+      ],
+      "work": [
+        {
+          "name": "Test_Visitors_Leads",
+          "work_name": "Premium_Lead",
+          "iatr": [
+            "c_f",
+            "title",
+            "_meta"
+          ],
+          "pk": "jid",
+          "updt": 1
+        },
+        {
+          "name": "leads_1",
+          "work_name": "Leads_Management",
+          "userid": "javeed.gilly@gmail.com",
+          "groupid": "*",
+          "pipeid": "*",
+          "pk": "jid",
+          "del": 1,
+          "seq": 1
+        }
+      ]
+    },
+    {
+      "name": "Scroll_Link_form",
+      "inpt": [
+        "Date"
+      ],
+      "swsz": 7862400,
+      "type": 2,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40,
+          "sidx": 1,
+          "stat": "COUNT"
+        },
+        {
+          "name": "_idn",
+          "type": "LONG"
+        },
+        {
+          "name": "SessionID",
+          "type": "STRING",
+          "kysz": 45,
+          "sidx": 1
+        },
+        {
+          "name": "System_platform",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_type",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "System_browser",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Timestamp",
+          "type": "LONG"
+        },
+        {
+          "name": "Year",
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "Make",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "Model",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Size",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Part",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Name",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "Phone",
+          "type": "STRING",
+          "kysz": 15
+        },
+        {
+          "name": "Email",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "Product_Category",
+          "type": "STRING",
+          "kysz": 24
+        },
+        {
+          "name": "Visitor_Duration",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "Campaign_Visitor",
+          "type": "STRING",
+          "kysz": 4
+        }
+      ],
+      "refr": [
+        {
+          "name": "CampaignDetails_Ref",
+          "rstm": "Swapengines_Visit_Details",
+          "jqry": {
+            "cond": [
+              "_id"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "_id"
+            ]
+          },
+          "iatr": [
+            "Clickidentifier",
+            "UTM_Source",
+            "UTM_Medium",
+            "UTM_Content",
+            "CampaignId",
+            "KeywordId",
+            "ChannelType",
+            "Device",
+            "AffiliateId",
+            "URL_Country",
+            "URL_City",
+            "URL_State",
+            "Search_term",
+            "IPAddress",
+            "User_Status",
+            "BangDB_City",
+            "BangDB_Continent",
+            "BangDB_Country",
+            "BangDB_Service_Provider",
+            "BangDB_State",
+            "BangDB_Zipcode",
+            "BangDB_District"
+          ],
+          "ratr": [
+            "Clickidentifier",
+            "UTM_Source",
+            "UTM_Medium",
+            "UTM_Content",
+            "CampaignId",
+            "KeywordId",
+            "ChannelType",
+            "Device",
+            "AffiliateId",
+            "URL_Country",
+            "URL_City",
+            "URL_State",
+            "Search_term",
+            "IPAddress",
+            "User_Status",
+            "BangDB_City",
+            "BangDB_Continent",
+            "BangDB_Country",
+            "BangDB_Service_Provider",
+            "BangDB_State",
+            "BangDB_Zipcode",
+            "BangDB_District"
+          ],
+          "rstm_type": "TABLE"
+        },
+        {
+          "name": "PhoneLocationRef",
+          "rstm": "Phone_Number_Area_Code",
+          "jqry": {
+            "cond": [
+              "PhoneLocCode"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "Code"
+            ]
+          },
+          "iatr": [
+            "Phone_State"
+          ],
+          "ratr": [
+            "State"
+          ],
+          "fnr": 1,
+          "rstm_type": "TABLE"
+        },
+        {
+          "name": "Parts_ref",
+          "rstm": "Product_Data",
+          "jqry": {
+            "cond": [
+              "Part",
+              "Product_Category"
+            ],
+            "cmp": [
+              "EQ",
+              "EQ"
+            ],
+            "opnm": "HYBRID",
+            "args": [
+              "Value",
+              "Part"
+            ]
+          },
+          "iatr": [
+            "Part"
+          ],
+          "ratr": [
+            "Product"
+          ],
+          "fnr": 1
+        },
+        {
+          "name": "Make_ref",
+          "rstm": "Product_Data",
+          "jqry": {
+            "cond": [
+              "Make",
+              "Product_Category"
+            ],
+            "cmp": [
+              "EQ",
+              "EQ"
+            ],
+            "opnm": "HYBRID",
+            "args": [
+              "Value",
+              "Make"
+            ]
+          },
+          "iatr": [
+            "Make"
+          ],
+          "ratr": [
+            "Product"
+          ],
+          "fnr": 1
+        }
+      ],
+      "catr": [
+        {
+          "name": "PhoneLocCode",
+          "iatr": [
+            "SUBSTR($Phone,0,3)"
+          ],
+          "opnm": "MATH_EXP",
+          "fnr": 1,
+          "seq": 1,
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "FormSubmit_Timestamp",
+          "iatr": [
+            "Timestamp"
+          ],
+          "opnm": "COPY",
+          "fnr": 1,
+          "seq": 0,
+          "type": "LONG"
+        }
+      ],
+      "tbls": [
+        {
+          "name": "Visitors_details2",
+          "tblname": "Swapengines_Visit_Details_PL",
+          "pk": "Timestamp",
+          "primary": 1
+        }
+      ]
+    },
+    {
+      "name": "VisitorPage_Entity",
+      "inpt": [
+        "WebsiteAnalysis_Data"
+      ],
+      "swsz": 153792000,
+      "type": 4,
+      "attr": [
+        {
+          "name": "TotalPages",
+          "type": "LONG"
+        },
+        {
+          "name": "Visitor_id",
+          "kysz": 40,
+          "type": "STRING",
+          "pk": 1,
+          "sidx": 1
+        }
+      ]
+    },
+    {
+      "name": "VisitorDuration_Entity",
+      "inpt": [
+        "Data"
+      ],
+      "swsz": 153792000,
+      "type": 4,
+      "attr": [
+        {
+          "name": "Visit_Duration",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "Visitor_id",
+          "kysz": 40,
+          "type": "STRING",
+          "pk": 1,
+          "sidx": 1
+        }
+      ]
+    }
+  ],
+  "notifs": [
+    {
+      "name": "empty_e_v",
+      "msg": "form data is empty",
+      "freq": 60,
+      "pri": 1,
+      "notifid": 101,
+      "mailto": [],
+      "endpoints": [],
+      "schemaid": 8448435541993183000
+    }
+  ],
+  "udfs": []
+}
