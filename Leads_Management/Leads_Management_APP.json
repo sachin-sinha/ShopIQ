@@ -1,0 +1,651 @@
+{
+  "schemas": [
+    {
+      "schema": "8c6c1e99_Leads_Management",
+      "streams": [
+        {
+          "name": "Data",
+          "inpt": [],
+          "swsz": 7862400,
+          "type": 1,
+          "attr": [
+            {
+              "name": "_pk",
+              "type": "LONG"
+            },
+            {
+              "name": "Website",
+              "type": "STRING",
+              "kysz": 128,
+              "stat": "UCOUNT"
+            },
+            {
+              "name": "FormId",
+              "type": "STRING",
+              "kysz": 32,
+              "stat": "UCOUNT"
+            },
+            {
+              "name": "c_f",
+              "type": "OBJECT"
+            },
+            {
+              "name": "_meta",
+              "type": "OBJECT"
+            }
+          ],
+          "catr": [
+            {
+              "name": "Timestamp",
+              "iatr": [
+                "_pk"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "STRING",
+              "opnm": "COPY",
+              "stat": "COUNT",
+              "gran_type": "MIN",
+              "gran": 1
+            },
+            {
+              "name": "Sp",
+              "type": "STRING",
+              "kysz": 2,
+              "opnm": "COPY_VAL",
+              "iatr": [
+                " "
+              ],
+              "seq": 0,
+              "fnr": 1
+            },
+            {
+              "name": "title",
+              "type": "STRING",
+              "kysz": 64,
+              "opnm": "ADD",
+              "iatr": [
+                "Sp"
+              ],
+              "seq": 0,
+              "fnr": 1
+            },
+            {
+              "name": "_meta.created_time",
+              "iatr": [
+                "_pk"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "LONG",
+              "opnm": "COPY",
+              "key_sep": "."
+            }
+          ],
+          "gpby": [
+            {
+              "gpat": [
+                "FormId"
+              ],
+              "gran": 900,
+              "kysz": 120,
+              "swsz": 94608000,
+              "iatr": "Timestamp",
+              "stat": "COUNT"
+            },
+            {
+              "gpat": [
+                "Website"
+              ],
+              "gran": 900,
+              "kysz": 120,
+              "swsz": 94608000,
+              "iatr": "Timestamp",
+              "stat": "COUNT"
+            },
+            {
+              "gpat": [
+                "Website",
+                "FormId"
+              ],
+              "gran": 900,
+              "kysz": 120,
+              "swsz": 94608000,
+              "iatr": "Timestamp",
+              "stat": "COUNT"
+            }
+          ],
+          "tbls": [
+            {
+              "name": "Leads_Management_Form_Data",
+              "tblname": "Leads_Management_Data_Table",
+              "pk": "Timestamp",
+              "primary": 1
+            }
+          ],
+          "work": [
+            {
+              "name": "CRM",
+              "work_name": "Leads_Management",
+              "iatr": [
+                "c_f",
+                "title",
+                "_meta"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": [],
+  "files": [],
+  "dashboards": [
+    {
+      "status": 1,
+      "name": "8c6c1e99__2ad6fc51-d98f-42a1-aa",
+      "dashdesc": "Leads Dashboard",
+      "display_name": "Leads Dashboard",
+      "parent_name": "8c6c1e99__0ac2b077-df99-4e04-91",
+      "parent_display_name": "Leads Management",
+      "pos": 49,
+      "charts": [
+        {
+          "id": "1700647393573",
+          "chart_name": "Total Leads Received",
+          "SchemaName": "Leads_Management",
+          "queries": [
+            {
+              "streamName": "Data",
+              "base": "select aggr(Timestamp) from Leads_Management.Data",
+              "rollup": 1,
+              "time": {
+                "time": "today",
+                "startTime": 1700591400000000,
+                "endTime": 1700647390295000
+              },
+              "key": "8225550c-7611-4f8a-af2d-d056bcaa7d31"
+            }
+          ],
+          "selectedMetrics": [
+            {
+              "label": "cnt for Timestamp",
+              "value": "cnt",
+              "Stat_for": "Timestamp",
+              "color": "#e5a51d"
+            }
+          ],
+          "chart_type": "Card Chart",
+          "advancedSelection": "cnt",
+          "custom_time": true,
+          "frequency": "10",
+          "allMetrics": [
+            {
+              "label": "cnt for Timestamp",
+              "value": "cnt",
+              "Stat_for": "Timestamp"
+            }
+          ],
+          "v": 2,
+          "source": "SCHEMA",
+          "layout": {
+            "w": 4,
+            "h": 1,
+            "x": 8,
+            "y": 0,
+            "i": "1700647393573",
+            "minW": 3,
+            "moved": false,
+            "static": false
+          }
+        },
+        {
+          "id": "1700658378015",
+          "chart_name": "Total Lead Websites",
+          "SchemaName": "Leads_Management",
+          "queries": [
+            {
+              "streamName": "Data",
+              "base": "select aggr(Website) from Leads_Management.Data",
+              "rollup": 1,
+              "time": {
+                "time": "today",
+                "startTime": 1700591400000000,
+                "endTime": 1700658372867000
+              },
+              "key": "7765220b-cce3-4609-9887-efba05f400f4"
+            }
+          ],
+          "selectedMetrics": [
+            {
+              "label": "cnt for Website",
+              "value": "cnt",
+              "Stat_for": "Website",
+              "color": "#e5a51d"
+            }
+          ],
+          "chart_type": "Card Chart",
+          "advancedSelection": "cnt",
+          "custom_time": true,
+          "frequency": "60",
+          "allMetrics": [
+            {
+              "label": "cnt for Website",
+              "value": "cnt",
+              "Stat_for": "Website"
+            }
+          ],
+          "v": 2,
+          "source": "SCHEMA",
+          "xAxisLabel": "",
+          "yAxisLabel": "",
+          "layout": {
+            "w": 4,
+            "h": 1,
+            "x": 0,
+            "y": 0,
+            "i": "1700658378015",
+            "minW": 3,
+            "moved": false,
+            "static": false
+          }
+        },
+        {
+          "id": "1700658531245",
+          "chart_name": "Total Lead Form Types",
+          "SchemaName": "Leads_Management",
+          "queries": [
+            {
+              "streamName": "Data",
+              "base": "select aggr(FormId) from Leads_Management.Data",
+              "rollup": 1,
+              "time": {
+                "time": "today",
+                "startTime": 1700591400000000,
+                "endTime": 1700658525534000
+              },
+              "key": "7765220b-cce3-4609-9887-efba05f400f4"
+            }
+          ],
+          "selectedMetrics": [
+            {
+              "label": "cnt for FormId",
+              "value": "cnt",
+              "Stat_for": "FormId",
+              "color": "#e5a51d"
+            }
+          ],
+          "chart_type": "Card Chart",
+          "advancedSelection": "cnt",
+          "custom_time": true,
+          "frequency": "30",
+          "allMetrics": [
+            {
+              "label": "cnt for FormId",
+              "value": "cnt",
+              "Stat_for": "FormId"
+            }
+          ],
+          "v": 2,
+          "source": "SCHEMA",
+          "xAxisLabel": "",
+          "yAxisLabel": "",
+          "count_query": "",
+          "layout": {
+            "w": 4,
+            "h": 1,
+            "x": 4,
+            "y": 0,
+            "i": "1700658531245",
+            "minW": 3,
+            "moved": false,
+            "static": false
+          }
+        },
+        {
+          "id": "1700659327660",
+          "chart_name": "Form Type",
+          "SchemaName": "Leads_Management",
+          "queries": [
+            {
+              "streamName": "Data",
+              "base": "select aggr(Timestamp) from Leads_Management.Data groupby FormId",
+              "rollup": 1,
+              "time": {
+                "time": "today",
+                "startTime": 1700591400000000,
+                "endTime": 1700659323376000
+              },
+              "key": "0fb876dd-dcdb-4ef3-b06b-c6fdc2f02763"
+            }
+          ],
+          "selectedMetrics": [
+            {
+              "label": "Timestamp by form2",
+              "value": "v",
+              "Stat_for": "Timestamp",
+              "color": "#b7af9d"
+            },
+            {
+              "label": "Timestamp by 207",
+              "value": "v",
+              "Stat_for": "Timestamp",
+              "color": "#b7af9d"
+            },
+            {
+              "label": "Timestamp by form1",
+              "value": "v",
+              "Stat_for": "Timestamp",
+              "color": "#b7af9d"
+            },
+            {
+              "label": "Timestamp by 206",
+              "value": "v",
+              "Stat_for": "Timestamp",
+              "color": "#b7af9d"
+            }
+          ],
+          "chart_type": "Horizontal Bar Chart",
+          "advancedSelection": "v",
+          "custom_time": true,
+          "frequency": "60",
+          "allMetrics": [
+            {
+              "label": "Timestamp by form2",
+              "value": "v",
+              "Stat_for": "Timestamp",
+              "color": "#e5a51d"
+            },
+            {
+              "label": "Timestamp by 207",
+              "value": "v",
+              "Stat_for": "Timestamp",
+              "color": "#e5a51d"
+            },
+            {
+              "label": "Timestamp by form1",
+              "value": "v",
+              "Stat_for": "Timestamp",
+              "color": "#b7af9d"
+            },
+            {
+              "label": "Timestamp by 206",
+              "value": "v",
+              "Stat_for": "Timestamp",
+              "color": "#b7af9d"
+            }
+          ],
+          "v": 2,
+          "source": "SCHEMA",
+          "xAxisLabel": "Count",
+          "yAxisLabel": "Form Type",
+          "layout": {
+            "w": 5,
+            "h": 2,
+            "x": 0,
+            "y": 5,
+            "i": "1700659327660",
+            "minW": 3,
+            "moved": false,
+            "static": false
+          }
+        },
+        {
+          "id": "1700661538930",
+          "chart_name": "Website Leads ",
+          "SchemaName": "Leads_Management",
+          "queries": [
+            {
+              "streamName": "Data",
+              "base": "select aggr(Timestamp) from Leads_Management.Data groupby Website",
+              "rollup": 0,
+              "time": {
+                "time": "today",
+                "startTime": 1700591400000000,
+                "endTime": 1700661535133000
+              },
+              "key": "aaf6a415-00ec-4d88-8edc-15d3e290ec5d"
+            }
+          ],
+          "selectedMetrics": [
+            {
+              "label": "Timestamp by TimeStamp",
+              "value": "TimeStamp",
+              "Stat_for": "Timestamp"
+            },
+            {
+              "label": "Timestamp by https://glistening-selkie-90bd6b.netlify.app/index-1",
+              "value": "https://glistening-selkie-90bd6b.netlify.app/index-1",
+              "Stat_for": "Timestamp",
+              "color": "#be9d9d"
+            },
+            {
+              "label": "Timestamp by https://ubiquitous-palmier-af20b1.netlify.app/",
+              "value": "https://ubiquitous-palmier-af20b1.netlify.app/",
+              "Stat_for": "Timestamp",
+              "color": "#d5bd46"
+            },
+            {
+              "label": "Timestamp by https://dulcet-tiramisu-70f404.netlify.app/",
+              "value": "https://dulcet-tiramisu-70f404.netlify.app/",
+              "Stat_for": "Timestamp",
+              "color": "#34bda8"
+            }
+          ],
+          "chart_type": "Line Chart",
+          "advancedSelection": "all",
+          "custom_time": true,
+          "frequency": "10",
+          "allMetrics": [],
+          "v": 2,
+          "source": "SCHEMA",
+          "xAxisLabel": "Time",
+          "yAxisLabel": "Lead Count",
+          "layout": {
+            "w": 8,
+            "h": 2,
+            "x": 0,
+            "y": 3,
+            "i": "1700661538930",
+            "minW": 3,
+            "moved": false,
+            "static": false
+          }
+        },
+        {
+          "id": "1700662317436",
+          "chart_name": "Leads Over Time",
+          "SchemaName": "Leads_Management",
+          "queries": [
+            {
+              "streamName": "Data",
+              "base": "select aggr(Timestamp) from Leads_Management.Data",
+              "rollup": 0,
+              "time": {
+                "time": "today",
+                "startTime": 1700591400000000,
+                "endTime": 1700662313516000
+              },
+              "key": "e1369a57-85da-4f1c-ad6d-11c7b1240c52"
+            }
+          ],
+          "selectedMetrics": [
+            {
+              "label": "Value for Timestamp",
+              "value": "v",
+              "Stat_for": "Timestamp",
+              "color": "#e5a51d"
+            }
+          ],
+          "chart_type": "Line Chart",
+          "advancedSelection": "v",
+          "custom_time": true,
+          "frequency": "10",
+          "allMetrics": [
+            {
+              "label": "Value for Timestamp",
+              "value": "v",
+              "Stat_for": "Timestamp"
+            }
+          ],
+          "v": 2,
+          "source": "SCHEMA",
+          "xAxisLabel": "Time",
+          "yAxisLabel": "Lead Count",
+          "layout": {
+            "w": 12,
+            "h": 2,
+            "x": 0,
+            "y": 1,
+            "i": "1700662317436",
+            "minW": 3,
+            "moved": false,
+            "static": false
+          }
+        },
+        {
+          "id": "1700662560512",
+          "chart_name": "Websites Vs Leads",
+          "SchemaName": "Leads_Management",
+          "queries": [
+            {
+              "streamName": "Data",
+              "base": "select aggr(Timestamp) from Leads_Management.Data groupby Website",
+              "rollup": 1,
+              "time": {
+                "time": "today",
+                "startTime": 1700591400000000,
+                "endTime": 1700662555322000
+              },
+              "key": "1f11de3b-492e-4e67-bfa7-e64ec9b6297b"
+            }
+          ],
+          "selectedMetrics": [
+            {
+              "label": "Timestamp by https://ubiquitous-palmier-af20b1.netlify.app/",
+              "value": "v",
+              "Stat_for": "Timestamp",
+              "color": "#a09292"
+            },
+            {
+              "label": "Timestamp by https://glistening-selkie-90bd6b.netlify.app/index-1",
+              "value": "v",
+              "Stat_for": "Timestamp",
+              "color": "#eec126"
+            },
+            {
+              "label": "Timestamp by https://dulcet-tiramisu-70f404.netlify.app/",
+              "value": "v",
+              "Stat_for": "Timestamp",
+              "color": "#52c8c4"
+            }
+          ],
+          "chart_type": "Pie Chart",
+          "advancedSelection": "all",
+          "custom_time": true,
+          "frequency": "60",
+          "allMetrics": [
+            {
+              "label": "Timestamp by https://ubiquitous-palmier-af20b1.netlify.app/",
+              "value": "v",
+              "Stat_for": "Timestamp"
+            },
+            {
+              "label": "Timestamp by https://glistening-selkie-90bd6b.netlify.app/index-1",
+              "value": "v",
+              "Stat_for": "Timestamp"
+            },
+            {
+              "label": "Timestamp by https://dulcet-tiramisu-70f404.netlify.app/",
+              "value": "v",
+              "Stat_for": "Timestamp"
+            }
+          ],
+          "v": 2,
+          "source": "SCHEMA",
+          "xAxisLabel": "",
+          "yAxisLabel": "",
+          "layout": {
+            "w": 4,
+            "h": 2,
+            "x": 8,
+            "y": 3,
+            "i": "1700662560512",
+            "minW": 3,
+            "moved": false,
+            "static": false
+          }
+        },
+        {
+          "id": "1700662857339",
+          "chart_name": "Data Table",
+          "type": "View Data",
+          "queries": [
+            {
+              "base": "select * from Leads_Management_Data_Table",
+              "time": {
+                "time": "today",
+                "startTime": 1700591400000000,
+                "endTime": 1700662853871000
+              }
+            }
+          ],
+          "selectedMetrics": [
+            "FormId",
+            "Website",
+            "name",
+            "metod"
+          ],
+          "timestamp": "Timestamp",
+          "metricX": "",
+          "custom_time": true,
+          "frequency": "60",
+          "v": 2,
+          "source": "TABLE",
+          "xAxisLabel": "",
+          "yAxisLabel": "",
+          "layout": {
+            "w": 7,
+            "h": 2,
+            "x": 5,
+            "y": 5,
+            "i": "1700662857339",
+            "minW": 3,
+            "moved": false,
+            "static": false
+          }
+        }
+      ]
+    }
+  ],
+  "notifs": [],
+  "app_details": {
+    "appid": "8c6c1e99",
+    "publish_state": 2,
+    "publish_date": "2023-11-22T14:50:15.362Z",
+    "submit_date": "2023-11-22T14:50:15.362Z",
+    "stars": 0,
+    "num_installs": 0,
+    "pricing": "100",
+    "author": "bangdb",
+    "name": "CRM_22nd_Nov",
+    "description": "desc",
+    "version": "1",
+    "img": "8c6c1e99__certifiedEngines.png",
+    "short_intro": "Leads app",
+    "video_link": "https://www.youtube.com/watch?v=pFxJadUgREs",
+    "install_link": "https://www.youtube.com/watch?v=pFxJadUgREs",
+    "support_link": "https://www.youtube.com/watch?v=pFxJadUgREs",
+    "support_email": "https://www.youtube.com/watch?v=pFxJadUgREs",
+    "category": "Infrastructure",
+    "app_install_config": "CRM",
+    "landing_page": "/work/my-works",
+    "ampere_modules": [
+      "Work Manager"
+    ]
+  },
+  "credentials": {
+    "admin": "super_admin1",
+    "admin_pwd": "sudo_admin_9"
+  }
+}
