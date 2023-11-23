@@ -388,15 +388,9 @@
           "hide": 0
         },
         {
-          "field": "IssueScreenshot",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
           "field": "CustomerFeedback",
           "type": "string",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
@@ -407,6 +401,54 @@
           "list": [
             "Minor",
             "Major/Critical"
+          ]
+        },
+        {
+          "field": "Paymentrefno",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "BookingRegNumber",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "PaymentStatus",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "BookingStatus",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
           ]
         }
       ]
@@ -493,15 +535,9 @@
           "hide": 0
         },
         {
-          "field": "IssueScreenshot",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
           "field": "CustomerFeedback",
           "type": "string",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
@@ -529,19 +565,19 @@
         {
           "field": "TxnAmount",
           "type": "integer",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "Txndate",
           "type": "date",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "PaymentStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Pending",
@@ -553,7 +589,7 @@
         {
           "field": "BookingStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Initiated",
@@ -577,7 +613,7 @@
         {
           "field": "ProcessType",
           "type": "string",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
@@ -691,15 +727,9 @@
           "hide": 0
         },
         {
-          "field": "IssueScreenshot",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
           "field": "CustomerFeedback",
           "type": "string",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
@@ -727,19 +757,19 @@
         {
           "field": "TxnAmount",
           "type": "integer",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "Txndate",
           "type": "date",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "PaymentStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Pending",
@@ -751,7 +781,7 @@
         {
           "field": "BookingStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Initiated",
@@ -793,7 +823,7 @@
         {
           "field": "ProcessStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Mer_Registered",
@@ -884,15 +914,9 @@
           "hide": 0
         },
         {
-          "field": "IssueScreenshot",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
           "field": "CustomerFeedback",
           "type": "string",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
@@ -920,19 +944,19 @@
         {
           "field": "TxnAmount",
           "type": "integer",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "Txndate",
           "type": "date",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "PaymentStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Pending",
@@ -944,7 +968,7 @@
         {
           "field": "BookingStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Initiated",
@@ -962,7 +986,7 @@
         {
           "field": "ConsultationStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "PRESCRIPTION-SENT",
@@ -980,7 +1004,7 @@
         {
           "field": "StatusMessage",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "INITIATED",
@@ -1078,15 +1102,9 @@
           "hide": 0
         },
         {
-          "field": "IssueScreenshot",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
           "field": "CustomerFeedback",
           "type": "string",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
@@ -1114,19 +1132,19 @@
         {
           "field": "TxnAmount",
           "type": "integer",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "Txndate",
           "type": "date",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "PaymentStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Pending",
@@ -1138,7 +1156,7 @@
         {
           "field": "BookingStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Initiated",
@@ -1249,15 +1267,9 @@
           "hide": 0
         },
         {
-          "field": "IssueScreenshot",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
           "field": "CustomerFeedback",
           "type": "string",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
@@ -1285,19 +1297,19 @@
         {
           "field": "TxnAmount",
           "type": "integer",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "Txndate",
           "type": "date",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "PaymentStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Pending",
@@ -1309,7 +1321,7 @@
         {
           "field": "BookingStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Initiated",
@@ -1402,15 +1414,9 @@
           "hide": 0
         },
         {
-          "field": "IssueScreenshot",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
           "field": "CustomerFeedback",
           "type": "string",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
@@ -1438,19 +1444,19 @@
         {
           "field": "TxnAmount",
           "type": "integer",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "Txndate",
           "type": "date",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "PaymentStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Pending",
@@ -1462,7 +1468,7 @@
         {
           "field": "BookingStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Initiated",
@@ -1555,15 +1561,9 @@
           "hide": 0
         },
         {
-          "field": "IssueScreenshot",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
           "field": "CustomerFeedback",
           "type": "string",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
@@ -1660,15 +1660,9 @@
           "hide": 0
         },
         {
-          "field": "IssueScreenshot",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
           "field": "CustomerFeedback",
           "type": "string",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
@@ -1696,19 +1690,19 @@
         {
           "field": "TxnAmount",
           "type": "integer",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "Txndate",
           "type": "date",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "PaymentStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Pending",
@@ -1720,7 +1714,7 @@
         {
           "field": "BookingStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Initiated",
@@ -1813,15 +1807,9 @@
           "hide": 0
         },
         {
-          "field": "IssueScreenshot",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
           "field": "CustomerFeedback",
           "type": "string",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
@@ -1849,19 +1837,19 @@
         {
           "field": "TxnAmount",
           "type": "integer",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "Txndate",
           "type": "date",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
           "field": "PaymentStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Pending",
@@ -1873,7 +1861,7 @@
         {
           "field": "BookingStatus",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
             "Initiated",
