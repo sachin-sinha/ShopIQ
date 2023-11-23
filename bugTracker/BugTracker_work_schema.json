@@ -1,0 +1,43 @@
+{
+  "work_name": "BugTracker",
+  "name": "BugTracker",
+  "apply_quota": 0,
+  "display_raw_json": 0,
+  "cross_user_view":1,
+  "localization":{"pipe":"Project","work":"BugTracker","job":"Bug"},
+  "default_close_status": "Closed",
+  "default_open_status": "Open",
+  "form":[],
+  "status":["Open","Closed","Invalid","Reopen","In progress","Next release","To be tested"],
+  "reproducibles":["Always","Sometimes","Rarely","Unable","Never tried","Not applicable"],
+  "classifications":["Security","Crash/Hang","Data loss","Performance","UI/Usability","Other bug","QA","Feature(New)","Enhancement"],
+  "milestones":[],
+  "group_filter_policy": "ALL",
+  "work_admin": [
+    {"userid": "_USERID_"}
+  ],
+  "groups": [
+    {
+      "id": "_GROUPID_",
+      "description": "_GROUP_DESCRIPTION_",
+      "pipe_filter_policy": "FILTER",
+      "group_admin": [
+        {"userid": "_USERID_"}
+      ],
+      "pipes": [
+        {
+          "id":"_PIPEID_",
+          "description":"_PIPE_DESCRIPTION_",
+          "pipe_filter": "bug_prefix = \"_ZOHO_BUG_PREFIX_\"",
+          "users":[
+            {
+              "userid": "_USERID_",
+              "status": 1,
+              "is_pipe_admin": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
