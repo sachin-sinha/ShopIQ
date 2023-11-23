@@ -15,7 +15,9 @@
   },
   "status": [
     "Active",
-    "Closed"
+    "InActive",
+    "Closed",
+    "Open"
   ],
   "work_admin": [
     {
@@ -260,31 +262,42 @@
           "default_assignee": "reporter",
           "classifications": [
             "BBPS",
-            "MobileRecharge",
+            "Mobile_Recharge",
             "Acc-Insurance",
             "Health-Insurance",
-            "TeleConsultation",
-            "MarchantQRRegandTxn",
-            "TvamSubscription",
-            "P2PInvestment"
+            "Doc_Consultation",
+            "Marchant_QR_Reg_and_Txn",
+            "Tvam_Subscription",
+            "P2P_Investment"
           ]
         }
       ],
       "form": [
         {
-          "field": "Issue_Process_Date",
+          "field": "IssueProcessDate",
           "type": "date",
           "size_limit": 24,
           "optional": 0
         },
         {
-          "field": "Solution_Description",
+          "field": "IssueStatus",
+          "type": "list",
+          "optional": 0,
+          "list": [
+            "Active",
+            "InActive",
+            "Closed",
+            "Open"
+          ]
+        },
+        {
+          "field": "SolutionDescription",
           "type": "string",
           "size_limit": 256,
           "optional": 0
         },
         {
-          "field": "Root_Cause",
+          "field": "RootCause",
           "type": "string",
           "size_limit": 256,
           "optional": 1
@@ -297,13 +310,13 @@
       "class": "default",
       "items": [
         {
-          "field": "Customer_Name",
+          "field": "CustomerName",
           "type": "string",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Mobile",
+          "field": "CustomerMobile",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -327,30 +340,31 @@
           "hide": 0
         },
         {
-          "field": "Referred_Name",
+          "field": "ReferredName",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Referred_Mobile",
+          "field": "ReferredMobile",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Raised_By",
+          "field": "RaisedBy",
           "type": "list",
           "optional": 0,
           "hide": 0,
           "list": [
             "Customer",
             "Agent",
-            "TechSupport"
+            "TechSupport",
+            "TeamsChannel"
           ]
         },
         {
-          "field": "Reported_Mode",
+          "field": "ReportingMode",
           "type": "list",
           "optional": 0,
           "hide": 0,
@@ -362,63 +376,37 @@
           ]
         },
         {
-          "field": "Issue_Faced_Date",
+          "field": "IssueDesciption",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueFacedDate",
           "type": "date",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Feedback",
+          "field": "IssueScreenshot",
           "type": "string",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
-          "field": "Payment_ref_no",
+          "field": "CustomerFeedback",
           "type": "string",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
-          "field": "Booking_Reg_Number",
-          "type": "integer",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "TxnAmount",
-          "type": "integer",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Txndate",
-          "type": "date",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Payment_Status",
+          "field": "IssueCriticality",
           "type": "list",
-          "optional": 1,
+          "optional": 0,
           "hide": 0,
           "list": [
-            "Pending",
-            "Failed",
-            "Success",
-            "NA"
-          ]
-        },
-        {
-          "field": "Booking_Status",
-          "type": "list",
-          "optional": 1,
-          "hide": 0,
-          "list": [
-            "Initiated",
-            "Pending",
-            "Failed",
-            "Success"
+            "Minor",
+            "Major/Critical"
           ]
         }
       ]
@@ -427,13 +415,13 @@
       "class": "SIDBI",
       "items": [
         {
-          "field": "Customer_Name",
+          "field": "CustomerName",
           "type": "string",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Mobile",
+          "field": "CustomerMobile",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -457,30 +445,31 @@
           "hide": 0
         },
         {
-          "field": "Referred_Name",
+          "field": "ReferredName",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Referred_Mobile",
+          "field": "ReferredMobile",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Raised_By",
+          "field": "RaisedBy",
           "type": "list",
           "optional": 0,
           "hide": 0,
           "list": [
             "Customer",
             "Agent",
-            "TechSupport"
+            "TechSupport",
+            "TeamsChannel"
           ]
         },
         {
-          "field": "Reported_Mode",
+          "field": "ReportingMode",
           "type": "list",
           "optional": 0,
           "hide": 0,
@@ -492,45 +481,67 @@
           ]
         },
         {
-          "field": "Issue_Faced_Date",
+          "field": "IssueDesciption",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueFacedDate",
           "type": "date",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Feedback",
+          "field": "IssueScreenshot",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "CustomerFeedback",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueCriticality",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Minor",
+            "Major/Critical"
+          ]
+        },
+        {
+          "field": "Paymentrefno",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Payment_ref_no",
+          "field": "BookingRegNumber",
           "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Booking_Reg_Number",
-          "type": "integer",
           "optional": 0,
           "hide": 0
         },
         {
           "field": "TxnAmount",
           "type": "integer",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
           "field": "Txndate",
           "type": "date",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
-          "field": "Payment_Status",
+          "field": "PaymentStatus",
           "type": "list",
-          "optional": 0,
+          "optional": 1,
           "hide": 0,
           "list": [
             "Pending",
@@ -540,9 +551,9 @@
           ]
         },
         {
-          "field": "Booking_Status",
+          "field": "BookingStatus",
           "type": "list",
-          "optional": 0,
+          "optional": 1,
           "hide": 0,
           "list": [
             "Initiated",
@@ -552,35 +563,35 @@
           ]
         },
         {
-          "field": "Application_Code",
+          "field": "ApplicationCode",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Loan_Ref_Number",
+          "field": "LoanRefNumber",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Process_Type",
+          "field": "ProcessType",
           "type": "string",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
-          "field": "Process_Status-Merchant",
+          "field": "ProcessStatus-Merchant",
           "type": "list",
           "optional": 0,
           "hide": 0,
           "list": [
             "Registered",
-            "Not_Registered"
+            "NotRegistered"
           ]
         },
         {
-          "field": "Process_Status-NACH",
+          "field": "ProcessStatus-NACH",
           "type": "list",
           "optional": 0,
           "hide": 0,
@@ -591,9 +602,396 @@
             "Partial",
             "No mandate available",
             "NACK received",
-            "success",
-            "Authentication Failed",
-            "UNRN Pending"
+            "Success",
+            "Authentication failed",
+            "UMRN Pending"
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Marchant_QR_Reg_and_Txn",
+      "items": [
+        {
+          "field": "CustomerName",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "CustomerMobile",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "State",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "District",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Village/City",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "ReferredName",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "ReferredMobile",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedBy",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Customer",
+            "Agent",
+            "TechSupport",
+            "TeamsChannel"
+          ]
+        },
+        {
+          "field": "ReportingMode",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "PhoneCall",
+            "Email",
+            "WhatsApp",
+            "TvamChat"
+          ]
+        },
+        {
+          "field": "IssueDesciption",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueFacedDate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueScreenshot",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "CustomerFeedback",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueCriticality",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Minor",
+            "Major/Critical"
+          ]
+        },
+        {
+          "field": "Paymentrefno",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "BookingRegNumber",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "PaymentStatus",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "BookingStatus",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        },
+        {
+          "field": "Mer_id",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "VPA_ID",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "TransactionDate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "TransactionAmount",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "SettledAmouontfordate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "ProcessStatus",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "Mer_Registered",
+            "Mer_NotRegistered"
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Doc_Consultation",
+      "items": [
+        {
+          "field": "CustomerName",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "CustomerMobile",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "State",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "District",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Village/City",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "ReferredName",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "ReferredMobile",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedBy",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Customer",
+            "Agent",
+            "TechSupport",
+            "TeamsChannel"
+          ]
+        },
+        {
+          "field": "ReportingMode",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "PhoneCall",
+            "Email",
+            "WhatsApp",
+            "TvamChat"
+          ]
+        },
+        {
+          "field": "IssueDesciption",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueFacedDate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueScreenshot",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "CustomerFeedback",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueCriticality",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Minor",
+            "Major/Critical"
+          ]
+        },
+        {
+          "field": "Paymentrefno",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "BookingRegNumber",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "PaymentStatus",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "BookingStatus",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        },
+        {
+          "field": "ConsultationDate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "ConsultationStatus",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "PRESCRIPTION-SENT",
+            "INITIATED",
+            "CANCELCONSULTATIONBYATYATI",
+            "ENDED",
+            "FAILED",
+            "BOOKED",
+            "VOICE-CALL-DONE",
+            "CANCELLEDBYATYATI",
+            "VIDEO-CALL-INITIATED",
+            "VIDEO-CALL-DONE"
+          ]
+        },
+        {
+          "field": "StatusMessage",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "INITIATED",
+            "Voice Call Completed",
+            "Video Call Completed",
+            "FAILED",
+            "Prescription Sent",
+            "BOOKED",
+            "Video Call Initiated",
+            "Completed",
+            "CANCELLED"
           ]
         }
       ]
@@ -602,13 +1000,13 @@
       "class": "BBPS",
       "items": [
         {
-          "field": "Customer_Name",
+          "field": "CustomerName",
           "type": "string",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Mobile",
+          "field": "CustomerMobile",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -632,30 +1030,31 @@
           "hide": 0
         },
         {
-          "field": "Referred_Name",
+          "field": "ReferredName",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Referred_Mobile",
+          "field": "ReferredMobile",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Raised_By",
+          "field": "RaisedBy",
           "type": "list",
           "optional": 0,
           "hide": 0,
           "list": [
             "Customer",
             "Agent",
-            "TechSupport"
+            "TechSupport",
+            "TeamsChannel"
           ]
         },
         {
-          "field": "Reported_Mode",
+          "field": "ReportingMode",
           "type": "list",
           "optional": 0,
           "hide": 0,
@@ -667,45 +1066,67 @@
           ]
         },
         {
-          "field": "Issue_Faced_Date",
+          "field": "IssueDesciption",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueFacedDate",
           "type": "date",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Feedback",
+          "field": "IssueScreenshot",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "CustomerFeedback",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueCriticality",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Minor",
+            "Major/Critical"
+          ]
+        },
+        {
+          "field": "Paymentrefno",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Payment_ref_no",
+          "field": "BookingRegNumber",
           "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Booking_Reg_Number",
-          "type": "integer",
           "optional": 0,
           "hide": 0
         },
         {
           "field": "TxnAmount",
           "type": "integer",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
           "field": "Txndate",
           "type": "date",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
-          "field": "Payment_Status",
+          "field": "PaymentStatus",
           "type": "list",
-          "optional": 0,
+          "optional": 1,
           "hide": 0,
           "list": [
             "Pending",
@@ -715,9 +1136,9 @@
           ]
         },
         {
-          "field": "Booking_Status",
+          "field": "BookingStatus",
           "type": "list",
-          "optional": 0,
+          "optional": 1,
           "hide": 0,
           "list": [
             "Initiated",
@@ -727,36 +1148,36 @@
           ]
         },
         {
-          "field": "Bill_Category",
+          "field": "BillCategory",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Bill_Payment_Status",
+          "field": "BillPaymentStatus",
           "type": "list",
           "optional": 0,
           "hide": 0,
           "list": [
-            "Initiated",
-            "Pending",
+            "Success",
             "Failed",
-            "Success"
+            "Pending",
+            "Initiated"
           ]
         }
       ]
     },
     {
-      "class": "MobileRecharge",
+      "class": "Mobile Recharge",
       "items": [
         {
-          "field": "Customer_Name",
+          "field": "CustomerName",
           "type": "string",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Mobile",
+          "field": "CustomerMobile",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -780,30 +1201,31 @@
           "hide": 0
         },
         {
-          "field": "Referred_Name",
+          "field": "ReferredName",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Referred_Mobile",
+          "field": "ReferredMobile",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Raised_By",
+          "field": "RaisedBy",
           "type": "list",
           "optional": 0,
           "hide": 0,
           "list": [
             "Customer",
             "Agent",
-            "TechSupport"
+            "TechSupport",
+            "TeamsChannel"
           ]
         },
         {
-          "field": "Reported_Mode",
+          "field": "ReportingMode",
           "type": "list",
           "optional": 0,
           "hide": 0,
@@ -815,45 +1237,67 @@
           ]
         },
         {
-          "field": "Issue_Faced_Date",
+          "field": "IssueDesciption",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueFacedDate",
           "type": "date",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Feedback",
+          "field": "IssueScreenshot",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "CustomerFeedback",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueCriticality",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Minor",
+            "Major/Critical"
+          ]
+        },
+        {
+          "field": "Paymentrefno",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Payment_ref_no",
+          "field": "BookingRegNumber",
           "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Booking_Reg_Number",
-          "type": "integer",
           "optional": 0,
           "hide": 0
         },
         {
           "field": "TxnAmount",
           "type": "integer",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
           "field": "Txndate",
           "type": "date",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
-          "field": "Payment_Status",
+          "field": "PaymentStatus",
           "type": "list",
-          "optional": 0,
+          "optional": 1,
           "hide": 0,
           "list": [
             "Pending",
@@ -863,9 +1307,9 @@
           ]
         },
         {
-          "field": "Booking_Status",
+          "field": "BookingStatus",
           "type": "list",
-          "optional": 0,
+          "optional": 1,
           "hide": 0,
           "list": [
             "Initiated",
@@ -880,13 +1324,13 @@
       "class": "Acc-Insurance",
       "items": [
         {
-          "field": "Customer_Name",
+          "field": "CustomerName",
           "type": "string",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Mobile",
+          "field": "CustomerMobile",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -910,30 +1354,31 @@
           "hide": 0
         },
         {
-          "field": "Referred_Name",
+          "field": "ReferredName",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Referred_Mobile",
+          "field": "ReferredMobile",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Raised_By",
+          "field": "RaisedBy",
           "type": "list",
           "optional": 0,
           "hide": 0,
           "list": [
             "Customer",
             "Agent",
-            "TechSupport"
+            "TechSupport",
+            "TeamsChannel"
           ]
         },
         {
-          "field": "Reported_Mode",
+          "field": "ReportingMode",
           "type": "list",
           "optional": 0,
           "hide": 0,
@@ -945,45 +1390,67 @@
           ]
         },
         {
-          "field": "Issue_Faced_Date",
+          "field": "IssueDesciption",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueFacedDate",
           "type": "date",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Feedback",
+          "field": "IssueScreenshot",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "CustomerFeedback",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueCriticality",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Minor",
+            "Major/Critical"
+          ]
+        },
+        {
+          "field": "Paymentrefno",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Payment_ref_no",
+          "field": "BookingRegNumber",
           "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Booking_Reg_Number",
-          "type": "integer",
           "optional": 0,
           "hide": 0
         },
         {
           "field": "TxnAmount",
           "type": "integer",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
           "field": "Txndate",
           "type": "date",
-          "optional": 0,
+          "optional": 1,
           "hide": 0
         },
         {
-          "field": "Payment_Status",
+          "field": "PaymentStatus",
           "type": "list",
-          "optional": 0,
+          "optional": 1,
           "hide": 0,
           "list": [
             "Pending",
@@ -993,9 +1460,9 @@
           ]
         },
         {
-          "field": "Booking_Status",
+          "field": "BookingStatus",
           "type": "list",
-          "optional": 0,
+          "optional": 1,
           "hide": 0,
           "list": [
             "Initiated",
@@ -1010,13 +1477,13 @@
       "class": "Health-Insurance",
       "items": [
         {
-          "field": "Customer_Name",
+          "field": "CustomerName",
           "type": "string",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Mobile",
+          "field": "CustomerMobile",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -1040,30 +1507,31 @@
           "hide": 0
         },
         {
-          "field": "Referred_Name",
+          "field": "ReferredName",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Referred_Mobile",
+          "field": "ReferredMobile",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Raised_By",
+          "field": "RaisedBy",
           "type": "list",
           "optional": 0,
           "hide": 0,
           "list": [
             "Customer",
             "Agent",
-            "TechSupport"
+            "TechSupport",
+            "TeamsChannel"
           ]
         },
         {
-          "field": "Reported_Mode",
+          "field": "ReportingMode",
           "type": "list",
           "optional": 0,
           "hide": 0,
@@ -1075,78 +1543,52 @@
           ]
         },
         {
-          "field": "Issue_Faced_Date",
+          "field": "IssueDesciption",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueFacedDate",
           "type": "date",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Feedback",
+          "field": "IssueScreenshot",
           "type": "string",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
-          "field": "Payment_ref_no",
+          "field": "CustomerFeedback",
           "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Booking_Reg_Number",
-          "type": "integer",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "TxnAmount",
-          "type": "integer",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Txndate",
-          "type": "date",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Payment_Status",
+          "field": "IssueCriticality",
           "type": "list",
           "optional": 0,
           "hide": 0,
           "list": [
-            "Pending",
-            "Failed",
-            "Success",
-            "NA"
-          ]
-        },
-        {
-          "field": "Booking_Status",
-          "type": "list",
-          "optional": 0,
-          "hide": 0,
-          "list": [
-            "Initiated",
-            "Pending",
-            "Failed",
-            "Success"
+            "Minor",
+            "Major/Critical"
           ]
         }
       ]
     },
     {
-      "class": "TeleConsultation",
+      "class": "Tvam_Subscription",
       "items": [
         {
-          "field": "Customer_Name",
+          "field": "CustomerName",
           "type": "string",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Mobile",
+          "field": "CustomerMobile",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -1170,30 +1612,31 @@
           "hide": 0
         },
         {
-          "field": "Referred_Name",
+          "field": "ReferredName",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Referred_Mobile",
+          "field": "ReferredMobile",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Raised_By",
+          "field": "RaisedBy",
           "type": "list",
           "optional": 0,
           "hide": 0,
           "list": [
             "Customer",
             "Agent",
-            "TechSupport"
+            "TechSupport",
+            "TeamsChannel"
           ]
         },
         {
-          "field": "Reported_Mode",
+          "field": "ReportingMode",
           "type": "list",
           "optional": 0,
           "hide": 0,
@@ -1205,365 +1648,49 @@
           ]
         },
         {
-          "field": "Issue_Faced_Date",
+          "field": "IssueDesciption",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueFacedDate",
           "type": "date",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Feedback",
+          "field": "IssueScreenshot",
           "type": "string",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
-          "field": "Payment_ref_no",
+          "field": "CustomerFeedback",
           "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Booking_Reg_Number",
-          "type": "integer",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "TxnAmount",
-          "type": "integer",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Txndate",
-          "type": "date",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Payment_Status",
+          "field": "IssueCriticality",
           "type": "list",
           "optional": 0,
           "hide": 0,
           "list": [
-            "Pending",
-            "Failed",
-            "Success",
-            "NA"
+            "Minor",
+            "Major/Critical"
           ]
         },
         {
-          "field": "Booking_Status",
-          "type": "list",
-          "optional": 0,
-          "hide": 0,
-          "list": [
-            "Initiated",
-            "Pending",
-            "Failed",
-            "Success"
-          ]
-        },
-        {
-          "field": "Consultation_Date",
-          "type": "date",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Consultation_Status",
-          "type": "list",
-          "optional": 0,
-          "hide": 0,
-          "list": [
-            "Prescription-Send",
-            "Initiated",
-            "CancelConsultationByAtyati",
-            "Ended",
-            "Failed",
-            "Booked",
-            "Video-Call-Initiated",
-            "Video-Call-Done"
-          ]
-        },
-        {
-          "field": "Status_Message",
-          "type": "list",
-          "optional": 0,
-          "hide": 0,
-          "list": [
-            "Initiated",
-            "Video-Call-Completed",
-            "Failed",
-            "Prescription-Send",
-            "Booked",
-            "Video-Call-Initiated",
-            "Completed",
-            "Cancelled"
-          ]
-        }
-      ]
-    },
-    {
-      "class": "MarchantQRRegandTxn",
-      "items": [
-        {
-          "field": "Customer_Name",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Customer_Mobile",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "State",
+          "field": "Paymentrefno",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "District",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Village/City",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Referred_Name",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Referred_Mobile",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Raised_By",
-          "type": "list",
-          "optional": 0,
-          "hide": 0,
-          "list": [
-            "Customer",
-            "Agent",
-            "TechSupport"
-          ]
-        },
-        {
-          "field": "Reported_Mode",
-          "type": "list",
-          "optional": 0,
-          "hide": 0,
-          "list": [
-            "PhoneCall",
-            "Email",
-            "WhatsApp",
-            "TvamChat"
-          ]
-        },
-        {
-          "field": "Issue_Faced_Date",
-          "type": "date",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Customer_Feedback",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Payment_ref_no",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Booking_Reg_Number",
-          "type": "integer",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "TxnAmount",
-          "type": "integer",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Txndate",
-          "type": "date",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Payment_Status",
-          "type": "list",
-          "optional": 0,
-          "hide": 0,
-          "list": [
-            "Pending",
-            "Failed",
-            "Success",
-            "NA"
-          ]
-        },
-        {
-          "field": "Booking_Status",
-          "type": "list",
-          "optional": 0,
-          "hide": 0,
-          "list": [
-            "Initiated",
-            "Pending",
-            "Failed",
-            "Success"
-          ]
-        },
-        {
-          "field": "Mer_Id",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "VPA_ID",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Transaction_Date",
-          "type": "date",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Transaction_Amount",
-          "type": "integer",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Settled_Amount_date",
-          "type": "date",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Process_Status",
-          "type": "list",
-          "optional": 0,
-          "hide": 0,
-          "list": [
-            "Mer_Registered",
-            "Mer_Not_Registered"
-          ]
-        }
-      ]
-    },
-    {
-      "class": "TvamSubscription",
-      "items": [
-        {
-          "field": "Customer_Name",
+          "field": "BookingRegNumber",
           "type": "string",
           "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Customer_Mobile",
-          "type": "string",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "State",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "District",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Village/City",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Referred_Name",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Referred_Mobile",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Raised_By",
-          "type": "list",
-          "optional": 0,
-          "hide": 0,
-          "list": [
-            "Customer",
-            "Agent",
-            "TechSupport"
-          ]
-        },
-        {
-          "field": "Reported_Mode",
-          "type": "list",
-          "optional": 0,
-          "hide": 0,
-          "list": [
-            "PhoneCall",
-            "Email",
-            "WhatsApp",
-            "TvamChat"
-          ]
-        },
-        {
-          "field": "Issue_Faced_Date",
-          "type": "date",
-          "optional": 0,
-          "hide": 0
-        },
-        {
-          "field": "Customer_Feedback",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Payment_ref_no",
-          "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Booking_Reg_Number",
-          "type": "integer",
-          "optional": 1,
           "hide": 0
         },
         {
@@ -1579,7 +1706,7 @@
           "hide": 0
         },
         {
-          "field": "Payment_Status",
+          "field": "PaymentStatus",
           "type": "list",
           "optional": 1,
           "hide": 0,
@@ -1591,7 +1718,7 @@
           ]
         },
         {
-          "field": "Booking_Status",
+          "field": "BookingStatus",
           "type": "list",
           "optional": 1,
           "hide": 0,
@@ -1605,16 +1732,16 @@
       ]
     },
     {
-      "class": "P2PInvestment",
+      "class": "P2P_Investment",
       "items": [
         {
-          "field": "Customer_Name",
+          "field": "CustomerName",
           "type": "string",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Mobile",
+          "field": "CustomerMobile",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -1638,30 +1765,31 @@
           "hide": 0
         },
         {
-          "field": "Referred_Name",
+          "field": "ReferredName",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Referred_Mobile",
+          "field": "ReferredMobile",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Raised_By",
+          "field": "RaisedBy",
           "type": "list",
           "optional": 0,
           "hide": 0,
           "list": [
             "Customer",
             "Agent",
-            "TechSupport"
+            "TechSupport",
+            "TeamsChannel"
           ]
         },
         {
-          "field": "Reported_Mode",
+          "field": "ReportingMode",
           "type": "list",
           "optional": 0,
           "hide": 0,
@@ -1673,27 +1801,49 @@
           ]
         },
         {
-          "field": "Issue_Faced_Date",
+          "field": "IssueDesciption",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueFacedDate",
           "type": "date",
           "optional": 0,
           "hide": 0
         },
         {
-          "field": "Customer_Feedback",
+          "field": "IssueScreenshot",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "CustomerFeedback",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "IssueCriticality",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Minor",
+            "Major/Critical"
+          ]
+        },
+        {
+          "field": "Paymentrefno",
           "type": "string",
           "optional": 1,
           "hide": 0
         },
         {
-          "field": "Payment_ref_no",
+          "field": "BookingRegNumber",
           "type": "string",
-          "optional": 1,
-          "hide": 0
-        },
-        {
-          "field": "Booking_Reg_Number",
-          "type": "integer",
-          "optional": 1,
+          "optional": 0,
           "hide": 0
         },
         {
@@ -1709,7 +1859,7 @@
           "hide": 0
         },
         {
-          "field": "Payment_Status",
+          "field": "PaymentStatus",
           "type": "list",
           "optional": 1,
           "hide": 0,
@@ -1721,7 +1871,7 @@
           ]
         },
         {
-          "field": "Booking_Status",
+          "field": "BookingStatus",
           "type": "list",
           "optional": 1,
           "hide": 0,
