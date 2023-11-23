@@ -28,7 +28,7 @@
         {
           "id":"_PIPEID_",
           "description":"_PIPE_DESCRIPTION_",
-          "pipe_filter":"{\"query\":[{\"key\":\"bug_prefix\",\"cmp_op\":\"EQ\",\"val\":\"_ZOHO_BUG_PREFIX_\"}],\"qtype\":1}",
+          "pipe_filter": "bug_prefix = \"_ZOHO_BUG_PREFIX_\"",
           "users":[
             {
               "userid": "_USERID_",
