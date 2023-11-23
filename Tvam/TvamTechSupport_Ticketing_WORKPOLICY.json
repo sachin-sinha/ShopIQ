@@ -1,0 +1,1738 @@
+{
+  "work_name": "TvamTechSupport_Ticketing",
+  "name": "Ticketing",
+  "apply_quota": 0,
+  "group_filter_policy": "ALL",
+  "display_raw_json": 0,
+  "cross_user_view": 1,
+  "default_close_status": "Closed",
+  "default_open_status": "Active",
+  "localization": {
+    "pipe": "System",
+    "work": "Tech_Ticketing",
+    "job": "Ticket",
+    "classification": "Sub-ServiceName"
+  },
+  "status": [
+    "Active",
+    "Closed"
+  ],
+  "work_admin": [
+    {
+      "userid": "testuser",
+      "status": 1
+    }
+  ],
+  "groups": [
+    {
+      "pipe_filter_policy": "ALL",
+      "id": "Ticketing_System",
+      "description": "Tvam Ticketing System",
+      "pipes": [
+        {
+          "id": "Lending",
+          "description": "System for Lending",
+          "user_filter_policy": "ALL",
+          "users": [
+            {
+              "userid": "testuser",
+              "status": 1,
+              "user_type": "POWER",
+              "name": "testuser",
+              "is_pipe_admin": 0
+            },
+            {
+              "userid": "Kirana_Upadhya_PC",
+              "license": "WORKER",
+              "status": 1,
+              "user_account": "RyiuN9siDc8m",
+              "user_role": "MEMBER",
+              "first_name": "Kirana",
+              "last_name": "Upadhya PC",
+              "phone": "",
+              "email": "",
+              "user_type": "NORMAL",
+              "power_user": "testuser",
+              "name": "Kirana_Upadhya_PC",
+              "is_pipe_admin": 1
+            },
+            {
+              "userid": "Sharada_D_Mohan",
+              "license": "WORKER",
+              "status": 1,
+              "user_account": "RyiuN9siDc8m",
+              "user_role": "MEMBER",
+              "first_name": "Sharada",
+              "last_name": "Mohan",
+              "phone": "",
+              "email": "",
+              "user_type": "NORMAL",
+              "power_user": "testuser",
+              "name": "Sharada_D_Mohan",
+              "is_pipe_admin": 0
+            },
+            {
+              "userid": "Neelkantappa_Kunnur",
+              "license": "WORKER",
+              "status": 1,
+              "user_account": "RyiuN9siDc8m",
+              "user_role": "MEMBER",
+              "first_name": "Neelkantappa",
+              "last_name": "Kunnur",
+              "phone": "",
+              "email": "",
+              "user_type": "NORMAL",
+              "power_user": "testuser",
+              "name": "Neelkantappa_Kunnur",
+              "is_pipe_admin": 0
+            },
+            {
+              "userid": "Manu_H_N",
+              "license": "WORKER",
+              "status": 1,
+              "user_account": "RyiuN9siDc8m",
+              "user_role": "MEMBER",
+              "first_name": "Manu",
+              "last_name": "HN",
+              "phone": "",
+              "email": "",
+              "user_type": "NORMAL",
+              "power_user": "testuser",
+              "name": "Manu_H_N",
+              "is_pipe_admin": 1
+            },
+            {
+              "userid": "Vamsi_Vempalli",
+              "license": "WORKER",
+              "status": 1,
+              "user_account": "RyiuN9siDc8m",
+              "user_role": "MEMBER",
+              "first_name": "Vamsi",
+              "last_name": "Vempalli",
+              "phone": "",
+              "email": "",
+              "user_type": "NORMAL",
+              "power_user": "testuser",
+              "name": "Vamsi_Vempalli",
+              "is_pipe_admin": 0
+            },
+            {
+              "userid": "Usha_M__",
+              "license": "WORKER",
+              "status": 1,
+              "user_account": "RyiuN9siDc8m",
+              "user_role": "MEMBER",
+              "first_name": "Usha",
+              "last_name": "M",
+              "phone": "",
+              "email": "",
+              "user_type": "NORMAL",
+              "power_user": "testuser",
+              "name": "Usha_M__",
+              "is_pipe_admin": 0
+            },
+            {
+              "userid": "Kurakula_Rupesh",
+              "license": "WORKER",
+              "status": 1,
+              "user_account": "RyiuN9siDc8m",
+              "user_role": "MEMBER",
+              "first_name": "Kurakula",
+              "last_name": "Rupesh",
+              "phone": "",
+              "email": "",
+              "user_type": "NORMAL",
+              "power_user": "testuser",
+              "name": "Kurakula_Rupesh",
+              "is_pipe_admin": 0
+            },
+            {
+              "userid": "R_Binay_Ram",
+              "license": "WORKER",
+              "status": 1,
+              "user_account": "RyiuN9siDc8m",
+              "user_role": "MEMBER",
+              "first_name": "R",
+              "last_name": "Ram",
+              "phone": "",
+              "email": "",
+              "user_type": "NORMAL",
+              "power_user": "testuser",
+              "name": "R_Binay_Ram",
+              "is_pipe_admin": 0
+            },
+            {
+              "userid": "Laxman_Pareet",
+              "license": "WORKER",
+              "status": 1,
+              "user_account": "RyiuN9siDc8m",
+              "user_role": "MEMBER",
+              "first_name": "Laxman",
+              "last_name": "Pareet",
+              "phone": "",
+              "email": "laxman.pareet@tvam.co",
+              "user_type": "NORMAL",
+              "power_user": "testuser",
+              "name": "Laxman_Pareet",
+              "is_pipe_admin": 0
+            }
+          ],
+          "default_assignee": "reporter",
+          "classifications": [
+            "SIDBI"
+          ]
+        },
+        {
+          "id": "Non_Lending",
+          "description": "System for Non Lending",
+          "user_filter_policy": "ALL",
+          "users": [
+            {
+              "userid": "testuser",
+              "status": 1,
+              "name": "testuser",
+              "is_pipe_admin": 0
+            },
+            {
+              "userid": "Kirana_Upadhya_PC",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 1,
+              "status": 1
+            },
+            {
+              "userid": "Neelkantappa_Kunnur",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 0,
+              "status": 1
+            },
+            {
+              "userid": "Sharada_D_Mohan",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 0,
+              "status": 1
+            },
+            {
+              "userid": "Vamsi_Vempalli",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 0,
+              "status": 1
+            },
+            {
+              "userid": "Manu_H_N",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 1,
+              "status": 1
+            },
+            {
+              "userid": "Usha_M__",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 0,
+              "status": 1
+            },
+            {
+              "userid": "Kurakula_Rupesh",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 0,
+              "status": 1
+            },
+            {
+              "userid": "R_Binay_Ram",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 0,
+              "status": 1
+            },
+            {
+              "userid": "Laxman_Pareet",
+              "email": "laxman.pareet@tvam.co",
+              "phone": "",
+              "is_pipe_admin": 0,
+              "status": 1
+            }
+          ],
+          "default_assignee": "reporter",
+          "classifications": [
+            "BBPS",
+            "MobileRecharge",
+            "Acc-Insurance",
+            "Health-Insurance",
+            "TeleConsultation",
+            "MarchantQRRegandTxn",
+            "TvamSubscription",
+            "P2PInvestment"
+          ]
+        }
+      ],
+      "form": [
+        {
+          "field": "Issue_Process_Date",
+          "type": "date",
+          "size_limit": 24,
+          "optional": 0
+        },
+        {
+          "field": "Solution_Description",
+          "type": "string",
+          "size_limit": 256,
+          "optional": 0
+        },
+        {
+          "field": "Root_Cause",
+          "type": "string",
+          "size_limit": 256,
+          "optional": 1
+        }
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "class": "default",
+      "items": [
+        {
+          "field": "Customer_Name",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Mobile",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "State",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "District",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Village/City",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Name",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Mobile",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Raised_By",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Customer",
+            "Agent",
+            "TechSupport"
+          ]
+        },
+        {
+          "field": "Reported_Mode",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "PhoneCall",
+            "Email",
+            "WhatsApp",
+            "TvamChat"
+          ]
+        },
+        {
+          "field": "Issue_Faced_Date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Feedback",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_ref_no",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Booking_Reg_Number",
+          "type": "integer",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_Status",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "Booking_Status",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SIDBI",
+      "items": [
+        {
+          "field": "Customer_Name",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Mobile",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "State",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "District",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Village/City",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Name",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Mobile",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Raised_By",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Customer",
+            "Agent",
+            "TechSupport"
+          ]
+        },
+        {
+          "field": "Reported_Mode",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "PhoneCall",
+            "Email",
+            "WhatsApp",
+            "TvamChat"
+          ]
+        },
+        {
+          "field": "Issue_Faced_Date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Feedback",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_ref_no",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Booking_Reg_Number",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Payment_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "Booking_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        },
+        {
+          "field": "Application_Code",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Loan_Ref_Number",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Process_Type",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Process_Status-Merchant",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Registered",
+            "Not_Registered"
+          ]
+        },
+        {
+          "field": "Process_Status-NACH",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Expired",
+            "UMRN generated",
+            "Failed",
+            "Partial",
+            "No mandate available",
+            "NACK received",
+            "success",
+            "Authentication Failed",
+            "UNRN Pending"
+          ]
+        }
+      ]
+    },
+    {
+      "class": "BBPS",
+      "items": [
+        {
+          "field": "Customer_Name",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Mobile",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "State",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "District",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Village/City",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Name",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Mobile",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Raised_By",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Customer",
+            "Agent",
+            "TechSupport"
+          ]
+        },
+        {
+          "field": "Reported_Mode",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "PhoneCall",
+            "Email",
+            "WhatsApp",
+            "TvamChat"
+          ]
+        },
+        {
+          "field": "Issue_Faced_Date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Feedback",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_ref_no",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Booking_Reg_Number",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Payment_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "Booking_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        },
+        {
+          "field": "Bill_Category",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Bill_Payment_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        }
+      ]
+    },
+    {
+      "class": "MobileRecharge",
+      "items": [
+        {
+          "field": "Customer_Name",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Mobile",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "State",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "District",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Village/City",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Name",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Mobile",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Raised_By",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Customer",
+            "Agent",
+            "TechSupport"
+          ]
+        },
+        {
+          "field": "Reported_Mode",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "PhoneCall",
+            "Email",
+            "WhatsApp",
+            "TvamChat"
+          ]
+        },
+        {
+          "field": "Issue_Faced_Date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Feedback",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_ref_no",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Booking_Reg_Number",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Payment_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "Booking_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Acc-Insurance",
+      "items": [
+        {
+          "field": "Customer_Name",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Mobile",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "State",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "District",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Village/City",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Name",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Mobile",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Raised_By",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Customer",
+            "Agent",
+            "TechSupport"
+          ]
+        },
+        {
+          "field": "Reported_Mode",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "PhoneCall",
+            "Email",
+            "WhatsApp",
+            "TvamChat"
+          ]
+        },
+        {
+          "field": "Issue_Faced_Date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Feedback",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_ref_no",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Booking_Reg_Number",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Payment_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "Booking_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Health-Insurance",
+      "items": [
+        {
+          "field": "Customer_Name",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Mobile",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "State",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "District",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Village/City",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Name",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Mobile",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Raised_By",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Customer",
+            "Agent",
+            "TechSupport"
+          ]
+        },
+        {
+          "field": "Reported_Mode",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "PhoneCall",
+            "Email",
+            "WhatsApp",
+            "TvamChat"
+          ]
+        },
+        {
+          "field": "Issue_Faced_Date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Feedback",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_ref_no",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Booking_Reg_Number",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Payment_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "Booking_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        }
+      ]
+    },
+    {
+      "class": "TeleConsultation",
+      "items": [
+        {
+          "field": "Customer_Name",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Mobile",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "State",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "District",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Village/City",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Name",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Mobile",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Raised_By",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Customer",
+            "Agent",
+            "TechSupport"
+          ]
+        },
+        {
+          "field": "Reported_Mode",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "PhoneCall",
+            "Email",
+            "WhatsApp",
+            "TvamChat"
+          ]
+        },
+        {
+          "field": "Issue_Faced_Date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Feedback",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_ref_no",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Booking_Reg_Number",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Payment_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "Booking_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        },
+        {
+          "field": "Consultation_Date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Consultation_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Prescription-Send",
+            "Initiated",
+            "CancelConsultationByAtyati",
+            "Ended",
+            "Failed",
+            "Booked",
+            "Video-Call-Initiated",
+            "Video-Call-Done"
+          ]
+        },
+        {
+          "field": "Status_Message",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Video-Call-Completed",
+            "Failed",
+            "Prescription-Send",
+            "Booked",
+            "Video-Call-Initiated",
+            "Completed",
+            "Cancelled"
+          ]
+        }
+      ]
+    },
+    {
+      "class": "MarchantQRRegandTxn",
+      "items": [
+        {
+          "field": "Customer_Name",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Mobile",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "State",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "District",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Village/City",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Name",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Mobile",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Raised_By",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Customer",
+            "Agent",
+            "TechSupport"
+          ]
+        },
+        {
+          "field": "Reported_Mode",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "PhoneCall",
+            "Email",
+            "WhatsApp",
+            "TvamChat"
+          ]
+        },
+        {
+          "field": "Issue_Faced_Date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Feedback",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_ref_no",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Booking_Reg_Number",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Payment_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "Booking_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        },
+        {
+          "field": "Mer_Id",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "VPA_ID",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Transaction_Date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Transaction_Amount",
+          "type": "integer",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Settled_Amount_date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Process_Status",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Mer_Registered",
+            "Mer_Not_Registered"
+          ]
+        }
+      ]
+    },
+    {
+      "class": "TvamSubscription",
+      "items": [
+        {
+          "field": "Customer_Name",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Mobile",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "State",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "District",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Village/City",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Name",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Mobile",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Raised_By",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Customer",
+            "Agent",
+            "TechSupport"
+          ]
+        },
+        {
+          "field": "Reported_Mode",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "PhoneCall",
+            "Email",
+            "WhatsApp",
+            "TvamChat"
+          ]
+        },
+        {
+          "field": "Issue_Faced_Date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Feedback",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_ref_no",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Booking_Reg_Number",
+          "type": "integer",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_Status",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "Booking_Status",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        }
+      ]
+    },
+    {
+      "class": "P2PInvestment",
+      "items": [
+        {
+          "field": "Customer_Name",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Mobile",
+          "type": "string",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "State",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "District",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Village/City",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Name",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Referred_Mobile",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Raised_By",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "Customer",
+            "Agent",
+            "TechSupport"
+          ]
+        },
+        {
+          "field": "Reported_Mode",
+          "type": "list",
+          "optional": 0,
+          "hide": 0,
+          "list": [
+            "PhoneCall",
+            "Email",
+            "WhatsApp",
+            "TvamChat"
+          ]
+        },
+        {
+          "field": "Issue_Faced_Date",
+          "type": "date",
+          "optional": 0,
+          "hide": 0
+        },
+        {
+          "field": "Customer_Feedback",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_ref_no",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Booking_Reg_Number",
+          "type": "integer",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "TxnAmount",
+          "type": "integer",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Txndate",
+          "type": "date",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "Payment_Status",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "Pending",
+            "Failed",
+            "Success",
+            "NA"
+          ]
+        },
+        {
+          "field": "Booking_Status",
+          "type": "list",
+          "optional": 1,
+          "hide": 0,
+          "list": [
+            "Initiated",
+            "Pending",
+            "Failed",
+            "Success"
+          ]
+        }
+      ]
+    }
+  ]
+}
