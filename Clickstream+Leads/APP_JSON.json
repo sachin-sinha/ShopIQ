@@ -1,7 +1,7 @@
 {
   "schemas": [
     {
-      "schema": "a13d3534_Ecommerce",
+      "schema": "a13d3534_Clickstream",
       "streams": [
         {
           "name": "Data",
