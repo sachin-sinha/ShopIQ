@@ -6,7 +6,7 @@
   "display_raw_json": 0,
   "cross_user_view": 1,
   "default_close_status": "Closed",
-  "default_open_status": "Active",
+  "default_open_status": "Open",
   "localization": {
     "pipe": "System",
     "work": "Tech_Ticketing",
@@ -15,7 +15,6 @@
   },
   "status": [
     "Active",
-    "InActive",
     "Closed",
     "Open"
   ],
@@ -34,6 +33,7 @@
         {
           "id": "Lending",
           "description": "System for Lending",
+          "oob_email_field": "c_f.RaisedByEmailid",
           "user_filter_policy": "ALL",
           "users": [
             {
@@ -41,7 +41,25 @@
               "status": 1,
               "user_type": "POWER",
               "name": "testuser",
-              "is_pipe_admin": 0
+              "is_pipe_admin": 0,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
             },
             {
               "userid": "Kirana_Upadhya_PC",
@@ -56,7 +74,25 @@
               "user_type": "NORMAL",
               "power_user": "testuser",
               "name": "Kirana_Upadhya_PC",
-              "is_pipe_admin": 1
+              "is_pipe_admin": 1,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
             },
             {
               "userid": "Sharada_D_Mohan",
@@ -71,7 +107,25 @@
               "user_type": "NORMAL",
               "power_user": "testuser",
               "name": "Sharada_D_Mohan",
-              "is_pipe_admin": 0
+              "is_pipe_admin": 0,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
             },
             {
               "userid": "Neelkantappa_Kunnur",
@@ -86,7 +140,25 @@
               "user_type": "NORMAL",
               "power_user": "testuser",
               "name": "Neelkantappa_Kunnur",
-              "is_pipe_admin": 0
+              "is_pipe_admin": 0,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
             },
             {
               "userid": "Manu_H_N",
@@ -101,7 +173,25 @@
               "user_type": "NORMAL",
               "power_user": "testuser",
               "name": "Manu_H_N",
-              "is_pipe_admin": 1
+              "is_pipe_admin": 1,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
             },
             {
               "userid": "Vamsi_Vempalli",
@@ -116,7 +206,25 @@
               "user_type": "NORMAL",
               "power_user": "testuser",
               "name": "Vamsi_Vempalli",
-              "is_pipe_admin": 0
+              "is_pipe_admin": 0,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
             },
             {
               "userid": "Usha_M__",
@@ -131,7 +239,25 @@
               "user_type": "NORMAL",
               "power_user": "testuser",
               "name": "Usha_M__",
-              "is_pipe_admin": 0
+              "is_pipe_admin": 0,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
             },
             {
               "userid": "Kurakula_Rupesh",
@@ -146,7 +272,25 @@
               "user_type": "NORMAL",
               "power_user": "testuser",
               "name": "Kurakula_Rupesh",
-              "is_pipe_admin": 0
+              "is_pipe_admin": 0,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
             },
             {
               "userid": "R_Binay_Ram",
@@ -161,7 +305,25 @@
               "user_type": "NORMAL",
               "power_user": "testuser",
               "name": "R_Binay_Ram",
-              "is_pipe_admin": 0
+              "is_pipe_admin": 0,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
             },
             {
               "userid": "Laxman_Pareet",
@@ -176,87 +338,306 @@
               "user_type": "NORMAL",
               "power_user": "testuser",
               "name": "Laxman_Pareet",
-              "is_pipe_admin": 0
+              "is_pipe_admin": 0,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
+            },
+            {
+              "userid": "team_support_user",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 1,
+              "status": 1
             }
           ],
           "default_assignee": "reporter",
           "classifications": [
             "SIDBI"
+          ],
+          "send_email": 1,
+          "email_to_reporter_assignee": 0,
+          "email_to_groups": [
+            "sirohidivya014@gamil.com",
+            "sandeepbelaki@gmail.com"
           ]
         },
         {
           "id": "Non_Lending",
           "description": "System for Non Lending",
+          "oob_email_field": "c_f.RaisedByEmailid",
           "user_filter_policy": "ALL",
           "users": [
-            {
-              "userid": "testuser",
-              "status": 1,
-              "name": "testuser",
-              "is_pipe_admin": 0
-            },
             {
               "userid": "Kirana_Upadhya_PC",
               "email": "",
               "phone": "",
               "is_pipe_admin": 1,
-              "status": 1
-            },
-            {
-              "userid": "Neelkantappa_Kunnur",
-              "email": "",
-              "phone": "",
-              "is_pipe_admin": 0,
-              "status": 1
-            },
-            {
-              "userid": "Sharada_D_Mohan",
-              "email": "",
-              "phone": "",
-              "is_pipe_admin": 0,
-              "status": 1
-            },
-            {
-              "userid": "Vamsi_Vempalli",
-              "email": "",
-              "phone": "",
-              "is_pipe_admin": 0,
-              "status": 1
-            },
-            {
-              "userid": "Manu_H_N",
-              "email": "",
-              "phone": "",
-              "is_pipe_admin": 1,
-              "status": 1
-            },
-            {
-              "userid": "Usha_M__",
-              "email": "",
-              "phone": "",
-              "is_pipe_admin": 0,
-              "status": 1
+              "status": 1,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
             },
             {
               "userid": "Kurakula_Rupesh",
               "email": "",
               "phone": "",
               "is_pipe_admin": 0,
-              "status": 1
-            },
-            {
-              "userid": "R_Binay_Ram",
-              "email": "",
-              "phone": "",
-              "is_pipe_admin": 0,
-              "status": 1
+              "status": 1,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
             },
             {
               "userid": "Laxman_Pareet",
               "email": "laxman.pareet@tvam.co",
               "phone": "",
               "is_pipe_admin": 0,
-              "status": 1
+              "status": 1,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
+            },
+            {
+              "userid": "Manu_H_N",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 1,
+              "status": 1,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
+            },
+            {
+              "userid": "Neelkantappa_Kunnur",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 0,
+              "status": 1,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
+            },
+            {
+              "userid": "R_Binay_Ram",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 0,
+              "status": 1,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
+            },
+            {
+              "userid": "Sharada_D_Mohan",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 0,
+              "status": 1,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
+            },
+            {
+              "userid": "team_support_user",
+              "phone": "",
+              "email": "",
+              "status": 1,
+              "is_pipe_admin": 1
+            },
+            {
+              "userid": "testuser",
+              "status": 1,
+              "name": "testuser",
+              "is_pipe_admin": 0,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
+            },
+            {
+              "userid": "Usha_M__",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 0,
+              "status": 1,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
+            },
+            {
+              "userid": "Vamsi_Vempalli",
+              "email": "",
+              "phone": "",
+              "is_pipe_admin": 0,
+              "status": 1,
+              "display_columns": [
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                },
+                {
+                  "label": "Status",
+                  "name": "_meta.s"
+                },
+                {
+                  "label": "Classification",
+                  "name": "_meta.classification"
+                }
+              ]
             }
           ],
           "default_assignee": "reporter",
@@ -269,6 +650,12 @@
             "Marchant_QR_Reg_and_Txn",
             "Tvam_Subscription",
             "P2P_Investment"
+          ],
+          "send_email": 1,
+          "email_to_reporter_assignee": 0,
+          "email_to_groups": [
+            "sirohidivya014@gamil.com",
+            "sandeepbelaki@gmail.com"
           ]
         }
       ],
@@ -410,7 +797,7 @@
           "hide": 0
         },
         {
-          "field": "BookingRegNumber",
+          "field": "BookingRefNumber",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -450,6 +837,30 @@
             "Failed",
             "Success"
           ]
+        },
+        {
+          "field": "PrimaryCustomerNumberWhoLoggedTVAM",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByName",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByEmailid",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByContactNumber",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
         }
       ]
     },
@@ -557,7 +968,7 @@
           "hide": 0
         },
         {
-          "field": "BookingRegNumber",
+          "field": "BookingRefNumber",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -642,6 +1053,30 @@
             "Authentication failed",
             "UMRN Pending"
           ]
+        },
+        {
+          "field": "PrimaryCustomerNumberWhoLoggedTVAM",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByName",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByEmailid",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByContactNumber",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
         }
       ]
     },
@@ -749,7 +1184,7 @@
           "hide": 0
         },
         {
-          "field": "BookingRegNumber",
+          "field": "BookingRefNumber",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -829,6 +1264,30 @@
             "Mer_Registered",
             "Mer_NotRegistered"
           ]
+        },
+        {
+          "field": "PrimaryCustomerNumberWhoLoggedTVAM",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByName",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByEmailid",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByContactNumber",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
         }
       ]
     },
@@ -936,7 +1395,7 @@
           "hide": 0
         },
         {
-          "field": "BookingRegNumber",
+          "field": "BookingRefNumber",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -1017,6 +1476,30 @@
             "Completed",
             "CANCELLED"
           ]
+        },
+        {
+          "field": "PrimaryCustomerNumberWhoLoggedTVAM",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByName",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByEmailid",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByContactNumber",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
         }
       ]
     },
@@ -1124,7 +1607,7 @@
           "hide": 0
         },
         {
-          "field": "BookingRegNumber",
+          "field": "BookingRefNumber",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -1182,11 +1665,35 @@
             "Pending",
             "Initiated"
           ]
+        },
+        {
+          "field": "PrimaryCustomerNumberWhoLoggedTVAM",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByName",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByEmailid",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByContactNumber",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
         }
       ]
     },
     {
-      "class": "Mobile Recharge",
+      "class": "Mobile_Recharge",
       "items": [
         {
           "field": "CustomerName",
@@ -1289,7 +1796,7 @@
           "hide": 0
         },
         {
-          "field": "BookingRegNumber",
+          "field": "BookingRefNumber",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -1329,6 +1836,30 @@
             "Failed",
             "Success"
           ]
+        },
+        {
+          "field": "PrimaryCustomerNumberWhoLoggedTVAM",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByName",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByEmailid",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByContactNumber",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
         }
       ]
     },
@@ -1436,7 +1967,7 @@
           "hide": 0
         },
         {
-          "field": "BookingRegNumber",
+          "field": "BookingRefNumber",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -1476,6 +2007,30 @@
             "Failed",
             "Success"
           ]
+        },
+        {
+          "field": "PrimaryCustomerNumberWhoLoggedTVAM",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByName",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByEmailid",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByContactNumber",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
         }
       ]
     },
@@ -1575,6 +2130,30 @@
             "Minor",
             "Major/Critical"
           ]
+        },
+        {
+          "field": "PrimaryCustomerNumberWhoLoggedTVAM",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByName",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByEmailid",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByContactNumber",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
         }
       ]
     },
@@ -1682,7 +2261,7 @@
           "hide": 0
         },
         {
-          "field": "BookingRegNumber",
+          "field": "BookingRefNumber",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -1722,6 +2301,30 @@
             "Failed",
             "Success"
           ]
+        },
+        {
+          "field": "PrimaryCustomerNumberWhoLoggedTVAM",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByName",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByEmailid",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByContactNumber",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
         }
       ]
     },
@@ -1829,7 +2432,7 @@
           "hide": 0
         },
         {
-          "field": "BookingRegNumber",
+          "field": "BookingRefNumber",
           "type": "string",
           "optional": 0,
           "hide": 0
@@ -1869,6 +2472,30 @@
             "Failed",
             "Success"
           ]
+        },
+        {
+          "field": "PrimaryCustomerNumberWhoLoggedTVAM",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByName",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByEmailid",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
+        },
+        {
+          "field": "RaisedByContactNumber",
+          "type": "string",
+          "optional": 1,
+          "hide": 0
         }
       ]
     }
