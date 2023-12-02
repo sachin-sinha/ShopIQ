@@ -118,8 +118,12 @@
           "user_filter_policy": "RR",
           "send_email": 1,
           "email_to_groups": [
-            "sandeep@iqlect.com"
-          ]
+            "avengerkicks@gmail.com"
+          ],
+          "send_email_from": {
+            "name": "Apptexit",
+            "user_name": "Apptexit"
+          }
         },
         {
           "users": [
@@ -241,7 +245,11 @@
           "send_email": 1,
           "email_to_groups": [
             "leads2uel@gmail.com"
-          ]
+          ],
+          "send_email_from": {
+            "name": "Apptexit",
+            "user_name": "Apptexit"
+          }
         },
         {
           "users": [
@@ -353,8 +361,12 @@
           "send_email": 1,
           "email_to_reporter_assignee": 0,
           "email_to_groups": [
-            "javeed.gilly@gmail.com"
-          ]
+            "vizagleads111@gmail.com"
+          ],
+          "send_email_from": {
+            "name": "Apptexit",
+            "user_name": "Apptexit"
+          }
         }
       ],
       "form": [
@@ -506,24 +518,7 @@
       "id": "website_leads",
       "description": "website based leads distribution",
       "form_sections": 1,
-      "pipes": [
-        {
-          "users": [
-            {
-              "userid": "david0608",
-              "phone": "",
-              "email": "",
-              "status": 1,
-              "is_pipe_admin": 1
-            }
-          ],
-          "id": "ExclusiveLeads",
-          "description": "Engine store exclusive leads",
-          "scan_delay_sec": 60,
-          "user_filter_policy": "RR",
-          "pipe_filter": "_meta.idsite = \"engines-store\""
-        }
-      ],
+      "pipes": [],
       "form": [
         {
           "section_title": "Yard Details",

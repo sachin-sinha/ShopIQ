@@ -95,7 +95,11 @@
           "send_email": 1,
           "email_to_groups": [
             "javeed.gilly@gmail.com"
-          ]
+          ],
+          "send_email_from": {
+            "name": "Apptexit",
+            "user_name": "Apptexit"
+          }
         }
       ],
       "form": [
