@@ -2301,7 +2301,21 @@
           ],
           "opnm": "RSTAT"
         }
-      ]
+      ],
+      "cepq": [
+        {
+          "tloc": 1000,
+          "type": 6,
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_v\",\"cmp_op\":\"NA\",\"val\":\"NA\"}],\"qtype\":1}"
+          },
+          "name": "empty_e_v",
+          "notf": 101
+        }
+      ],
+      "join": [],
+      "gpby": []
     },
     {
       "name": "LandingPage_Data",
@@ -4414,7 +4428,7 @@
           "name": "unique_leads",
           "fqry": {
             "type": 1,
-            "name": "{\"query\":[{\"key\":\"lead_exist\",\"cmp_op\":\"NA\",\"val\":\"NA\"}],\"qtype\":1}"
+            "name": "{\"query\":[{\"key\":\"lead_exist\",\"cmp_op\":\"NA\",\"val\":\"NA\"},{\"joinop\":0},{\"key\":\"Phone\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":1}"
           },
           "fatr": [
             "Visitor_Duration",
@@ -5169,7 +5183,7 @@
       ],
       "join": [
         {
-          "name": "leads_Autoparts_miles_1",
+          "name": "leads_Autoparts_miles",
           "jqry": {
             "cond": [
               "_id",
@@ -5216,8 +5230,7 @@
             "title",
             "_meta"
           ],
-          "pk": "jid",
-          "updt": 1
+          "pk": "jid"
         }
       ]
     },
@@ -5711,6 +5724,137 @@
         {
           "name": "jid",
           "type": "LONG"
+        }
+      ],
+      "refr": [
+        {
+          "name": "checking_lead_id",
+          "rstm": "Calls_Leads",
+          "jqry": {
+            "cond": [
+              "title",
+              "_id"
+            ],
+            "cmp": [
+              "EQ",
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "title",
+              "_id"
+            ]
+          },
+          "iatr": [
+            "lead_exist"
+          ],
+          "ratr": [
+            {
+              "val": "YES"
+            }
+          ],
+          "tloc": 1800
+        }
+      ],
+      "fltr": [
+        {
+          "name": "unique_premium_leads",
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"lead_exist\",\"cmp_op\":\"NA\",\"val\":\"NA\"}],\"qtype\":1}"
+          },
+          "fatr": [
+            "_id",
+            "idsite",
+            "title",
+            "Year",
+            "Make",
+            "Model",
+            "Size",
+            "Part",
+            "Name",
+            "Phone",
+            "Email",
+            "title",
+            "jid"
+          ],
+          "ostm": "Premium_Leads"
+        }
+      ]
+    },
+    {
+      "name": "Premium_Leads",
+      "inpt": [
+        "Calls_Leads"
+      ],
+      "swsz": 7862400,
+      "type": 2,
+      "attr": [
+        {
+          "name": "_id",
+          "type": "STRING",
+          "kysz": 40,
+          "sidx": 1,
+          "stat": "COUNT"
+        },
+        {
+          "name": "idsite",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Year",
+          "type": "STRING",
+          "kysz": 4
+        },
+        {
+          "name": "Make",
+          "type": "STRING",
+          "kysz": 64
+        },
+        {
+          "name": "Model",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Size",
+          "type": "STRING",
+          "kysz": 32
+        },
+        {
+          "name": "Part",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "Name",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "Phone",
+          "type": "STRING",
+          "kysz": 15
+        },
+        {
+          "name": "Email",
+          "type": "STRING",
+          "kysz": 128
+        },
+        {
+          "name": "title",
+          "type": "STRING",
+          "kysz": 120
+        },
+        {
+          "name": "jid",
+          "type": "LONG"
         },
         {
           "name": "_meta",
@@ -5875,8 +6019,7 @@
             "title",
             "_meta"
           ],
-          "pk": "jid",
-          "updt": 1
+          "pk": "jid"
         },
         {
           "name": "leads_1",
@@ -6206,5 +6349,18 @@
         }
       ]
     }
-  ]
+  ],
+  "notifs": [
+    {
+      "name": "empty_e_v",
+      "msg": "form data is empty",
+      "freq": 60,
+      "pri": 1,
+      "notifid": 101,
+      "mailto": [],
+      "endpoints": [],
+      "schemaid": 8448435541993183000
+    }
+  ],
+  "udfs": []
 }

@@ -5183,7 +5183,7 @@
       ],
       "join": [
         {
-          "name": "leads_Swapengines_1",
+          "name": "leads_used_engines_drivetrain",
           "jqry": {
             "cond": [
               "_id",
@@ -5580,7 +5580,7 @@
         {
           "name": "Call",
           "iatr": [
-            "YES"
+            "Yes"
           ],
           "type": "STRING",
           "kysz": 4,
@@ -5611,7 +5611,7 @@
       ],
       "join": [
         {
-          "name": "call_Swapengines_1",
+          "name": "call_used_engines_drivetrain_1",
           "jqry": {
             "cond": [
               "_id",
