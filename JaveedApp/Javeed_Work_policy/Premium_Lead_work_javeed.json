@@ -98,7 +98,8 @@
           ],
           "send_email_from": {
             "name": "Apptexit",
-            "user_name": "Apptexit"
+            "user_name": "Apptexit",
+            "domain": "autoparts-leads.com"
           }
         }
       ],
