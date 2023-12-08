@@ -125,7 +125,7 @@
         {"name": "_meta.pri","alias":"a4","iatr": ["4"],"fqry" : {"name" : "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"None\"}],\"qtype\":1}", "type" : 1},"fnr": 1,"seq": 0,"type": "LONG","opnm": "COPY_VAL","key_sep":"."},
         {"name": "_meta.due_date","iatr": ["($due_date_long*1000)"],"fnr": 1,"seq": 0,"type": "LONG","opnm": "MATH_EXP","key_sep":"."},
         {"name": "_meta.a","iatr": ["assignee_name"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 64,"key_sep":"."},
-        {"name": "_meta.reporter","iatr": ["reported_person"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 64,"key_sep":"."},
+        {"name": "_meta.r","iatr": ["reported_person"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 64,"key_sep":"."},
         {"name" : "_meta.created_time","iatr": ["($created_time_long*1000)"],"fnr": 1,"seq": 0, "type": "LONG","opnm": "MATH_EXP","key_sep":"."}
       ],
       "work": [

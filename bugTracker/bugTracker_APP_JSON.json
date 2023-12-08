@@ -1,7 +1,7 @@
 {
   "schemas": [
     {
-      "schema": "d35f3182_BugTracker",
+      "schema": "8b8adf93_BugTracker",
       "streams": [
         {
           "name": "Data",
@@ -560,7 +560,7 @@
               "key_sep": "."
             },
             {
-              "name": "_meta.reporter",
+              "name": "_meta.r",
               "iatr": [
                 "reported_person"
               ],
@@ -586,7 +586,7 @@
           "work": [
             {
               "name": "BugTracker",
-              "work_name": "d35f3182__BugTracker",
+              "work_name": "8b8adf93__BugTracker",
               "iatr": [
                 "_meta",
                 "title",
@@ -608,7 +608,7 @@
   "models": [],
   "works": [
     {
-      "work_name": "d35f3182__BugTracker",
+      "work_name": "8b8adf93__BugTracker",
       "name": "BugTracker",
       "apply_quota": 0,
       "display_raw_json": 0,
@@ -664,19 +664,19 @@
   "dashboards": [],
   "notifs": [],
   "app_details": {
-    "appid": "d35f3182",
+    "appid": "8b8adf93",
     "publish_state": 2,
-    "publish_date": "2023-12-08T19:45:39.866Z",
-    "submit_date": "2023-12-08T19:45:39.866Z",
+    "publish_date": "2023-12-08T20:59:24.658Z",
+    "submit_date": "2023-12-08T20:59:24.658Z",
     "stars": 0,
     "num_installs": 0,
     "pricing": "0",
     "author": "BangDB",
     "name": "Bug Tracker",
-    "description": "Track project bugs for efficient project management.",
-    "version": "0",
-    "img": "d35f3182__bugtraker2.png",
-    "short_intro": "Project Bug Manager",
+    "description": "Track project bugs better for efficient project management.",
+    "version": "1",
+    "img": "8b8adf93__bugtraker2.png",
+    "short_intro": "Project Bug management App",
     "video_link": "https://bangdb.com/contact-us",
     "install_link": "https://bangdb.com/contact-us",
     "support_link": "https://bangdb.com/contact-us",
