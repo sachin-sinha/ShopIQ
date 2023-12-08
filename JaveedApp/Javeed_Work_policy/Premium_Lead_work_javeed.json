@@ -23,6 +23,11 @@
     "Shipped Out",
     "Shipped Successfully"
   ],
+  "send_email_from": {
+    "name": "Apptexit",
+    "user_name": "Apptexit",
+    "domain": "autoparts-leads.com"
+  },
   "states": [
     {
       "state": "Inbox",
@@ -94,13 +99,10 @@
           "pipe_filter": "_meta.call = \"YES\"",
           "send_email": 1,
           "email_to_groups": [
-            "javeed.gilly@gmail.com"
-          ],
-          "send_email_from": {
-            "name": "Apptexit",
-            "user_name": "Apptexit",
-            "domain": "autoparts-leads.com"
-          }
+            "javeed.gilly@gmail.com",
+            "sandeep@iqlect.com",
+            "avengerkicks@gmail.com"
+          ]
         }
       ],
       "form": [

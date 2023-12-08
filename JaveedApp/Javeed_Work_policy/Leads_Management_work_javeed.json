@@ -11,6 +11,11 @@
     "work": "CRM",
     "job": "Lead"
   },
+  "send_email_from": {
+    "name": "Apptexit",
+    "user_name": "Apptexit",
+    "domain": "autoparts-leads.com"
+  },
   "status": [
     "Unassign",
     "Voice Mail",
@@ -118,7 +123,8 @@
           "user_filter_policy": "RR",
           "send_email": 1,
           "email_to_groups": [
-            "avengerkicks@gmail.com"
+            "sandeep@iqlect.com",
+            "leadsauh@gmail.com"
           ],
           "send_email_from": {
             "name": "Apptexit",
@@ -245,7 +251,34 @@
           "user_filter_policy": "RR",
           "send_email": 1,
           "email_to_groups": [
-            "leads2uel@gmail.com"
+            "sandeep@iqlect.com",
+            "eandtleads@gmail.com\t"
+          ],
+          "send_email_from": {
+            "name": "Apptexit",
+            "user_name": "Apptexit",
+            "domain": "autoparts-leads.com"
+          },
+          "status": 1
+        },
+        {
+          "users": [
+            {
+              "userid": "raviteja3414",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1
+            }
+          ],
+          "id": "Rsautoparts",
+          "scan_delay_sec": 60,
+          "description": "Rs Auto parts ",
+          "user_filter_policy": "ALL",
+          "send_email": 1,
+          "email_to_reporter_assignee": 0,
+          "email_to_groups": [
+            "leads4080@gmail.com"
           ],
           "send_email_from": {
             "name": "Apptexit",
@@ -256,120 +289,39 @@
         {
           "users": [
             {
-              "userid": "adam@darrenauto",
+              "userid": "Aamir6459",
               "phone": "",
               "email": "",
               "is_pipe_admin": 1,
               "status": 1
-            },
-            {
-              "userid": "daisy@darrenauto",
-              "phone": "",
-              "email": "",
-              "is_pipe_admin": 1,
-              "status": 1
-            },
-            {
-              "userid": "maxcooper@darrenauto",
-              "phone": "",
-              "email": "",
-              "is_pipe_admin": 1,
-              "status": 1,
-              "check_logged_user": 0
-            },
-            {
-              "userid": "mounica@darrenauto",
-              "phone": "",
-              "email": "",
-              "is_pipe_admin": 1,
-              "status": 1,
-              "display_columns": [
-                {
-                  "label": "Created",
-                  "name": "_meta.created_time"
-                },
-                {
-                  "label": "Assignee",
-                  "name": "_meta.a"
-                },
-                {
-                  "label": "Status",
-                  "name": "_meta.s"
-                },
-                {
-                  "label": "Tags",
-                  "name": "_meta.tags"
-                },
-                {
-                  "label": "Severity",
-                  "name": "_meta.pri"
-                },
-                {
-                  "label": "Due Date",
-                  "name": "_meta.due_date"
-                },
-                {
-                  "label": "Classification",
-                  "name": "_meta.classification"
-                },
-                {
-                  "label": "State",
-                  "name": "_meta.state"
-                }
-              ]
-            },
-            {
-              "userid": "tomparker@darrenauto",
-              "phone": "",
-              "email": "",
-              "is_pipe_admin": 1,
-              "status": 1,
-              "display_columns": [
-                {
-                  "label": "Reporter",
-                  "name": "_meta.reporter"
-                },
-                {
-                  "label": "Created",
-                  "name": "_meta.created_time"
-                },
-                {
-                  "label": "Assignee",
-                  "name": "_meta.a"
-                },
-                {
-                  "label": "Status",
-                  "name": "_meta.s"
-                },
-                {
-                  "label": "Tags",
-                  "name": "_meta.tags"
-                },
-                {
-                  "label": "Severity",
-                  "name": "_meta.pri"
-                },
-                {
-                  "label": "State",
-                  "name": "_meta.state"
-                }
-              ]
             }
           ],
-          "id": "Darrenauto",
-          "scan_delay_sec": 60,
-          "description": "Darren Auto Parts",
-          "user_filter_policy": "RR",
+          "id": "Bestusedautopart",
+          "description": "Best Used Auto Parts ( Aamir) ",
           "send_email": 1,
           "email_to_reporter_assignee": 0,
           "email_to_groups": [
-            "vizagleads111@gmail.com"
+            "leads5767@gmail.com"
           ],
-          "send_email_from": {
-            "name": "Apptexit",
-            "user_name": "Apptexit",
-            "domain": "autoparts-leads.com"
-          }
+          "user_filter_policy": "ALL"
+        },
+        {
+          "users": [
+            {
+              "userid": "zabi9924",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1
+            }
+          ],
+          "id": "12stone",
+          "description": "12 Stone Zabi",
+          "user_filter_policy": "ALL",
+          "send_email": 1,
+          "email_to_groups": [
+            "leadsjexclusive@gmail.com"
+          ]
         }
       ],
       "form": [
