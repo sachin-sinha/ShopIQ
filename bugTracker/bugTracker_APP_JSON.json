@@ -1,0 +1,695 @@
+{
+  "schemas": [
+    {
+      "schema": "d35f3182_BugTracker",
+      "streams": [
+        {
+          "name": "Data",
+          "inpt": [],
+          "swsz": 86400,
+          "type": 1,
+          "attr": [
+            {
+              "name": "tags.name",
+              "type": "OBJECT"
+            },
+            {
+              "name": "updated_time_long",
+              "type": "LONG"
+            },
+            {
+              "name": "comment_count",
+              "type": "STRING",
+              "kysz": 4
+            },
+            {
+              "name": "updated_time",
+              "type": "STRING",
+              "kysz": 20
+            },
+            {
+              "name": "assignee_zpuid",
+              "type": "STRING",
+              "kysz": 24
+            },
+            {
+              "name": "flag",
+              "type": "STRING",
+              "kysz": 16
+            },
+            {
+              "name": "updated_time_format",
+              "type": "STRING",
+              "kysz": 22
+            },
+            {
+              "name": "description",
+              "type": "STRING",
+              "kysz": 650
+            },
+            {
+              "name": "title",
+              "type": "STRING",
+              "kysz": 250
+            },
+            {
+              "name": "assignee_name",
+              "type": "STRING",
+              "kysz": 64
+            },
+            {
+              "name": "reporter_id",
+              "type": "STRING",
+              "kysz": 12
+            },
+            {
+              "name": "id",
+              "type": "LONG"
+            },
+            {
+              "name": "has_log_hours",
+              "type": "STRING",
+              "kysz": 8
+            },
+            {
+              "name": "escalation_level",
+              "type": "STRING",
+              "kysz": 4
+            },
+            {
+              "name": "key",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "assignee_id",
+              "type": "STRING",
+              "kysz": 12
+            },
+            {
+              "name": "created_time_long",
+              "type": "LONG"
+            },
+            {
+              "name": "severity",
+              "type": "OBJECT",
+              "fields": [
+                {
+                  "name": "severity.id",
+                  "type": "STRING",
+                  "kysz": 20
+                },
+                {
+                  "name": "severity.type",
+                  "type": "STRING",
+                  "kysz": 32
+                }
+              ],
+              "key_sep": "."
+            },
+            {
+              "name": "created_time",
+              "type": "STRING",
+              "kysz": 20
+            },
+            {
+              "name": "created_time_format",
+              "type": "STRING",
+              "kysz": 22
+            },
+            {
+              "name": "reproducible",
+              "type": "OBJECT",
+              "fields": [
+                {
+                  "name": "reproducible.id",
+                  "type": "STRING",
+                  "kysz": 20
+                },
+                {
+                  "name": "reproducible.type",
+                  "type": "STRING",
+                  "kysz": 32
+                }
+              ],
+              "key_sep": "."
+            },
+            {
+              "name": "module",
+              "type": "OBJECT",
+              "fields": [
+                {
+                  "name": "module.id",
+                  "type": "STRING",
+                  "kysz": 20
+                },
+                {
+                  "name": "module.type",
+                  "type": "STRING",
+                  "kysz": 32
+                }
+              ],
+              "key_sep": "."
+            },
+            {
+              "name": "classification",
+              "type": "OBJECT",
+              "fields": [
+                {
+                  "name": "classification.id",
+                  "type": "STRING",
+                  "kysz": 20
+                },
+                {
+                  "name": "classification.type",
+                  "type": "STRING",
+                  "kysz": 32
+                }
+              ],
+              "key_sep": "."
+            },
+            {
+              "name": "milestone",
+              "type": "OBJECT",
+              "fields": [
+                {
+                  "name": "milestone.name",
+                  "type": "STRING",
+                  "kysz": 32
+                },
+                {
+                  "name": "milestone.id",
+                  "type": "STRING",
+                  "kysz": 20
+                }
+              ],
+              "key_sep": "."
+            },
+            {
+              "name": "bug_number",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "reporter_non_zuser",
+              "type": "STRING",
+              "kysz": 8
+            },
+            {
+              "name": "reported_person",
+              "type": "STRING",
+              "kysz": 64
+            },
+            {
+              "name": "reporter_email",
+              "type": "STRING",
+              "kysz": 128
+            },
+            {
+              "name": "id_string",
+              "type": "STRING",
+              "kysz": 20
+            },
+            {
+              "name": "closed",
+              "type": "STRING",
+              "kysz": 8
+            },
+            {
+              "name": "bug_prefix",
+              "type": "STRING",
+              "kysz": 8
+            },
+            {
+              "name": "attachment_count",
+              "type": "STRING",
+              "kysz": 8
+            },
+            {
+              "name": "closed",
+              "type": "STRING",
+              "kysz": 8
+            },
+            {
+              "name": "status",
+              "type": "OBJECT",
+              "fields": [
+                {
+                  "name": "status.colorcode",
+                  "type": "STRING",
+                  "kysz": 32
+                },
+                {
+                  "name": "status.id",
+                  "type": "STRING",
+                  "kysz": 20
+                },
+                {
+                  "name": "status.type",
+                  "type": "STRING",
+                  "kysz": 20
+                }
+              ],
+              "key_sep": "."
+            },
+            {
+              "name": "comments",
+              "type": "OBJECT",
+              "fields": [
+                {
+                  "name": "comments.comment",
+                  "type": "STRING",
+                  "kysz": 650
+                },
+                {
+                  "name": "Comments.added_person",
+                  "type": "STRING",
+                  "kysz": 64
+                },
+                {
+                  "name": "Comments.created_time",
+                  "type": "STRING",
+                  "kysz": 24
+                }
+              ],
+              "key_sep": "."
+            },
+            {
+              "name": "due_date_long",
+              "type": "LONG"
+            },
+            {
+              "name": "due_date",
+              "type": "STRING",
+              "kysz": 24
+            },
+            {
+              "name": "_pk",
+              "type": "LONG"
+            },
+            {
+              "name": "_meta",
+              "type": "OBJECT",
+              "fields": [
+                {
+                  "name": "_meta.tags",
+                  "type": "STRING"
+                },
+                {
+                  "name": "_meta.a",
+                  "type": "STRING",
+                  "kysz": 64
+                },
+                {
+                  "name": "_meta.reporter",
+                  "type": "STRING",
+                  "kysz": 64
+                },
+                {
+                  "name": "_meta.due_date_ts",
+                  "type": "LONG"
+                },
+                {
+                  "name": "_meta.due_date",
+                  "type": "STRING",
+                  "kysz": 24
+                },
+                {
+                  "name": "_meta.s",
+                  "type": "STRING",
+                  "kysz": 32
+                },
+                {
+                  "name": "_meta.pri",
+                  "type": "STRING",
+                  "kysz": 32
+                },
+                {
+                  "name": "_meta.classification",
+                  "type": "STRING",
+                  "kysz": 32
+                },
+                {
+                  "name": "_meta.state",
+                  "type": "STRING",
+                  "kysz": 32
+                },
+                {
+                  "name": "_meta.reproducible",
+                  "type": "STRING",
+                  "kysz": 32
+                }
+              ],
+              "key_sep": "."
+            }
+          ],
+          "catr": [
+            {
+              "name": "pipeid",
+              "iatr": [
+                "_PIPEID_"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "STRING",
+              "opnm": "COPY_VAL",
+              "kysz": 16
+            },
+            {
+              "name": "Attachment_count",
+              "iatr": [
+                "attachment_count"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "LONG",
+              "opnm": "COPY"
+            },
+            {
+              "name": "Zoho_bugId",
+              "iatr": [
+                "id_string"
+              ],
+              "fnr": 1,
+              "seq": 1,
+              "type": "STRING",
+              "opnm": "COPY",
+              "kysz": 20
+            },
+            {
+              "name": "_desc_",
+              "iatr": [
+                "description"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "STRING",
+              "opnm": "COPY",
+              "kysz": 640,
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.tags",
+              "iatr": [
+                "tags.name"
+              ],
+              "type": "ARRAY",
+              "opnm": "COPY"
+            },
+            {
+              "name": "_meta.reproducible",
+              "iatr": [
+                "reproducible.type"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "STRING",
+              "opnm": "COPY",
+              "kysz": 32,
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.state",
+              "iatr": [
+                "module.type"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "STRING",
+              "opnm": "COPY",
+              "kysz": 32,
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.c",
+              "iatr": [
+                "classification.type"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "STRING",
+              "opnm": "COPY",
+              "kysz": 32,
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.milestone",
+              "iatr": [
+                "milestone.name"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "STRING",
+              "opnm": "COPY",
+              "kysz": 32,
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.s",
+              "alias": "a5",
+              "iatr": [
+                "status.type"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "STRING",
+              "opnm": "COPY",
+              "kysz": 32,
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.pri",
+              "iatr": [
+                "0"
+              ],
+              "fqry": {
+                "name": "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"Show stopper\"}],\"qtype\":1}",
+                "type": 1
+              },
+              "fnr": 1,
+              "seq": 0,
+              "type": "LONG",
+              "opnm": "COPY_VAL",
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.pri",
+              "alias": "a1",
+              "iatr": [
+                "1"
+              ],
+              "fqry": {
+                "name": "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"Critical\"}],\"qtype\":1}",
+                "type": 1
+              },
+              "fnr": 1,
+              "seq": 0,
+              "type": "LONG",
+              "opnm": "COPY_VAL",
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.pri",
+              "alias": "a2",
+              "iatr": [
+                "2"
+              ],
+              "fqry": {
+                "name": "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"Major\"}],\"qtype\":1}",
+                "type": 1
+              },
+              "fnr": 1,
+              "seq": 0,
+              "type": "LONG",
+              "opnm": "COPY_VAL",
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.pri",
+              "alias": "a3",
+              "iatr": [
+                "3"
+              ],
+              "fqry": {
+                "name": "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"Minor\"}],\"qtype\":1}",
+                "type": 1
+              },
+              "fnr": 1,
+              "seq": 0,
+              "type": "LONG",
+              "opnm": "COPY_VAL",
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.pri",
+              "alias": "a4",
+              "iatr": [
+                "4"
+              ],
+              "fqry": {
+                "name": "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"None\"}],\"qtype\":1}",
+                "type": 1
+              },
+              "fnr": 1,
+              "seq": 0,
+              "type": "LONG",
+              "opnm": "COPY_VAL",
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.due_date",
+              "iatr": [
+                "($due_date_long*1000)"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "LONG",
+              "opnm": "MATH_EXP",
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.a",
+              "iatr": [
+                "assignee_name"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "STRING",
+              "opnm": "COPY",
+              "kysz": 64,
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.reporter",
+              "iatr": [
+                "reported_person"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "STRING",
+              "opnm": "COPY",
+              "kysz": 64,
+              "key_sep": "."
+            },
+            {
+              "name": "_meta.created_time",
+              "iatr": [
+                "($created_time_long*1000)"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "LONG",
+              "opnm": "MATH_EXP",
+              "key_sep": "."
+            }
+          ],
+          "work": [
+            {
+              "name": "BugTracker",
+              "work_name": "d35f3182__BugTracker",
+              "iatr": [
+                "_meta",
+                "title",
+                "bug_prefix",
+                "_desc_",
+                "Zoho_bugId",
+                "Attachment_count"
+              ],
+              "process_comments": {
+                "key": "comments",
+                "type": "ARRAY"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": [],
+  "works": [
+    {
+      "work_name": "d35f3182__BugTracker",
+      "name": "BugTracker",
+      "apply_quota": 0,
+      "display_raw_json": 0,
+      "cross_user_view": 1,
+      "localization": {
+        "pipe": "Project",
+        "work": "BugTracker",
+        "job": "Bug"
+      },
+      "default_close_status": "Closed",
+      "default_open_status": "Open",
+      "form": [],
+      "status": [
+        "Open",
+        "Closed",
+        "Invalid",
+        "Reopen",
+        "In progress",
+        "Next release",
+        "To be tested"
+      ],
+      "reproducibles": [
+        "Always",
+        "Sometimes",
+        "Rarely",
+        "Unable",
+        "Never tried",
+        "Not applicable"
+      ],
+      "classifications": [
+        "Security",
+        "Crash/Hang",
+        "Data loss",
+        "Performance",
+        "UI/Usability",
+        "Other bug",
+        "QA",
+        "Feature(New)",
+        "Enhancement"
+      ],
+      "milestones": [],
+      "group_filter_policy": "ALL",
+      "work_admin": [
+        {
+          "userid": "DivyaSirohi"
+        }
+      ],
+      "groups": [],
+      "_pk": "BugTracker"
+    }
+  ],
+  "files": [],
+  "dashboards": [],
+  "notifs": [],
+  "app_details": {
+    "appid": "d35f3182",
+    "publish_state": 2,
+    "publish_date": "2023-12-08T19:45:39.866Z",
+    "submit_date": "2023-12-08T19:45:39.866Z",
+    "stars": 0,
+    "num_installs": 0,
+    "pricing": "0",
+    "author": "BangDB",
+    "name": "Bug Tracker",
+    "description": "Track project bugs for efficient project management.",
+    "version": "0",
+    "img": "d35f3182__bugtraker2.png",
+    "short_intro": "Project Bug Manager",
+    "video_link": "https://bangdb.com/contact-us",
+    "install_link": "https://bangdb.com/contact-us",
+    "support_link": "https://bangdb.com/contact-us",
+    "support_email": "support@bangdb.com",
+    "category": "Infrastructure",
+    "app_install_config": "BugTracker",
+    "landing_page": "/works/my-works",
+    "ampere_modules": [
+      "Work Manager"
+    ]
+  },
+  "credentials": {
+    "admin": "super_admin11",
+    "admin_pwd": "sudo_admin_99"
+  }
+}

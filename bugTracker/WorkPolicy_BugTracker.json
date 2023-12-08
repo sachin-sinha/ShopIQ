@@ -32,10 +32,11 @@
           "users":[
             {
               "userid": "_USERID_",
-              "status": 1,
-              "is_pipe_admin": 1
+              "status": 1
             }
-          ]
+          ],
+          "send_email": 1,
+          "email_to_reporter_assignee": 1
         }
       ]
     }
