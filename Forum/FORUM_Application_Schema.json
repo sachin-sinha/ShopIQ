@@ -1,0 +1,208 @@
+{
+  "schemas": [],
+  "models": [],
+  "works": [
+    {
+      "work_admin": [
+        {
+          "userid": "UjjwalUpadhyay",
+          "status": 1
+        },
+        {
+          "userid": "sandeepb",
+          "status": 1
+        },
+        {
+          "userid": "sachinsinha",
+          "status": 1
+        },
+        {
+          "userid": "NidhishMehra",
+          "status": 1
+        },
+        {
+          "userid": "forum_admin",
+          "status": 1
+        }
+      ],
+      "work_name": "0ebac285__forum",
+      "group_filter_policy": "ALL",
+      "status": [
+        "Review",
+        "Open",
+        "Rejected",
+        "Accepted",
+        "Invalid",
+        "In Progress",
+        "Closed",
+        "Re-open"
+      ],
+      "tags": [
+        "Agent.Config",
+        "Ampere.Dashboard",
+        "Ampere.StreamProcessing",
+        "Ampere.Chart",
+        "Ampere.TagManager",
+        "Ampere.Graph",
+        "Ampere.Notification",
+        "Ampere.BRS",
+        "Ampere.Analysis",
+        "Ampere.UDF",
+        "Ampere.Tables",
+        "Ampere.WorkManager",
+        "Ampere.ML",
+        "App.BugTracker",
+        "App.ClickStream",
+        "App.CRM_Clickstream",
+        "App.Ecommerce",
+        "App.CRM_Ecommerec",
+        "App.LinuxMonitoring",
+        "App.Forum",
+        "Backup.Setup",
+        "BangDB.Config",
+        "BangDB.Tables",
+        "BangDB.ML",
+        "BangDB.Schema/Stream",
+        "BangDB.Graph",
+        "BangDB.Server",
+        "BangDB.Queries",
+        "BangDB.Binary",
+        "CLI.Setup",
+        "CLI.Graph",
+        "CLI.Query",
+        "CLI.Schema",
+        "CLI.Chart",
+        "CLI.ML",
+        "CLI.UDF",
+        "Client.Setup",
+        "Documentation.App",
+        "Documentation.Schema",
+        "Documentation.Server",
+        "Documentation.Ampere",
+        "Documentation.Graph",
+        "Documentation.ML",
+        "Documentation.Agent",
+        "Documentation.CLI",
+        "Mise.UI",
+        "Mise.Mise",
+        "REST API.Schema",
+        "REST API.Query",
+        "REST API.User Service",
+        "REST API.Tables",
+        "REST API.Work",
+        "REST API.Mise",
+        "Subscriptions / Login / Signup.Plan",
+        "Subscriptions / Login / Signup.Server",
+        "User Accounts / Invoice.Payment"
+      ],
+      "default_open_status": "Open",
+      "default_close_status": "Closed",
+      "groups": [
+        {
+          "pipe_filter_policy": "ALL",
+          "id": "g",
+          "description": "group description",
+          "form_sections": 0,
+          "pipes": [
+            {
+              "users": [
+                {
+                  "userid": "DivyaSirohi",
+                  "phone": "9688342275",
+                  "email": "divya@iqlect.com",
+                  "status": 1,
+                  "is_pipe_admin": 1
+                }
+              ],
+              "id": "forum",
+              "description": "forum for bangdb",
+              "allow_annonymous_reporter": 1,
+              "oob_email_field": [
+                {
+                  "n": "_meta.r",
+                  "e": "_meta.re",
+                  "t": "OBJECT"
+                }
+              ],
+              "send_email": 1,
+              "email_to_groups": [
+                "nidhish@iqlect.com"
+              ],
+              "email_to_reporter_assignee": 1
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "class": "default",
+          "items": []
+        },
+        {
+          "class": "Bug",
+          "items": []
+        },
+        {
+          "class": "Discussion & Question",
+          "items": []
+        },
+        {
+          "class": "Feature Request",
+          "items": []
+        }
+      ],
+      "_pk": "forum",
+      "classifications": [
+        "Bug",
+        "Discussion & Question",
+        "Feature Request"
+      ],
+      "categories": [
+        "Agent",
+        "Ampere",
+        "Apps",
+        "Backup",
+        "BangDB",
+        "CLI",
+        "Clients",
+        "Documentation",
+        "Misc",
+        "REST API",
+        "Subscriptions / Login / Signup",
+        "User Accounts / Invoice"
+      ]
+    }
+  ],
+  "files": [],
+  "dashboards": [],
+  "notifs": [],
+  "app_details": {
+    "appid": "0ebac285",
+    "publish_state": 2,
+    "publish_date": "2023-12-29T04:22:48.608Z",
+    "submit_date": "2023-12-29T04:22:48.608Z",
+    "stars": 0,
+    "num_installs": 0,
+    "pricing": "0",
+    "author": "BangDB",
+    "name": "Forum",
+    "description": "Create your own public meeting place for open discussion.",
+    "version": "0.1",
+    "img": "0ebac285__adadbc40__Forum.png",
+    "short_intro": "Create your own public meeting place for open discussion.",
+    "video_link": "",
+    "install_link": "",
+    "support_link": "",
+    "support_email": "",
+    "category": "Infrastructure",
+    "app_install_config": "",
+    "landing_page": "/works/my-works",
+    "ampere_modules": [
+      "Work Manager"
+    ]
+  },
+  "credentials": {
+    "admin": "super_admin11",
+    "admin_pwd": "sudo_admin_99"
+  }
+}
