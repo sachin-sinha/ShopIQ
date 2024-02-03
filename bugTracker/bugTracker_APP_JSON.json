@@ -1,10 +1,77 @@
 {
   "schemas": [
     {
-      "schema": "8b8adf93_BugTracker",
+      "schema": "424666cd_BugTracker",
       "streams": [
         {
-          "name": "Data",
+          "name": "Priority_reference_set",
+          "inpt": [],
+          "swsz": 315576500,
+          "type": 1,
+          "attr": [
+            {
+              "name": "Zoho_Priority",
+              "type": "STRING",
+              "kysz": 32
+            },
+            {
+              "name": "BangDB_Priority",
+              "type": "STRING",
+              "kysz": 4
+            }
+          ]
+        },
+        {
+          "name": "Projects",
+          "inpt": [],
+          "swsz": 315576500,
+          "type": 1,
+          "attr": [
+            {
+              "name": "BangDB_Project",
+              "type": "STRING",
+              "kysz": 40
+            },
+            {
+              "name": "BangDB_Group",
+              "type": "STRING",
+              "kysz": 40
+            }
+          ],
+          "catr": [
+            {
+              "name": "Ref_Constant_Id",
+              "iatr": [
+                "PIPEID"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "STRING",
+              "opnm": "COPY_VAL",
+              "kysz": 6
+            }
+          ]
+        },
+        {
+          "name": "User_reference_set",
+          "inpt": [],
+          "swsz": 315576500,
+          "type": 1,
+          "attr": [
+            {
+              "name": "Zoho_User",
+              "type": "STRING",
+              "kysz": 40
+            },
+            {
+              "name": "BangDB_User",
+              "type": "STRING",
+              "kysz": 40
+            }
+          ]
+        },
+        {
+          "name": "Bugs",
           "inpt": [],
           "swsz": 86400,
           "type": 1,
@@ -253,28 +320,6 @@
               "key_sep": "."
             },
             {
-              "name": "comments",
-              "type": "OBJECT",
-              "fields": [
-                {
-                  "name": "comments.comment",
-                  "type": "STRING",
-                  "kysz": 650
-                },
-                {
-                  "name": "Comments.added_person",
-                  "type": "STRING",
-                  "kysz": 64
-                },
-                {
-                  "name": "Comments.created_time",
-                  "type": "STRING",
-                  "kysz": 24
-                }
-              ],
-              "key_sep": "."
-            },
-            {
               "name": "due_date_long",
               "type": "LONG"
             },
@@ -301,7 +346,7 @@
                   "kysz": 64
                 },
                 {
-                  "name": "_meta.reporter",
+                  "name": "_meta.r",
                   "type": "STRING",
                   "kysz": 64
                 },
@@ -322,7 +367,7 @@
                 {
                   "name": "_meta.pri",
                   "type": "STRING",
-                  "kysz": 32
+                  "kysz": 4
                 },
                 {
                   "name": "_meta.classification",
@@ -338,23 +383,22 @@
                   "name": "_meta.reproducible",
                   "type": "STRING",
                   "kysz": 32
+                },
+                {
+                  "name": "_meta.created_time",
+                  "type": "STRING",
+                  "kysz": 32
                 }
               ],
               "key_sep": "."
+            },
+            {
+              "name": "Ref_Constant_Id",
+              "type": "STRING",
+              "kysz": 6
             }
           ],
           "catr": [
-            {
-              "name": "pipeid",
-              "iatr": [
-                "_PIPEID_"
-              ],
-              "fnr": 1,
-              "seq": 0,
-              "type": "STRING",
-              "opnm": "COPY_VAL",
-              "kysz": 16
-            },
             {
               "name": "Attachment_count",
               "iatr": [
@@ -385,8 +429,7 @@
               "seq": 0,
               "type": "STRING",
               "opnm": "COPY",
-              "kysz": 640,
-              "key_sep": "."
+              "kysz": 640
             },
             {
               "name": "_meta.tags",
@@ -394,7 +437,9 @@
                 "tags.name"
               ],
               "type": "ARRAY",
-              "opnm": "COPY"
+              "opnm": "COPY",
+              "seq": 1,
+              "fnr": 1
             },
             {
               "name": "_meta.reproducible",
@@ -446,7 +491,6 @@
             },
             {
               "name": "_meta.s",
-              "alias": "a5",
               "iatr": [
                 "status.type"
               ],
@@ -455,85 +499,6 @@
               "type": "STRING",
               "opnm": "COPY",
               "kysz": 32,
-              "key_sep": "."
-            },
-            {
-              "name": "_meta.pri",
-              "iatr": [
-                "0"
-              ],
-              "fqry": {
-                "name": "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"Show stopper\"}],\"qtype\":1}",
-                "type": 1
-              },
-              "fnr": 1,
-              "seq": 0,
-              "type": "LONG",
-              "opnm": "COPY_VAL",
-              "key_sep": "."
-            },
-            {
-              "name": "_meta.pri",
-              "alias": "a1",
-              "iatr": [
-                "1"
-              ],
-              "fqry": {
-                "name": "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"Critical\"}],\"qtype\":1}",
-                "type": 1
-              },
-              "fnr": 1,
-              "seq": 0,
-              "type": "LONG",
-              "opnm": "COPY_VAL",
-              "key_sep": "."
-            },
-            {
-              "name": "_meta.pri",
-              "alias": "a2",
-              "iatr": [
-                "2"
-              ],
-              "fqry": {
-                "name": "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"Major\"}],\"qtype\":1}",
-                "type": 1
-              },
-              "fnr": 1,
-              "seq": 0,
-              "type": "LONG",
-              "opnm": "COPY_VAL",
-              "key_sep": "."
-            },
-            {
-              "name": "_meta.pri",
-              "alias": "a3",
-              "iatr": [
-                "3"
-              ],
-              "fqry": {
-                "name": "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"Minor\"}],\"qtype\":1}",
-                "type": 1
-              },
-              "fnr": 1,
-              "seq": 0,
-              "type": "LONG",
-              "opnm": "COPY_VAL",
-              "key_sep": "."
-            },
-            {
-              "name": "_meta.pri",
-              "alias": "a4",
-              "iatr": [
-                "4"
-              ],
-              "fqry": {
-                "name": "{\"query\":[{\"key\":\"severity.type\",\"cmp_op\":\"EQ\",\"val\":\"None\"}],\"qtype\":1}",
-                "type": 1
-              },
-              "fnr": 1,
-              "seq": 0,
-              "type": "LONG",
-              "opnm": "COPY_VAL",
               "key_sep": "."
             },
             {
@@ -548,11 +513,22 @@
               "key_sep": "."
             },
             {
+              "name": "_meta.created_time",
+              "iatr": [
+                "($created_time_long*1000)"
+              ],
+              "fnr": 1,
+              "seq": 0,
+              "type": "LONG",
+              "opnm": "MATH_EXP",
+              "key_sep": "."
+            },
+            {
               "name": "_meta.a",
               "iatr": [
                 "assignee_name"
               ],
-              "fnr": 1,
+              "fnr": 3,
               "seq": 0,
               "type": "STRING",
               "opnm": "COPY",
@@ -564,29 +540,118 @@
               "iatr": [
                 "reported_person"
               ],
-              "fnr": 1,
+              "fnr": 3,
               "seq": 0,
               "type": "STRING",
               "opnm": "COPY",
               "kysz": 64,
               "key_sep": "."
+            }
+          ],
+          "refr": [
+            {
+              "name": "Pipe_mapping_ref",
+              "rstm": "Projects",
+              "jqry": {
+                "cond": [
+                  "Ref_Constant_Id"
+                ],
+                "cmp": [
+                  "EQ"
+                ],
+                "opnm": "FIXED",
+                "args": [
+                  "PIPEID"
+                ]
+              },
+              "iatr": [
+                "pipeid",
+                "groupid"
+              ],
+              "ratr": [
+                "BangDB_Project",
+                "BangDB_Group"
+              ],
+              "fnr": 1
             },
             {
-              "name": "_meta.created_time",
+              "name": "Priority_ref",
+              "rstm": "Priority_reference_set",
+              "jqry": {
+                "cond": [
+                  "severity.type"
+                ],
+                "cmp": [
+                  "EQ"
+                ],
+                "opnm": "ATTR",
+                "args": [
+                  "Zoho_Priority"
+                ],
+                "key_sep": "."
+              },
               "iatr": [
-                "($created_time_long*1000)"
+                "_meta.pri"
+              ],
+              "ratr": [
+                "BangDB_Priority"
               ],
               "fnr": 1,
-              "seq": 0,
-              "type": "LONG",
-              "opnm": "MATH_EXP",
+              "key_sep": "."
+            },
+            {
+              "name": "Assignee_User_Mapping",
+              "rstm": "User_reference_set",
+              "jqry": {
+                "cond": [
+                  "assignee_name"
+                ],
+                "cmp": [
+                  "EQ"
+                ],
+                "opnm": "ATTR",
+                "args": [
+                  "Zoho_User"
+                ]
+              },
+              "iatr": [
+                "_meta.a"
+              ],
+              "ratr": [
+                "BangDB_User"
+              ],
+              "fnr": 1,
+              "key_sep": "."
+            },
+            {
+              "name": "Reporter_User_Mapping",
+              "rstm": "User_reference_set",
+              "jqry": {
+                "cond": [
+                  "reported_person"
+                ],
+                "cmp": [
+                  "EQ"
+                ],
+                "opnm": "ATTR",
+                "args": [
+                  "Zoho_User"
+                ]
+              },
+              "iatr": [
+                "_meta.r"
+              ],
+              "ratr": [
+                "BangDB_User"
+              ],
+              "fnr": 1,
               "key_sep": "."
             }
           ],
           "work": [
             {
               "name": "BugTracker",
-              "work_name": "8b8adf93__BugTracker",
+              "work_name": "424666cd__BugTracker",
               "iatr": [
                 "_meta",
                 "title",
@@ -608,7 +673,7 @@
   "models": [],
   "works": [
     {
-      "work_name": "8b8adf93__BugTracker",
+      "work_name": "424666cd__BugTracker",
       "name": "BugTracker",
       "apply_quota": 0,
       "display_raw_json": 0,
@@ -657,39 +722,139 @@
         }
       ],
       "groups": [],
-      "_pk": "BugTracker"
+      "_pk": "BugTracker",
+      "fields": [
+        {
+          "class": "default",
+          "items": []
+        },
+        {
+          "class": "Security",
+          "items": []
+        },
+        {
+          "class": "Crash/Hang",
+          "items": []
+        },
+        {
+          "class": "Data loss",
+          "items": []
+        },
+        {
+          "class": "Performance",
+          "items": []
+        },
+        {
+          "class": "UI/Usability",
+          "items": []
+        },
+        {
+          "class": "Other bug",
+          "items": []
+        },
+        {
+          "class": "QA",
+          "items": []
+        },
+        {
+          "class": "Feature(New)",
+          "items": []
+        },
+        {
+          "class": "Enhancement",
+          "items": []
+        }
+      ]
     }
   ],
   "files": [],
   "dashboards": [],
   "notifs": [],
   "app_details": {
-    "appid": "8b8adf93",
+    "plan_id": [
+      {
+        "id": "plan_NKpcnDN9TMqNE3",
+        "type": "monthly"
+      },
+      {
+        "id": "plan_NNwPfYLUeBgZ2U",
+        "type": "yearly"
+      }
+    ],
+    "appid": "424666cd",
+    "icon": "424666cd__icon.png",
+    "theme": {
+      "primary": "#f5222dba"
+    },
     "publish_state": 2,
-    "publish_date": "2023-12-08T20:59:24.658Z",
-    "submit_date": "2023-12-08T20:59:24.658Z",
+    "publish_date": "2024-02-02T11:45:13.489Z",
+    "submit_date": "2024-02-02T11:45:13.489Z",
     "stars": 0,
     "num_installs": 0,
     "pricing": "0",
     "author": "BangDB",
-    "name": "Bug Tracker",
-    "description": "Track project bugs better for efficient project management.",
-    "version": "1",
-    "img": "8b8adf93__bugtraker2.png",
-    "short_intro": "Project Bug management App",
-    "video_link": "https://bangdb.com/contact-us",
-    "install_link": "https://bangdb.com/contact-us",
-    "support_link": "https://bangdb.com/contact-us",
-    "support_email": "support@bangdb.com",
+    "name": "BangDB BugTracker",
+    "description": "<p><span>In the dynamic world of software development, efficiently managing and resolving bugs is paramount to the success of any project. Whether you are leading a team of developers on a large project, or are an individual developer looking for an organized approach to bug tracking, the BangDB BugTracker proves to be a valuable solution.</span></p><p><br></p><p><span>The BangDB BugTracker encompasses the ability:</span></p><ul><li><p><span>to capture detailed information about each bug,</span></p></li><li><p><span>fostering collaboration within teams by assigning bugs to specific members,</span></p></li><li><p><span>monitoring the entire lifecycle of bugs,</span></p></li><li><p><span>offering a user-friendly interface for seamless navigation, and</span></p></li><li><p><span>establishing a centralized hub for all bug-related information.</span></p></li></ul><p><br></p><p><span>These features collectively contribute to a streamlined bug tracking process, saving time and effort for developers while promoting transparency and efficient communication.</span></p><p><br></p><p><span>Additionally, the system offers customization options, allowing users to tailor the BugTracker to their specific project requirements and seamlessly integrate it into diverse development workflows.</span></p>",
+    "version": "0.1",
+    "img": "424666cb__bugTracker.png",
+    "short_intro": "The BangDB BugTracker encompasses the ability to capture detailed information about each bug, fostering collaboration within teams by assigning bugs to specific members, monitoring the entire lifecycle of bugs, offering a user-friendly interface for seamless navigation, and establishing a centralized hub for all bug-related information and statistics.",
+    "video_link": "Support@iqlect.com",
+    "install_link": "Support@iqlect.com",
+    "support_link": "Support@iqlect.com",
+    "support_email": "Support@iqlect.com",
     "category": "Infrastructure",
     "app_install_config": "BugTracker",
     "landing_page": "/works/my-works",
     "ampere_modules": [
       "Work Manager"
+    ],
+    "doc": "Bug-Tracker.pdf",
+    "files": [
+      {
+        "name": "bugtracker_screenshot1.png",
+        "type": "screenshot",
+        "index": 0
+      },
+      {
+        "name": "bugtracker_screenshot2.png",
+        "type": "screenshot",
+        "index": 1
+      },
+      {
+        "name": "bugtracker_screenshot3.png",
+        "type": "screenshot",
+        "index": 2
+      },
+      {
+        "name": "bugtracker_screenshot4.png",
+        "type": "screenshot",
+        "index": 3
+      },
+      {
+        "name": "bugtracker_screenshot5.png",
+        "type": "screenshot",
+        "index": 4
+      },
+      {
+        "name": "bugtracker_screenshot6.png",
+        "type": "screenshot",
+        "index": 5
+      },
+      {
+        "name": "bugtracker_screenshot7.png",
+        "type": "screenshot",
+        "index": 6
+      },
+      {
+        "name": "bugtracker_screenshot8.png",
+        "type": "screenshot",
+        "index": 7
+      }
     ]
   },
   "credentials": {
-    "admin": "super_admin11",
-    "admin_pwd": "sudo_admin_99"
+    "refer": "ampere",
+    "ts": "1706960836567000",
+    "token": 5077050423
   }
 }

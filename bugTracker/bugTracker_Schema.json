@@ -11,12 +11,13 @@
     {
       "name": "Projects","inpt": [],"swsz": 315576500,"type": 1,
       "attr": [
-        {"name":"BangDB_Project", "type":"STRING", "kysz": 40}
+        {"name":"BangDB_Project", "type":"STRING", "kysz": 40},
+        {"name":"BangDB_Group","type":"STRING","kysz":40}
       ],
       "catr":[
         {"name": "Ref_Constant_Id","iatr": ["PIPEID"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz": 6}
       ]
-    },
+    }, 
     {
       "name": "User_reference_set","inpt": [],"swsz": 315576500,"type": 1,
       "attr": [
@@ -103,14 +104,6 @@
           ],
           "key_sep":"."
         },
-        {"name":"comments","type":"OBJECT",
-          "fields":[
-            {"name":"comments.comment","type":"STRING","kysz":650},
-            {"name":"Comments.added_person","type":"STRING","kysz":64},
-            {"name":"Comments.created_time","type":"STRING","kysz":24}
-          ],
-          "key_sep":"."
-        },
         {"name":"due_date_long","type":"LONG"},
         {"name":"due_date","type":"STRING","kysz": 24},
         {"name": "_pk","type":"LONG"},
@@ -125,7 +118,8 @@
             {"name":"_meta.pri","type":"STRING","kysz": 4},
             {"name":"_meta.classification","type":"STRING","kysz": 32},
             {"name":"_meta.state","type":"STRING","kysz": 32},
-            {"name":"_meta.reproducible","type":"STRING","kysz": 32}
+            {"name":"_meta.reproducible","type":"STRING","kysz": 32},
+            {"name":"_meta.created_time","type":"LONG"}
           ],
           "key_sep":"."
         },
@@ -143,26 +137,25 @@
         {"name": "_meta.s","alias":"a5","iatr": ["status.type"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 32,"key_sep":"."},
         {"name": "_meta.due_date","iatr": ["($due_date_long*1000)"],"fnr": 1,"seq": 0,"type": "LONG","opnm": "MATH_EXP","key_sep":"."},
         {"name" :"_meta.created_time","iatr": ["($created_time_long*1000)"],"fnr": 1,"seq": 0, "type": "LONG","opnm": "MATH_EXP","key_sep":"."},
-        {"name": "_meta.a","iatr": ["assignee_name"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 64,"key_sep":"."},
-        {"name": "_meta.r","iatr": ["reported_person"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 64,"key_sep":"."},
-        {"name": "_meta.pri","iatr": ["priority"],"fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 4,"key_sep":"."}
+        {"name": "_meta.a","iatr": ["assignee_name"],"fnr": 3,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 64,"key_sep":"."},
+        {"name": "_meta.r","iatr": ["reported_person"],"fnr": 3,"seq": 0,"type": "STRING","opnm": "COPY","kysz": 64,"key_sep":"."}
       ],
       "refr" : [
         {
           "name": "Pipe_mapping_ref","rstm": "Projects","jqry": {"cond": ["Ref_Constant_Id"],"cmp": ["EQ"],"opnm": "FIXED","args": ["PIPEID"]},
-          "iatr": ["pipeid"],"ratr": ["BangDB_Project"],"fnr": 1
+          "iatr": ["pipeid","groupid"],"ratr": ["BangDB_Project","BangDB_Group"],"fnr": 1
         },
         {
           "name": "Priority_ref","rstm": "Priority_reference_set","jqry": {"cond": ["severity.type"],"cmp": ["EQ"],"opnm": "ATTR","args": ["Zoho_Priority"],"key_sep":"."},
-          "iatr": ["priority"],"ratr": ["BangDB_Priority"],"fnr": 1
+          "iatr": ["_meta.pri"],"ratr": ["BangDB_Priority"],"fnr": 1,"key_sep":"."
         },
         {
           "name": "Assignee_User_Mapping","rstm": "User_reference_set","jqry": {"cond": ["assignee_name"],"cmp": ["EQ"],"opnm": "ATTR","args": ["Zoho_User"]},
-          "iatr": ["assignee_name"],"ratr": ["BangDB_User"],"fnr": 2
+          "iatr": ["_meta.a"],"ratr": ["BangDB_User"],"fnr": 1,"key_sep":"."
         },
         {
           "name": "Reporter_User_Mapping","rstm": "User_reference_set","jqry": {"cond": ["reported_person"],"cmp": ["EQ"],"opnm": "ATTR","args": ["Zoho_User"]},
-          "iatr": ["reported_person"],"ratr": ["BangDB_User"],"fnr": 2
+          "iatr": ["_meta.r"],"ratr": ["BangDB_User"],"fnr": 1,"key_sep":"."
         }
       ],
       "work": [
