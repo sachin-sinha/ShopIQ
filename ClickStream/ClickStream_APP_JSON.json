@@ -1869,7 +1869,7 @@
           "node": [
             {
               "sub": "_id",
-              "label": "Visitors",
+              "label": "Visitor",
               "props": [
                 "BrowserLanguage"
               ],
@@ -2572,7 +2572,7 @@
           "node": [
             {
               "sub": "_id",
-              "label": "Visitors",
+              "label": "Visitor",
               "props": [
                 "IPAddress",
                 "User_Status",
@@ -9170,19 +9170,21 @@
         "type": "yearly"
       }
     ],
+    "icon": "88572ead__clickStreamICON.png",
+    "theme": { "primary": "#f5940fba" },
     "appid": "88572ead",
     "publish_state": 2,
-    "publish_date": "2024-01-22T10:03:54.704Z",
-    "submit_date": "2024-01-22T10:03:54.704Z",
+    "publish_date": "2024-01-27T10:03:54.704Z",
+    "submit_date": "2024-01-27T10:03:54.704Z",
     "stars": 0,
     "num_installs": 0,
     "pricing": "50",
     "author": "BangDB",
-    "name": "Visitor_Insight",
-    "description": "Unlock the power of understanding your website's heartbeat with the BangDB Click Stream App. This innovative tool empowers you to delve into the intricacies of your online platform, providing invaluable insights into user behavior, interests, and overall engagement. By seamlessly tracking visitors' interactions, our app equips you with the knowledge to discern what's working effectively and what might need enhancement.Navigate through the digital landscape as the BangDB Click Stream App sheds light on the nuanced details of user journeys. Gain a comprehensive understanding of your audience's preferences and tendencies, enabling you to optimize your website strategically. Armed with this data, you can make informed decisions to enhance user engagement and boost conversion rates.",
+    "name": "BangDB Visitor Insight",
+    "description": "<p><span style="color:#666666;background-color:#ffffff;font-size:12pt;">Analytics serve as the foundation of a triumphant online marketing campaign. No matter how much content or how many ads you deploy, their efficacy remains unknown without insights into your site&apos;s performance.</span></p><p><br></p><p><span style="color:#666666;background-color:#ffffff;font-size:12pt;">With BangDB Visitor Insight analytics tools, you gain the capability to examine:</span></p><p><br></p><ol> <li style="list-style-type:decimal;color:#666666;font-size:12pt;"> <p><span style="color:#666666;background-color:#ffffff;font-size:12pt;">Website traffic volume.</span></p> </li> <li style="list-style-type:decimal;color:#666666;font-size:12pt;"> <p><span style="color:#666666;background-color:#ffffff;font-size:12pt;">Impact assessment of your call-to-action (CTA) phrases.</span></p> </li> <li style="list-style-type:decimal;color:#666666;font-size:12pt;"> <p><span style="color:#666666;background-color:#ffffff;font-size:12pt;">Visitor click and mouse movement patterns.</span></p> </li> <li style="list-style-type:decimal;color:#666666;font-size:12pt;"> <p><span style="color:#666666;background-color:#ffffff;font-size:12pt;">Return frequency of your site visitors.</span></p> </li> <li style="list-style-type:decimal;color:#666666;font-size:12pt;"> <p><span style="color:#666666;background-color:#ffffff;font-size:12pt;">Customer profiles and their geographic origins.</span></p> </li></ol><p><br></p><p><span style="color:#666666;background-color:#ffffff;font-size:12pt;">These analytics prove invaluable for fine-tuning your website to cater to your specific audience and gaining a competitive edge within your industry.</span></p>",
     "version": "1",
-    "img": "88572eac__Clickstream.png",
-    "short_intro": "Join us, where the BangDB Visitor Insight App becomes your trusted ally in unraveling the mysteries of your website's performance. Elevate your online presence by harnessing the power of insightful analytics and transforming raw data into actionable strategies for success.",
+    "img": "88572ead__VisitorsDetails.png",
+    "short_intro": "Navigate through the digital landscape as the BangDB Visitor Insight App sheds light on the nuanced details of user journeys. Gain a comprehensive understanding of your audience's preferences and tendencies, enabling you to optimize your website strategically. Armed with this data, you can make informed decisions to enhance user engagement and boost conversion rates. Join us, where the BangDB Visitor Insight App becomes your trusted ally in unraveling the mysteries of your website's performance. Elevate your online presence by harnessing the power of insightful analytics and transforming raw data into actionable strategies for success.",
     "video_link": "support@iqlect.com",
     "install_link": "support@iqlect.com",
     "support_link": "support@iqlect.com",
@@ -9194,10 +9196,60 @@
       "Stream Processing",
       "Notification",
       "Tag Manager"
-    ]
+    ],
+    "files": [
+        {
+            "name": "VS_screenshot1.png",
+            "type": "screenshot",
+            "index": 0
+        },
+        {
+            "name": "VS_screenshot2.png",
+            "type": "screenshot",
+            "index": 1
+        },
+        {
+            "name": "VS_screenshot3.png",
+            "type": "screenshot",
+            "index": 2
+        },
+        {
+            "name": "VS_screenshot4.png",
+            "type": "screenshot",
+            "index": 3
+        },
+        {
+            "name": "VS_screenshot5.png",
+            "type": "screenshot",
+            "index": 4
+        },
+        {
+            "name": "VS_screenshot6.png",
+            "type": "screenshot",
+            "index": 5
+        },
+        {
+            "name": "VS_screenshot7.png",
+            "type": "screenshot",
+            "index": 6
+        },
+        {
+            "name": "VS_screenshot8.png",
+            "type": "screenshot",
+            "index": 7
+        },
+        {
+            "name": "VS_screenshot9.png",
+            "type": "screenshot",
+            "index": 8
+        }
+    ],
+    "theme": {
+        "primary": "#f5222dba"
+    },
+    "doc": "VisitorInsight.pdf"
   },
   "credentials": {
-    "admin": "super_admin11",
-    "admin_pwd": "sudo_admin_99"
+    "refer": "ampere", "ts": "1706968499504000", "token": 2985957417
   }
 }
