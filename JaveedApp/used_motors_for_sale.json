@@ -2301,12 +2301,26 @@
           ],
           "opnm": "RSTAT"
         }
-      ]
+      ],
+      "cepq": [
+        {
+          "tloc": 1000,
+          "type": 6,
+          "fqry": {
+            "type": 1,
+            "name": "{\"query\":[{\"key\":\"e_v\",\"cmp_op\":\"NA\",\"val\":\"NA\"}],\"qtype\":1}"
+          },
+          "name": "empty_e_v",
+          "notf": 101
+        }
+      ],
+      "join": [],
+      "gpby": []
     },
     {
       "name": "LandingPage_Data",
       "inpt": [
-        "Date"
+        "Data"
       ],
       "swsz": 7862400,
       "type": 2,
@@ -3179,7 +3193,7 @@
     {
       "name": "Location_Data",
       "inpt": [
-        "Date"
+        "Data"
       ],
       "swsz": 7862400,
       "type": 2,
@@ -4231,7 +4245,7 @@
     {
       "name": "Leads_Data",
       "inpt": [
-        "Date"
+        "Data"
       ],
       "swsz": 7862400,
       "type": 2,
@@ -4414,7 +4428,7 @@
           "name": "unique_leads",
           "fqry": {
             "type": 1,
-            "name": "{\"query\":[{\"key\":\"lead_exist\",\"cmp_op\":\"NA\",\"val\":\"NA\"}],\"qtype\":1}"
+            "name": "{\"query\":[{\"key\":\"lead_exist\",\"cmp_op\":\"NA\",\"val\":\"NA\"},{\"joinop\":0},{\"key\":\"Phone\",\"cmp_op\":\"NE\",\"val\":\"0\"}],\"qtype\":1}"
           },
           "fatr": [
             "Visitor_Duration",
@@ -4626,8 +4640,7 @@
           "opnm": "COPY",
           "fnr": 1,
           "seq": 0,
-          "type": "STRING",
-          "kysz": 24
+          "type": "LONG"
         },
         {
           "name": "_meta.created_time",
@@ -5129,44 +5142,6 @@
           "stat": "COUNT"
         }
       ],
-      "rels": [
-        {
-          "sub": "_id",
-          "sub_label": "Visitor",
-          "obj": "FormSubmit_Timestamp",
-          "obj_label": "FormSubmit",
-          "rel": "HAS_SUMBITTED_FORM",
-          "sub_props": [
-            "FormSubmitted",
-            "Year",
-            "Make",
-            "Model",
-            "Size",
-            "Part",
-            "Name",
-            "Phone",
-            "Email"
-          ],
-          "rel_props": [
-            "Timestamp",
-            "SessionID",
-            "action",
-            "SessionID"
-          ],
-          "obj_props": [
-            "Year",
-            "Make",
-            "Model",
-            "Size",
-            "Part",
-            "Name",
-            "Phone",
-            "Email"
-          ],
-          "obj_updt": 1,
-          "sub_updt": 1
-        }
-      ],
       "join": [
         {
           "name": "leads_used_motors_for_sale",
@@ -5203,7 +5178,8 @@
             "Phone",
             "Email",
             "title",
-            "idsite"
+            "idsite",
+            "FormSubmit_Timestamp"
           ]
         }
       ],
@@ -5217,6 +5193,24 @@
             "_meta"
           ],
           "pk": "jid"
+        }
+      ],
+      "node": [
+        {
+          "sub": "_id",
+          "label": "Visitor",
+          "props": [
+          "Year",
+          "Make",
+          "Model",
+          "Size",
+          "Part",
+          "Name",
+          "Phone",
+          "Email",
+          "FormSubmitted"
+          ],
+          "updt": 1
         }
       ]
     },
@@ -5564,6 +5558,16 @@
           "seq": 1
         },
         {
+          "name": "Call_Time",
+          "iatr": [
+            "_pk"
+          ],
+          "fnr": 3,
+          "seq": 0,
+          "type": "LONG",
+          "opnm": "COPY"
+        },
+        {
           "name": "Call",
           "iatr": [
             "Yes"
@@ -5573,6 +5577,16 @@
           "opnm": "COPY_VAL",
           "fnr": 1,
           "seq": 0
+        },
+        {
+          "name": "Lead_Call_Duration",
+          "iatr": [
+            "(($Call_Time - $FormSubmit_Timestamp)/1000000)"
+          ],
+          "opnm": "MATH_EXP",
+          "fnr": 1,
+          "seq": 0,
+          "type": "LONG"
         }
       ],
       "gpby": [
@@ -5593,6 +5607,52 @@
           "tblname": "used_motors_for_sale_Visit_Details",
           "pk": "_id",
           "primary": 1
+        }
+      ],
+      "refr":[
+        {
+          "name": "FormTime_clicked",
+          "rstm": "Unique_Leads",
+          "jqry": {
+            "cond": [
+              "_id"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "_id"
+            ]
+          },
+          "iatr": [
+            "FormSubmit_Timestamp"
+          ],
+          "ratr": [
+            "FormSubmit_Timestamp"
+          ]
+        },
+        {
+          "name": "Call_clicked",
+          "rstm": "CallsAnalysis",
+          "jqry": {
+            "cond": [
+              "_id"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "_id"
+            ]
+          },
+          "iatr": [
+            "Call_Time"
+          ],
+          "ratr": [
+            "Call_Time"
+          ]
         }
       ],
       "join": [
@@ -5631,7 +5691,8 @@
             "Phone",
             "Email",
             "title",
-            "idsite"
+            "idsite",
+            "FormSubmit_Timestamp"
           ]
         }
       ]
@@ -5710,6 +5771,10 @@
         {
           "name": "jid",
           "type": "LONG"
+        },
+        {
+          "name":"FormSubmit_Timestamp",
+          "type":"LONG"
         }
       ],
       "refr": [
@@ -5762,7 +5827,8 @@
             "Phone",
             "Email",
             "title",
-            "jid"
+            "jid",
+            "FormSubmit_Timestamp"
           ],
           "ostm": "Premium_Leads"
         }
@@ -5861,6 +5927,10 @@
         {
           "name": "c_f",
           "type": "OBJECT"
+        },
+        {
+          "name":"FormSubmit_Timestamp",
+          "type":"LONG"
         }
       ],
       "catr": [
@@ -6022,7 +6092,7 @@
     {
       "name": "Scroll_Link_form",
       "inpt": [
-        "Date"
+        "Data"
       ],
       "swsz": 7862400,
       "type": 2,
@@ -6335,5 +6405,15 @@
         }
       ]
     }
-  ]
+  ],
+  "notifs": [
+    {
+      "name": "empty_e_v",
+      "msg": "form data is empty",
+      "freq": 60,
+      "pri": 1,
+      "notifid": 101
+    }
+  ],
+  "udfs": []
 }

@@ -1,5 +1,5 @@
 {
-  "schema": "Swap_motor",
+  "schema": "used_engines_drivetrain",
   "streams": [
     {
       "name": "Campaign_Groups",
@@ -2320,7 +2320,7 @@
     {
       "name": "LandingPage_Data",
       "inpt": [
-        "Date"
+        "Data"
       ],
       "swsz": 7862400,
       "type": 2,
@@ -2847,7 +2847,7 @@
       "tbls": [
         {
           "name": "Visitors_details5",
-          "tblname": "Swap_motor_Visit_Details",
+          "tblname": "used_engines_drivetrain_Visit_Details",
           "pk": "_id",
           "primary": 1
         }
@@ -2937,7 +2937,7 @@
       "tbls": [
         {
           "name": "Visitors_details4",
-          "tblname": "Swap_motor_Visit_Details",
+          "tblname": "used_engines_drivetrain_Visit_Details",
           "pk": "_id",
           "primary": 1
         }
@@ -2988,7 +2988,7 @@
       "tbls": [
         {
           "name": "Visitors_details4",
-          "tblname": "Swap_motor_Visit_Details",
+          "tblname": "used_engines_drivetrain_Visit_Details",
           "pk": "_id",
           "primary": 1
         }
@@ -3162,7 +3162,7 @@
       "tbls": [
         {
           "name": "Visitors_details3",
-          "tblname": "Swap_motor_Visit_Details",
+          "tblname": "used_engines_drivetrain_Visit_Details",
           "pk": "_id",
           "primary": 1
         }
@@ -3193,7 +3193,7 @@
     {
       "name": "Location_Data",
       "inpt": [
-        "Date"
+        "Data"
       ],
       "swsz": 7862400,
       "type": 2,
@@ -3372,7 +3372,7 @@
       ],
       "catr": [
         {
-          "name": "Swap_motor",
+          "name": "used_engines_drivetrain",
           "iatr": [
             "Visited"
           ],
@@ -3571,7 +3571,7 @@
       "tbls": [
         {
           "name": "Visitors_details4",
-          "tblname": "Swap_motor_Visit_Details",
+          "tblname": "used_engines_drivetrain_Visit_Details",
           "pk": "_id",
           "primary": 1
         },
@@ -4245,7 +4245,7 @@
     {
       "name": "Leads_Data",
       "inpt": [
-        "Date"
+        "Data"
       ],
       "swsz": 7862400,
       "type": 2,
@@ -4640,8 +4640,7 @@
           "opnm": "COPY",
           "fnr": 1,
           "seq": 0,
-          "type": "STRING",
-          "kysz": 24
+          "type": "LONG"
         },
         {
           "name": "_meta.created_time",
@@ -4791,7 +4790,7 @@
       "refr": [
         {
           "name": "CampaignDetails_Ref",
-          "rstm": "Swap_motor_Visit_Details",
+          "rstm": "used_engines_drivetrain_Visit_Details",
           "jqry": {
             "cond": [
               "_id"
@@ -4934,13 +4933,13 @@
       "tbls": [
         {
           "name": "Visitors_details2",
-          "tblname": "Swap_motor_Visit_Details",
+          "tblname": "used_engines_drivetrain_Visit_Details",
           "pk": "_id",
           "primary": 1
         },
         {
           "name": "Leads_Data",
-          "tblname": "Swap_motor_Leads_Details",
+          "tblname": "used_engines_drivetrain_Leads_Details",
           "pk": "Timestamp",
           "primary": 1
         }
@@ -5143,47 +5142,9 @@
           "stat": "COUNT"
         }
       ],
-      "rels": [
-        {
-          "sub": "_id",
-          "sub_label": "Visitor",
-          "obj": "FormSubmit_Timestamp",
-          "obj_label": "FormSubmit",
-          "rel": "HAS_SUMBITTED_FORM",
-          "sub_props": [
-            "FormSubmitted",
-            "Year",
-            "Make",
-            "Model",
-            "Size",
-            "Part",
-            "Name",
-            "Phone",
-            "Email"
-          ],
-          "rel_props": [
-            "Timestamp",
-            "SessionID",
-            "action",
-            "SessionID"
-          ],
-          "obj_props": [
-            "Year",
-            "Make",
-            "Model",
-            "Size",
-            "Part",
-            "Name",
-            "Phone",
-            "Email"
-          ],
-          "obj_updt": 1,
-          "sub_updt": 1
-        }
-      ],
       "join": [
         {
-          "name": "leads_Swap_motor",
+          "name": "leads_used_engines_drivetrain",
           "jqry": {
             "cond": [
               "_id",
@@ -5217,7 +5178,8 @@
             "Phone",
             "Email",
             "title",
-            "idsite"
+            "idsite",
+            "FormSubmit_Timestamp"
           ]
         }
       ],
@@ -5231,6 +5193,24 @@
             "_meta"
           ],
           "pk": "jid"
+        }
+      ],
+      "node": [
+        {
+          "sub": "_id",
+          "label": "Visitor",
+          "props": [
+          "Year",
+          "Make",
+          "Model",
+          "Size",
+          "Part",
+          "Name",
+          "Phone",
+          "Email",
+          "FormSubmitted"
+          ],
+          "updt": 1
         }
       ]
     },
@@ -5473,13 +5453,13 @@
       "tbls": [
         {
           "name": "Visitors_details2",
-          "tblname": "Swap_motor_Visit_Details",
+          "tblname": "used_engines_drivetrain_Visit_Details",
           "pk": "_id",
           "primary": 1
         },
         {
           "name": "Leads_Data",
-          "tblname": "Swap_motor_Leads_Details",
+          "tblname": "used_engines_drivetrain_Leads_Details",
           "pk": "Timestamp",
           "primary": 1
         }
@@ -5578,6 +5558,16 @@
           "seq": 1
         },
         {
+          "name": "Call_Time",
+          "iatr": [
+            "_pk"
+          ],
+          "fnr": 3,
+          "seq": 0,
+          "type": "LONG",
+          "opnm": "COPY"
+        },
+        {
           "name": "Call",
           "iatr": [
             "Yes"
@@ -5587,6 +5577,16 @@
           "opnm": "COPY_VAL",
           "fnr": 1,
           "seq": 0
+        },
+        {
+          "name": "Lead_Call_Duration",
+          "iatr": [
+            "(($Call_Time - $FormSubmit_Timestamp)/1000000)"
+          ],
+          "opnm": "MATH_EXP",
+          "fnr": 1,
+          "seq": 0,
+          "type": "LONG"
         }
       ],
       "gpby": [
@@ -5604,14 +5604,60 @@
       "tbls": [
         {
           "name": "Visitors_details1",
-          "tblname": "Swap_motor_Visit_Details",
+          "tblname": "used_engines_drivetrain_Visit_Details",
           "pk": "_id",
           "primary": 1
         }
       ],
+      "refr":[
+        {
+          "name": "FormTime_clicked",
+          "rstm": "Unique_Leads",
+          "jqry": {
+            "cond": [
+              "_id"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "_id"
+            ]
+          },
+          "iatr": [
+            "FormSubmit_Timestamp"
+          ],
+          "ratr": [
+            "FormSubmit_Timestamp"
+          ]
+        },
+        {
+          "name": "Call_clicked",
+          "rstm": "CallsAnalysis",
+          "jqry": {
+            "cond": [
+              "_id"
+            ],
+            "cmp": [
+              "EQ"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "_id"
+            ]
+          },
+          "iatr": [
+            "Call_Time"
+          ],
+          "ratr": [
+            "Call_Time"
+          ]
+        }
+      ],
       "join": [
         {
-          "name": "call_Swap_motor_1",
+          "name": "call_used_engines_drivetrain_1",
           "jqry": {
             "cond": [
               "_id",
@@ -5645,7 +5691,8 @@
             "Phone",
             "Email",
             "title",
-            "idsite"
+            "idsite",
+            "FormSubmit_Timestamp"
           ]
         }
       ]
@@ -5724,6 +5771,10 @@
         {
           "name": "jid",
           "type": "LONG"
+        },
+        {
+          "name":"FormSubmit_Timestamp",
+          "type":"LONG"
         }
       ],
       "refr": [
@@ -5776,7 +5827,8 @@
             "Phone",
             "Email",
             "title",
-            "jid"
+            "jid",
+            "FormSubmit_Timestamp"
           ],
           "ostm": "Premium_Leads"
         }
@@ -5875,6 +5927,10 @@
         {
           "name": "c_f",
           "type": "OBJECT"
+        },
+        {
+          "name":"FormSubmit_Timestamp",
+          "type":"LONG"
         }
       ],
       "catr": [
@@ -6036,7 +6092,7 @@
     {
       "name": "Scroll_Link_form",
       "inpt": [
-        "Date"
+        "Data"
       ],
       "swsz": 7862400,
       "type": 2,
@@ -6135,7 +6191,7 @@
       "refr": [
         {
           "name": "CampaignDetails_Ref",
-          "rstm": "Swap_motor_Visit_Details",
+          "rstm": "used_engines_drivetrain_Visit_Details",
           "jqry": {
             "cond": [
               "_id"
@@ -6301,7 +6357,7 @@
       "tbls": [
         {
           "name": "Visitors_details2",
-          "tblname": "Swap_motor_Visit_Details_PL",
+          "tblname": "used_engines_drivetrain_Visit_Details_PL",
           "pk": "Timestamp",
           "primary": 1
         }
@@ -6356,10 +6412,7 @@
       "msg": "form data is empty",
       "freq": 60,
       "pri": 1,
-      "notifid": 101,
-      "mailto": [],
-      "endpoints": [],
-      "schemaid": 8448435541993183000
+      "notifid": 101
     }
   ],
   "udfs": []
