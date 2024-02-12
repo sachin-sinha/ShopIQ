@@ -3,19 +3,34 @@
   "name": "CRM",
   "job_create_email_template_id": "2518b.2f361ca8e178de0f.k1.c62c7c40-8841-11ee-aa03-525400b0b0f3.18bf0d64a04",
   "apply_quota": 1,
-  "group_filter_policy": "ALL",
+  "group_filter_policy": "RR",
   "display_raw_json": 0,
   "cross_user_view": 0,
   "localization": {
     "pipe": "Company",
     "work": "CRM",
-    "job": "Lead"
+    "job": "Lead",
+    "created": "Received"
   },
   "send_email_from": {
     "name": "Apptexit",
     "user_name": "Apptexit",
     "domain": "autoparts-leads.com"
   },
+  "display_columns": [
+                {
+                  "label": "Open Time",
+                  "name": "_meta._ots"
+                },
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                }
+              ],
   "status": [
     "Unassign",
     "Voice Mail",
@@ -71,6 +86,49 @@
   ],
   "groups": [
     {
+      "id": "Exclusive_Leads",
+      "description": "Exclusive leads ",
+      "pipe_filter_policy": "RR",
+      "pipes": [
+        {
+          "users": [
+            {
+              "userid": "javeed.gilly@gmail.com",
+              "phone": "8099209210",
+              "email": "javeed.gilly@gmail.com",
+              "status": 1,
+              "is_pipe_admin": 1
+            }
+          ],
+          "id": "ExclusiveLeads",
+          "scan_delay_sec": 60,
+          "description": "Exclusive leads",
+          "status": 0,
+          "send_email": 1,
+          "email_to_groups": [
+            "javeed.gilly@gmail.com"
+          ],
+          "user_filter_policy": "RR"
+        },
+        {
+          "users": [
+            {
+              "userid": "javeed.gilly@gmail.com",
+              "phone": "8099209210",
+              "email": "javeed.gilly@gmail.com",
+              "status": 1,
+              "is_pipe_admin": 1
+            }
+          ],
+          "id": "QualityAuto",
+          "description": "QualityAuto",
+          "status": 0,
+          "user_filter_policy": "RR"
+        }
+      ],
+      "status": 0
+    },
+    {
       "pipe_filter_policy": "ALL",
       "id": "Leads_Group_1",
       "description": "Shared Leads",
@@ -123,14 +181,14 @@
           "user_filter_policy": "RR",
           "send_email": 1,
           "email_to_groups": [
-            "sandeep@iqlect.com",
             "leadsauh@gmail.com"
           ],
           "send_email_from": {
             "name": "Apptexit",
             "user_name": "Apptexit",
             "domain": "autoparts-leads.com"
-          }
+          },
+          "status": 1
         },
         {
           "users": [
@@ -139,7 +197,7 @@
               "phone": "",
               "email": "",
               "status": 1,
-              "is_pipe_admin": 1,
+              "is_pipe_admin": 0,
               "check_logged_user": 0
             },
             {
@@ -147,7 +205,7 @@
               "phone": "",
               "email": "",
               "status": 1,
-              "is_pipe_admin": 1,
+              "is_pipe_admin": 0,
               "check_logged_user": 0
             },
             {
@@ -155,7 +213,7 @@
               "phone": "",
               "email": "",
               "status": 1,
-              "is_pipe_admin": 1,
+              "is_pipe_admin": 0,
               "check_logged_user": 0
             },
             {
@@ -163,15 +221,28 @@
               "phone": "",
               "email": "javeed.gilly@gmail.com",
               "status": 1,
-              "is_pipe_admin": 1,
+              "is_pipe_admin": 0,
               "check_logged_user": 0
+            },
+            {
+              "userid": "javeed.gilly@gmail.com",
+              "phone": "8099209210",
+              "email": "javeed.gilly@gmail.com",
+              "status": 1,
+              "is_pipe_admin": 1
+            },
+            {
+              "userid": "javeedtest123",
+              "email": "",
+              "status": 1,
+              "is_pipe_admin": 1
             },
             {
               "userid": "john1694",
               "phone": "",
               "email": "",
               "status": 1,
-              "is_pipe_admin": 1,
+              "is_pipe_admin": 0,
               "check_logged_user": 0,
               "display_columns": [
                 {
@@ -217,7 +288,7 @@
               "phone": "9523518038",
               "email": "momluvs247@gmail.com",
               "status": 1,
-              "is_pipe_admin": 1,
+              "is_pipe_admin": 0,
               "check_logged_user": 0
             },
             {
@@ -225,7 +296,7 @@
               "phone": "",
               "email": "",
               "status": 1,
-              "is_pipe_admin": 1,
+              "is_pipe_admin": 0,
               "check_logged_user": 0
             },
             {
@@ -233,7 +304,7 @@
               "phone": "",
               "email": "",
               "status": 1,
-              "is_pipe_admin": 1,
+              "is_pipe_admin": 0,
               "check_logged_user": 0
             },
             {
@@ -241,7 +312,7 @@
               "phone": "9522221694",
               "email": "myjesus626@gmail.com",
               "status": 1,
-              "is_pipe_admin": 1,
+              "is_pipe_admin": 0,
               "check_logged_user": 0
             }
           ],
@@ -251,8 +322,8 @@
           "user_filter_policy": "RR",
           "send_email": 1,
           "email_to_groups": [
-            "sandeep@iqlect.com",
-            "eandtleads@gmail.com\t"
+            "eandtleads@gmail.com",
+            "leadsforapl@gmail.com"
           ],
           "send_email_from": {
             "name": "Apptexit",
@@ -274,7 +345,7 @@
           "id": "Rsautoparts",
           "scan_delay_sec": 60,
           "description": "Rs Auto parts ",
-          "user_filter_policy": "ALL",
+          "user_filter_policy": "RR",
           "send_email": 1,
           "email_to_reporter_assignee": 0,
           "email_to_groups": [
@@ -284,7 +355,8 @@
             "name": "Apptexit",
             "user_name": "Apptexit",
             "domain": "autoparts-leads.com"
-          }
+          },
+          "status": 1
         },
         {
           "users": [
@@ -297,13 +369,15 @@
             }
           ],
           "id": "Bestusedautopart",
-          "description": "Best Used Auto Parts ( Aamir) ",
+          "description": "Aamir",
           "send_email": 1,
+          "scan_delay_sec": 60,
           "email_to_reporter_assignee": 0,
           "email_to_groups": [
             "leads5767@gmail.com"
           ],
-          "user_filter_policy": "ALL"
+          "user_filter_policy": "RR",
+          "status": 1
         },
         {
           "users": [
@@ -316,11 +390,122 @@
             }
           ],
           "id": "12stone",
-          "description": "12 Stone Zabi",
-          "user_filter_policy": "ALL",
+          "description": "Zabi",
+          "user_filter_policy": "RR",
+          "scan_delay_sec": 60,
           "send_email": 1,
           "email_to_groups": [
             "leadsjexclusive@gmail.com"
+          ],
+          "status": 0
+        },
+        {
+          "users": [
+            {
+              "userid": "vinu1330",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1
+            }
+          ],
+          "id": "Westermotors",
+          "description": "Vinu  ",
+          "user_filter_policy": "RR",
+          "scan_delay_sec": 60,
+          "send_email": 1,
+          "email_to_reporter_assignee": 0,
+          "email_to_groups": [
+            "wmapautoparts@gmail.com"
+          ],
+          "status": 0
+        },
+        {
+          "users": [
+            {
+              "userid": "suresh7162",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1
+            }
+          ],
+          "id": "ashleywreckers",
+          "description": "suresh",
+          "user_filter_policy": "RR",
+          "scan_delay_sec": 60,
+          "send_email": 1,
+          "email_to_reporter_assignee": 0,
+          "email_to_groups": [
+            "leads23141@gmail.com"
+          ],
+          "status": 0
+        },
+        {
+          "users": [
+            {
+              "userid": "madhu2762",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1
+            }
+          ],
+          "id": "A1autoparts",
+          "description": "Madhu",
+          "user_filter_policy": "RR",
+          "scan_delay_sec": 60,
+          "send_email": 1,
+          "email_to_reporter_assignee": 0,
+          "email_to_groups": [
+            "leads213141@gmail.com"
+          ],
+          "status": 1
+        },
+        {
+          "users": [
+            {
+              "userid": "alister0836",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 0,
+              "status": 1
+            }
+          ],
+          "id": "rapieagle0836",
+          "description": "Alister",
+          "user_filter_policy": "RR",
+          "scan_delay_sec": 60,
+          "send_email": 1,
+          "email_to_reporter_assignee": 0,
+          "email_to_groups": [
+            "leads2301@gmail.com"
+          ],
+          "send_email_from": {
+            "name": "acp",
+            "user_name": "acp",
+            "domain": "autoparts-leads.com"
+          },
+          "status": 0
+        },
+        {
+          "users": [
+            {
+              "userid": "Prudent9492",
+              "phone": "",
+              "email": "",
+              "is_pipe_admin": 1,
+              "status": 1
+            }
+          ],
+          "id": "Prudentautoparts",
+          "description": "Umraz",
+          "scan_delay_sec": 60,
+          "user_filter_policy": "RR",
+          "status": 0,
+          "send_email": 1,
+          "email_to_groups": [
+            "steverodgers.prudent@gmail.com"
           ]
         }
       ],
@@ -615,7 +800,8 @@
             }
           ]
         }
-      ]
+      ],
+      "status": 0
     }
   ],
   "fields": [
@@ -676,6 +862,5 @@
       "class": "default",
       "items": []
     }
-  ],
-  "_pk": "Leads_Management"
+  ]
 }

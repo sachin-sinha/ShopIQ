@@ -9,7 +9,8 @@
   "localization": {
     "pipe": "Company",
     "work": "CRM",
-    "job": "Lead"
+    "job": "Lead",
+    "created": "Received"
   },
   "status": [
     "Unassign",
@@ -90,7 +91,21 @@
               "phone": "",
               "email": "",
               "is_pipe_admin": 1,
-              "status": 1
+              "status": 1,
+              "display_columns": [
+                {
+                  "label": "Open Time",
+                  "name": "_meta._ots"
+                },
+                {
+                  "label": "Created",
+                  "name": "_meta.created_time"
+                },
+                {
+                  "label": "Assignee",
+                  "name": "_meta.a"
+                }
+              ]
             }
           ],
           "id": "PremiumLeads",
@@ -100,8 +115,8 @@
           "send_email": 1,
           "email_to_groups": [
             "javeed.gilly@gmail.com",
-            "sandeep@iqlect.com",
-            "avengerkicks@gmail.com"
+            "avengerkicks@gmail.com",
+            "sandeep@iqlect.com"
           ]
         }
       ],
