@@ -1805,21 +1805,6 @@
           "opnm": "COPY_VAL"
         },
         {
-          "name": "User_Status",
-          "type": "STRING",
-          "opnm": "COPY_VAL",
-          "iatr": [
-            "Revisit"
-          ],
-          "fnr": 1,
-          "kysz": 12,
-          "seq": 0,
-          "fqry": {
-            "type": 1,
-            "name": "{\"query\":[{\"key\":\"SessionTime\",\"cmp_op\":\"GT\",\"val\":20}],\"qtype\":1}"
-          }
-        },
-        {
           "name": "Scrolled",
           "iatr": [
             "e_v"
@@ -2522,6 +2507,10 @@
         {
           "name": "Visitor_Duration",
           "type": "DOUBLE"
+        },
+        {
+          "name": "_pk",
+          "type": "LONG"
         }
       ],
       "catr": [
@@ -2557,6 +2546,14 @@
           "type": "STRING",
           "kysz": 250,
           "opnm": "COPY"
+        },
+        {"name": "Latest_Visit_Time","iatr": ["_pk"],"fnr": 1,"seq": 1,"type": "LONG","opnm": "COPY"},
+        {"name": "RvistCal_Time","iatr": ["($Latest_Visit_Time-1800000000)"],"fnr": 1,"seq": 1,"type": "LONG","opnm": "MATH_EXP"},
+        {"name": "User_Status","iatr": ["Revisit"],
+          "fqry": {
+            "name": "{\"query\":[{\"key\":\"Last_Visit_Time\",\"cmp_op\":\"GT\",\"val\":0}],\"qtype\":1}",
+            "type": 1},
+          "fnr": 1,"seq": 0,"type": "STRING","opnm": "COPY_VAL","kysz": 12
         }
       ],
       "gpby": [
@@ -2747,6 +2744,36 @@
       ],
       "refr": [
         {
+          "name": "4CheckingForRevisit",
+          "rstm": "Engines_store_Visit_Details",
+          "jqry": {
+            "cond": [
+              "_id",
+              "RvistCal_Time"
+            ],
+            "cmp": [
+              "EQ",
+              "GT"
+            ],
+            "opnm": "ATTR",
+            "args": [
+              "_id",
+              "Latest_Visit_Time"
+            ]
+          },
+          "iatr": [
+            "Last_Visit_Time"
+          ],
+          "ratr": [
+            "Latest_Visit_Time"
+          ],
+          "fnr": 1,
+          "rstm_type": "TABLE",
+          "table_type":1,
+          "key_type":1,
+          "allow_duplicate":0
+        },
+        {
           "name": "Loc_physicalRef",
           "rstm": "Location_ID",
           "jqry": {
@@ -2772,7 +2799,10 @@
             "Country"
           ],
           "fnr": 1,
-          "rstm_type": "TABLE"
+          "rstm_type": "TABLE",
+          "table_type":1,
+          "key_type":1,
+          "allow_duplicate":0
         },
         {
           "name": "CampaignNameRef",
@@ -3390,7 +3420,7 @@
             "Revisit"
           ],
           "fqry": {
-            "name": "{\"query\":[{\"key\":\"Time_difference\",\"cmp_op\":\"GT\",\"val\":1800000000},{\"joinop\":0},{\"key\":\"PrevioustoPrevious_TS\",\"cmp_op\":\"EQ\",\"val\":0}],\"qtype\":100,\"key_sep\":\".\"}",
+            "name": "{\"query\":[{\"key\":\"Time_difference\",\"cmp_op\":\"GT\",\"val\":1800000000},{\"joinop\":0},{\"key\":\"PrevioustoPrevious_TS\",\"cmp_op\":\"EQ\",\"val\":0}],\"qtype\":100}",
             "type": 1
           },
           "fnr": 1,
@@ -4559,9 +4589,9 @@
           "kysz": 120
         },
         {
-          "name": "formID",
-          "type": "STRING",
-          "kysz": 120
+          "name":"formID",
+          "type":"STRING",
+          "kysz":120
         },
         {
           "name": "Product_Category",
@@ -4864,7 +4894,10 @@
             "BangDB_Zipcode",
             "BangDB_District"
           ],
-          "rstm_type": "TABLE"
+          "rstm_type": "TABLE",
+          "table_type":1,
+          "key_type":1,
+          "allow_duplicate":0
         },
         {
           "name": "PhoneLocationRef",
@@ -4888,7 +4921,10 @@
             "State"
           ],
           "fnr": 1,
-          "rstm_type": "TABLE"
+          "rstm_type": "TABLE",
+          "table_type":1,
+          "key_type":1,
+          "allow_duplicate":0
         },
         {
           "name": "Parts_ref",
@@ -5215,14 +5251,14 @@
           "label": "Visitor",
           "props": [
             "Year",
-            "Make",
-            "Model",
-            "Size",
-            "Part",
-            "Name",
-            "Phone",
-            "Email",
-            "FormSubmitted"
+          "Make",
+          "Model",
+          "Size",
+          "Part",
+          "Name",
+          "Phone",
+          "Email",
+          "FormSubmitted"
           ],
           "updt": 1
         }
@@ -5717,8 +5753,8 @@
           "label": "Visitor",
           "props": [
             "Call_Page",
-            "Call",
-            "Call_Time"
+          "Call",
+          "Call_Time"
           ],
           "updt": 1
         }
@@ -5746,9 +5782,9 @@
           "kysz": 120
         },
         {
-          "name": "formID",
-          "type": "STRING",
-          "kysz": 120
+          "name":"formID",
+          "type":"STRING",
+          "kysz":120
         },
         {
           "name": "Year",
@@ -6303,7 +6339,10 @@
             "State"
           ],
           "fnr": 1,
-          "rstm_type": "TABLE"
+          "rstm_type": "TABLE",
+          "table_type":1,
+          "key_type":1,
+          "allow_duplicate":0
         },
         {
           "name": "Parts_ref",
